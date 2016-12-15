@@ -29,6 +29,7 @@ Main Page Image
 
 ![The main page screenshot is unavailable](https://cloud.githubusercontent.com/assets/10087079/21211497/9b537958-c249-11e6-901e-bd90b1c57995.png)
 
+Lectures currenlty at : HOSTNAME/lectures/1,   HOESTNAME/lectures/2, etc.
 
 Lecture Image
 ![The lecture screenshot is unavailable](https://cloud.githubusercontent.com/assets/10087079/21213540/a4b34972-c25a-11e6-9d00-6d99e9bd945e.png)
