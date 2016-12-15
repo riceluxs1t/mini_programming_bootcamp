@@ -1,5 +1,15 @@
 from __future__ import unicode_literals
 
-# from django.db import models
+from django.db import models
 
-# Create your models here.
+"""
+Model that represents each lecture
+"""
+
+
+class Lectures(models.Model):
+
+    # TODO: add some other necessary fields.
+
+    class Meta:
+        db_table = "lectures"

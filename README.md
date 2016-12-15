@@ -7,11 +7,13 @@ TODO:
 - add more features
 - add a model so that the lectures are tracked in some form.
 - host this on an EC2 instance using zappa + AWS lambda.
+- add some more tests.
 
 FIXME:
 - the lecture slides must be scrollable
 - the UI issues. See Lectures a herf doesn't work.
 - most text are editable even if contenteditable set to false.
+- get the test class to work.
 
 
 Main Page Image
