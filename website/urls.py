@@ -24,5 +24,3 @@ urlpatterns = [
     url(r'^lectures/', include('lectures.urls')),
     url(r'^.*', IndexView.as_view())
 ]
-
-# urlpatterns += staticfiles_urlpatterns()
