@@ -2,11 +2,11 @@ This is the simple website for the python class taught by nk15@rice.edu and jl51
 students for Spring 2017. Built on top of Django for easy use. Nothing fancy.
 
 How To Set Up Development Environment:
-0) install pip
-1) run             pip install -r "requirements.txt"
-2) install virtualenvwrapper
-3) create a virtualwrapper and work on it.
-4) submit a pull request. and we will code-review it and merge if looks good.
+- install pip
+- run             pip install -r "requirements.txt"
+- install virtualenvwrapper
+- create a virtualwrapper and work on it.
+- submit a pull request. and we will code-review it and merge if looks good.
 
 
 TODO:
