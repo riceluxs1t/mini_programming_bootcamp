@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="1200px" height="900px" viewBox="0 0 1200 900" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
+    <title>Classic Right</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Classic-Right">
+            <path d="M334,773.999275 C334,771.790536 335.793972,770 338.008542,770 L861.270824,770 C863.484681,770 865.279366,771.786795 865.279366,773.999275 L865.279366,796.000725 C865.279366,798.209464 863.485394,800 861.270824,800 L338.008542,800 C335.794685,800 334,798.213205 334,796.000725 L334,773.999275 Z M351,815.999275 C351,813.790536 352.791684,812 354.992174,812 L845.226392,812 C847.431209,812 849.218566,813.786795 849.218566,815.999275 L849.218566,838.000725 C849.218566,840.209464 847.426883,842 845.226392,842 L354.992174,842 C352.787357,842 351,840.213205 351,838.000725 L351,815.999275 Z" id="subheading" fill="#DDDEE2"></path>
+            <rect id="heading" fill="#BEC0C4" x="335" y="170" width="531" height="60" rx="4"></rect>
+            <g id="Group" transform="translate(47.000000, 45.000000)" fill="#DDDEE2">
+                <rect id="Rectangle" x="957" y="7.5" width="149" height="33" rx="4"></rect>
+                <rect id="Rectangle" x="788" y="7.5" width="149" height="33" rx="4"></rect>
+                <rect id="Rectangle" x="0" y="0" width="149" height="49" rx="4"></rect>
+            </g>
+            <rect id="Rectangle-2" fill-opacity="0.5" fill="#E7E7EA" x="205" y="295" width="661.799358" height="429" rx="30"></rect>
+            <path d="M737,310.004915 C737,293.433658 750.432862,280 767.002204,280 L964.423342,280 C980.993102,280 994.425547,293.427829 994.425547,310.004915 L994.425547,703.287712 C994.425547,719.858969 980.992685,733.292627 964.423342,733.292627 L767.002204,733.292627 C750.432444,733.292627 737,719.864798 737,703.287712 L737,310.004915 Z" id="Rectangle-2" fill="#E7E7EA"></path>
+        </g>
+    </g>
+</svg>

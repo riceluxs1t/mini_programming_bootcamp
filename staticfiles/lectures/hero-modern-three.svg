@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200px" height="900px" viewBox="0 0 1200 900" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
+    <title>Hero - Pao</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="47" y="696" width="371" height="60" rx="4"></rect>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="371" height="60" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Hero---Pao">
+            <path d="M196,201.006556 C196,198.793796 197.795113,197 200.001337,197 L999.998663,197 C1002.20854,197 1004,198.795681 1004,201.006556 L1004,252.993444 C1004,255.206204 1002.20489,257 999.998663,257 L200.001337,257 C197.79146,257 196,255.204319 196,252.993444 L196,201.006556 Z M295.5,275.006556 C295.5,272.793796 297.287749,271 299.509412,271 L900.490588,271 C902.704925,271 904.5,272.795681 904.5,275.006556 L904.5,326.993444 C904.5,329.206204 902.712251,331 900.490588,331 L299.509412,331 C297.295075,331 295.5,329.204319 295.5,326.993444 L295.5,275.006556 Z" id="heading" fill="#BEC0C4"></path>
+            <rect id="button" fill="#BEC0C4" x="430" y="696" width="148" height="60" rx="4"></rect>
+            <use id="input" stroke-opacity="0.2" stroke="#000000" mask="url(#mask-2)" stroke-width="4" fill="#FFFFFF" xlink:href="#path-1"></use>
+            <g id="Group" transform="translate(47.000000, 45.000000)" fill="#DDDEE2">
+                <rect id="Rectangle" x="957" y="7.5" width="149" height="33" rx="4"></rect>
+                <rect id="Rectangle" x="788" y="7.5" width="149" height="33" rx="4"></rect>
+                <rect id="Rectangle" x="0" y="0" width="149" height="49" rx="4"></rect>
+            </g>
+            <rect id="Rectangle-2" fill-opacity="0.495301178" fill="#E7E7EA" x="859" y="439" width="708" height="639.292627" rx="30"></rect>
+            <rect id="Rectangle-2" fill="#E7E7EA" x="779" y="645" width="257.425547" height="453.292627" rx="30"></rect>
+            <path d="M47,518.999275 C47,516.790536 48.794141,515 50.9904402,515 L581.977484,515 C584.181343,515 585.967924,516.786795 585.967924,518.999275 L585.967924,541.000725 C585.967924,543.209464 584.173783,545 581.977484,545 L50.9904402,545 C48.786581,545 47,543.213205 47,541.000725 L47,518.999275 Z M47,560.999275 C47,558.790536 48.7939722,557 51.0085416,557 L574.270824,557 C576.484681,557 578.279366,558.786795 578.279366,560.999275 L578.279366,583.000725 C578.279366,585.209464 576.485394,587 574.270824,587 L51.0085416,587 C48.7946852,587 47,585.213205 47,583.000725 L47,560.999275 Z M47,602.999275 C47,600.790536 48.7916835,599 50.9921737,599 L541.226392,599 C543.431209,599 545.218566,600.786795 545.218566,602.999275 L545.218566,625.000725 C545.218566,627.209464 543.426883,629 541.226392,629 L50.9921737,629 C48.7873571,629 47,627.213205 47,625.000725 L47,602.999275 Z" id="subheading" fill="#DDDEE2"></path>
+        </g>
+    </g>
+</svg>

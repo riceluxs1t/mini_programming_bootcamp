@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200px" height="900px" viewBox="0 0 1200 900" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
+    <title>SP - quote + featured</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="SP---quote-+-featured">
+            <rect id="heading" fill="#E7E7EA" x="50" y="598" width="290" height="50" rx="4"></rect>
+            <rect id="heading" fill="#E7E7EA" x="445" y="598" width="290" height="50" rx="4"></rect>
+            <rect id="heading" fill="#E7E7EA" x="840" y="598" width="290" height="50" rx="4"></rect>
+            <rect id="heading" fill="#E7E7EA" x="50" y="678" width="290" height="50" rx="4"></rect>
+            <rect id="heading" fill="#E7E7EA" x="445" y="678" width="290" height="50" rx="4"></rect>
+            <rect id="heading" fill="#E7E7EA" x="840" y="678" width="290" height="50" rx="4"></rect>
+            <rect id="subheading" fill="#DDDEE2" x="520" y="424" width="156" height="30" rx="4"></rect>
+            <rect id="heading" fill="#BEC0C4" x="254" y="167" width="688" height="60" rx="4"></rect>
+            <rect id="heading" fill="#BEC0C4" x="221" y="241" width="754" height="60" rx="4"></rect>
+            <rect id="heading" fill="#BEC0C4" x="251" y="312" width="693" height="60" rx="4"></rect>
+        </g>
+    </g>
+</svg>
