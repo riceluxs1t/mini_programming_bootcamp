@@ -6,6 +6,10 @@ TODO:
 - add previous years lectures to it.
 - add more features
 
+FIXME:
+- the lecture slides must be scrollable
+- the previous / next links are not correct.
+
 
 ![The demo screenshot is unavailable](https://cloud.githubusercontent.com/assets/10087079/21211491/92b13fe2-c249-11e6-8748-45462600ff62.png)
 
