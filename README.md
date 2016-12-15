@@ -13,11 +13,8 @@ How To Set Up Development Environment:
 
 
 TODO:
-- make a template for the jupyter generated lecture htmls.
-- add previous years lectures to it.
 - add more features
 - add a model so that the lectures are tracked in some form.
-- host this on an EC2 instance using zappa + AWS lambda.
 - add some more tests.
 
 FIXME:
