@@ -1,6 +1,9 @@
 This is the simple website for the python class taught by nk15@rice.edu and jl51@rice.edu for the Korean international
 students for Spring 2017. Built on top of Django for easy use. Nothing fancy.
 
+Currently running on Heroku at
+https://lit-reaches-57982.herokuapp.com/
+
 How To Set Up Development Environment:
 - install pip
 - run             pip install -r "requirements.txt"
@@ -22,6 +25,8 @@ FIXME:
 - the UI issues. See Lectures a herf doesn't work.
 - most text are editable even if contenteditable set to false.
 - get the test class to work.
+- FIX all the static issues with javascript / css / html
+- fix the issue of pycogpg2 not being installed on my local machine.
 
 
 Main Page Image
