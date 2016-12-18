@@ -1,8 +1,7 @@
 import signal
-
 from contextlib import contextmanager
 
-from config import *
+from grader.config import *
 
 
 """

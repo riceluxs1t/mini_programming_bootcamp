@@ -1,4 +1,4 @@
-from config import MAX_NUM_SECONDS, EPSILON, STRING_MODULE_HAS_NO_FUNCTION, STRING_PASSED_ALL_TEST_CASES, \
+from grader.config import MAX_NUM_SECONDS, EPSILON, STRING_MODULE_HAS_NO_FUNCTION, STRING_PASSED_ALL_TEST_CASES, \
     STRING_FAILED_SOME_TEST_CASES, STRING_FAILED_TIME_OUT
 from utility import context_manager_time_limit, format_function_arguments, format_wrong_return_value, TimeoutException
 
