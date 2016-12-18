@@ -8,7 +8,6 @@ Model that represents each lecture
 
 
 class Lectures(models.Model):
-
     # TODO: add some other necessary fields.
 
     class Meta:
