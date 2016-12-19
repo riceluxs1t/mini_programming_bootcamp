@@ -7,6 +7,6 @@ from django.db import models
 
 class Homework(models.Model):
 
-    homework_name = models.CharField()
+    homework_name = models.CharField(max_length=30)
     deadline = models.DateField()
-    modules = models.CharField()  # comma separated list of modules names
+    modules = models.CharField(max_length=1000)  # comma separated list of modules names
