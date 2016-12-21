@@ -16,7 +16,7 @@ STRING_FAILED_TIME_OUT = "Error: function call timed out. You spent more than %d
 
 
 GRADER_NAME = "nk15"
-MODULE_BASE_DIR = '/'.join([BASE_DIR, "graders"])
-SUBMISSION_DIR =  '/'.join([MODULE_BASE_DIR, "submissions"])
-GRADER_DIR = '/'.join([MODULE_BASE_DIR, "graders"])
+MODULE_BASE_DIR = '/'.join([BASE_DIR, "grader"])
+SUBMISSION_DIR = '/'.join([MODULE_BASE_DIR, "submissions"])
+SOLUTION_DIR = '/'.join([MODULE_BASE_DIR, "solutions"])
 GRADE_DIR = '/'.join([MODULE_BASE_DIR, "grades"])
