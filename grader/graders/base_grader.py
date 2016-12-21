@@ -8,7 +8,7 @@ All grader must subclass this base grader and run the "runTests" method.
 """
 
 
-class BaseGrader:
+class BaseGrader(object):
     def __init__(self):
         self.failed_test_cases = []
         self.num_test_cases = len(self.get_test_cases())
