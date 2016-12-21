@@ -16,6 +16,10 @@ TODO:
 - add more features
 - add a model so that the lectures are tracked in some form.
 - add some more tests.
+- add tests for the grading system
+- refactor the code for all the TODOs
+- refactor the code so that the configuration and the Homework modules match up more nicely.
+- add a feature so that graded files actually show the test cases that failed.
 
 FIXME:
 - the lecture slides must be scrollable
