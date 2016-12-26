@@ -24,10 +24,8 @@ TODO:
 
 FIXME:
 - the lecture slides must be scrollable
-- the UI issues. See Lectures a herf doesn't work.
 - most text are editable even if contenteditable set to false.
-- get the test class to work.
-- FIX all the static issues with javascript / css / html
+- FIX all the static issues with javascript / css / html (i.e. Chrome javascript console doesn't display any error)
 - fix the issue of pycogpg2 not being installed on my local machine.
 
 
