@@ -5,28 +5,30 @@ Currently running on Heroku at
 https://lit-reaches-57982.herokuapp.com/
 
 How To Set Up Development Environment:
+- install python 2.7
 - install pip
 - run             pip install -r "requirements.txt"
 - install virtualenvwrapper
-- create a virtualwrapper and work on it.
+- create a virtualwrapper and work on it. (type "makevirtualenv SOME_WRAPPER_NAME" to create a virtualwrapper, where SOME_WRAPPER_NAME is some name)
 - submit a pull request. and we will code-review it and merge if looks good.
 
 
 TODO:
-- add more features
-- add a model so that the lectures are tracked in some form.
-- add some more tests.
-- add tests for the grading system
-- refactor the code for all the TODOs
-- refactor the code so that the configuration and the Homework modules match up more nicely.
+- add more features.
+- add some more tests for python code.
+- add specifically tests for the grader module
+- fix for all the inline TODO comments
+- refactor the code so that all config files are managed in one place.
 - add a feature so that graded files actually show the test cases that failed.
 - add a django command that gets homework submission files off some remote storage (e.g. subversion or some s3 bucket)
 
 FIXME:
-- the lecture slides must be scrollable
+- the lecture slides must be scrollable (left/right and up and down)
 - most text are editable even if contenteditable set to false.
 - FIX all the static issues with javascript / css / html (i.e. Chrome javascript console doesn't display any error)
-- fix the issue of pycogpg2 not being installed on my local machine.
+- FIX some font inconsistency (minor)
+- FIX next lecture out of bounds issue. if it is the latest lecture, disable the next lecture UI.
+- fix the issue of pycogpg2 not being installed on my local machine. (a very minor issue)
 
 
 Main Page Image
