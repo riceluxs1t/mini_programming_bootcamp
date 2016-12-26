@@ -20,6 +20,7 @@ TODO:
 - refactor the code for all the TODOs
 - refactor the code so that the configuration and the Homework modules match up more nicely.
 - add a feature so that graded files actually show the test cases that failed.
+- add a django command that gets homework submission files off some remote storage (e.g. subversion or some s3 bucket)
 
 FIXME:
 - the lecture slides must be scrollable
