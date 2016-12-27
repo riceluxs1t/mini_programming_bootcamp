@@ -44,7 +44,6 @@ FIXME:
 - most text are editable even if contenteditable set to false.
 - FIX all the static issues with javascript / css / html (i.e. Chrome javascript console doesn't display any error)
 - FIX some font inconsistency (minor)
-- FIX next lecture out of bounds issue. if it is the latest lecture, disable the next lecture UI.
 - fix the issue of pycogpg2 not being installed on my local machine. (a very minor issue)
 
 

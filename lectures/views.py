@@ -2,6 +2,8 @@ from rest_framework.renderers import TemplateHTMLRenderer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
+from lectures.models import Lectures
+
 
 class LectureView(APIView):
 
@@ -20,8 +22,11 @@ class LectureView(APIView):
         if lecture_id == 1:
             previous_lecture = self.lecture_url_prefix.format(lecture_id)
 
-        # TODO: this has to be checked. in order to do this, lectures must be tracked by the model.
-        next_lecture = self.lecture_url_prefix.format(lecture_id + 1)
+        if Lectures.objects.filter(id=lecture_id + 1).exists():
+            next_lecture = self.lecture_url_prefix.format(lecture_id + 1)
+        else:
+            # if the next lecture does not exist, loop back to the current one.
+            next_lecture = self.lecture_url_prefix.format(lecture_id)
 
         return Response(
             {
