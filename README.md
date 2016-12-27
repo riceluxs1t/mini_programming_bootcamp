@@ -7,9 +7,26 @@ https://lit-reaches-57982.herokuapp.com/
 How To Set Up Development Environment:
 - install python 2.7
 - install pip
-- run             pip install -r "requirements.txt"
-- install virtualenvwrapper
+- install virtualenvwrapper ($pip install virtualenvwrapper)
+- setup virtualenv
+  1. create virtual environment setup file
+  	$mkdir ~/.python_virtual_envs
+
+  2. $nano ~/.bashrc 
+
+  3. copy below two lines to ~/.bashsrc
+	export WORKON_HOME=~/.python_virtual_envs
+	source /usr/local/bin/virtualenvwrapper.sh #it will set several paths to initiate virtualenv.
+
 - create a virtualwrapper and work on it. (type "makevirtualenv SOME_WRAPPER_NAME" to create a virtualwrapper, where SOME_WRAPPER_NAME is some name)
+	ex) $makvirtualenv ricelux
+	useful commands:
+		Launch virtual environment: $workon ricelux
+		Deactivate the environment: $deactivate
+
+- establish project dependencies by
+	$pip install -r "requirements.txt"
+
 - submit a pull request. and we will code-review it and merge if looks good.
 
 
