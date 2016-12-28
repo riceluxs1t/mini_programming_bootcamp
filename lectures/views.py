@@ -1,3 +1,4 @@
+from django.shortcuts import redirect
 from rest_framework.renderers import TemplateHTMLRenderer
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -17,15 +18,20 @@ class LectureView(APIView):
 
         lecture_id = int(kwargs.get('lecture_id', 1))
 
+        # if the lecture does not yet exist or is not set to be visible, kick back to the front page
+        if not Lectures.objects.filter(id=lecture_id).exists() or \
+                Lectures.objects.filter(id=lecture_id, is_visible=False):
+            return redirect("/")
+
         previous_lecture = self.lecture_url_prefix.format(lecture_id - 1)
 
         if lecture_id == 1:
             previous_lecture = self.lecture_url_prefix.format(lecture_id)
 
-        if Lectures.objects.filter(id=lecture_id + 1).exists():
+        if Lectures.objects.filter(id=lecture_id + 1, is_visible=True).exists():
             next_lecture = self.lecture_url_prefix.format(lecture_id + 1)
         else:
-            # if the next lecture does not exist, loop back to the current one.
+            # if the next lecture does not exist or is not set to visible, loop back to the current one.
             next_lecture = self.lecture_url_prefix.format(lecture_id)
 
         return Response(
