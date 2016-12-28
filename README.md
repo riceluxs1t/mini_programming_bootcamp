@@ -30,6 +30,42 @@ How To Set Up Development Environment:
 - submit a pull request. and we will code-review it and merge if looks good.
 
 
+# How Grader Module works
+
+The grader module takes as input 1) a homework submission 2) the corresponding solutions module and runs all the
+test cases against the submission code.
+
+These are the following components for grading of homework X.
+
+## 0) HOMEWORKNAME : supplied as one of the arguments of the "grade" django command. STUDENTNAME: supplied as one of
+the arguments of the "grade" django command. "grade" django command exists in path "grader.management.commands.grade.py"
+
+## 1) a solution module at path "grader.solutions.HOMEWORKNAME.PY".
+This file contains a class named Grader, which supplies a method
+called "run_tests". Any solution file that implements these two things works with the underlying system. It is easier,
+however, to implement one that subclasses the supplied "base_grader" class which provides some utility functions such
+as a timeout feature for some test case.
+
+
+## 2) one or more student submission modules (the multi module support is not quite there, but should be added soon)
+in path "submissions.HOMEWORKNAME.STUDENT_NAME.MODULE1.py", "submissions.HOMEWORKNAME.STUDENT_NAME.MODULE2.py", etc.
+This file must implement all the functions specified by the homework.
+If doesn't, the grading fails and the student receives a zero (TODO: make this a little more graceful).
+
+## 3) a Django Lectures model instance that has 1) the comma separated string of all the expected modules names
+ 2) the comma separated string of all the expected function names 3) a name field equal to HOMEWORKNAME
+
+TODO: config options are specified from multiple sources. make it more manageable.
+
+The grading is done individually for each student by running the django command of the form
+"python manage.py grade HOMEWORKNAME STUDENTNAME". this should be done either manually or by Jenkins or other simple
+cron job.
+
+The command firstly checks if the solution module exists. Then checks if the student modules have expected functions
+implemented. If both were successful, runs the test cases against the student code. At the end, writes a score
+to a file in path "grader.grades". The score is computed by (# of passed test cases / # of all test cases) 
+
+
 TODO:
 - add more features.
 - add some more tests for python code.
@@ -38,6 +74,8 @@ TODO:
 - refactor the code so that all config files are managed in one place.
 - add a feature so that graded files actually show the test cases that failed.
 - add a django command that gets homework submission files off some remote storage (e.g. subversion or some s3 bucket)
+- add a multi module submission support for the grader module. i.e. students submit multiple .py files for one homework
+- make the grade command take as input HOMEWORKNAME, STUDENTNAME arguments.
 
 FIXME:
 - the lecture slides must be scrollable (left/right and up and down)
@@ -57,3 +95,4 @@ Lectures currenlty at : HOSTNAME/lectures/1,   HOESTNAME/lectures/2, etc.
 
 Lecture Image
 ![The lecture screenshot is unavailable](https://cloud.githubusercontent.com/assets/10087079/21213540/a4b34972-c25a-11e6-9d00-6d99e9bd945e.png)
+

@@ -8,6 +8,7 @@ All grader must subclass this base grader and run the "runTests" method.
 """
 
 
+# TODO: add multi modules support
 class BaseGrader(object):
     def __init__(self):
         self.failed_test_cases = []
@@ -21,7 +22,7 @@ class BaseGrader(object):
         for function_name in function_names:
             if not hasattr(module, function_name):
                 # TODO: do it in more reliable way than this.
-                module_name = m.__name__[m.__name__.rfind(".") + 1:]
+                module_name = module.__name__[module.__name__.rfind(".") + 1:]
                 print STRING_MODULE_HAS_NO_FUNCTION % (module_name, function_name)
                 exit(-1)
 
@@ -54,8 +55,7 @@ class BaseGrader(object):
             print STRING_FAILED_SOME_TEST_CASES.format(failed_test_cases, self.num_test_cases)
 
             # TODO: actually tell what cases they failed.
-
-            return float(self.num_test_cases - failed_test_cases) / failed_test_cases
+            return float(self.num_test_cases - failed_test_cases) / self.num_test_cases
 
     """
     Runs a single test case.

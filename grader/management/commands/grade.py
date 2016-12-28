@@ -14,19 +14,6 @@ A command that runs and grades homework submissions
 
 class Command(BaseCommand):
 
-    # option_list = BaseCommand.option_list + (
-    #     make_option(
-    #         '-h',
-    #         '--homework',
-    #         help='Type Homework name',
-    #     ),
-    #     make_option(
-    #         '-n',
-    #         '--user_name',
-    #         help='Type user name',
-    #     )
-    # )
-
     def handle(self, *args, **options):
         # self.add_arguments(
         #     make_option(
@@ -46,12 +33,16 @@ class Command(BaseCommand):
         # print dir(BaseCommand)
         # print args
         # homework_name, user_name = options['homework'], options['user_name']
-        homework_name = 'test_grader'
+
+        # TODO: remove those hard coding.
+
+        homework_name = 'homework2'
         user_name = 'nate'
         grader = None
 
         print "Grading {0} for user {1} ... ".format(homework_name, user_name)
 
+        # checks if the solution module exists
         try:
             grader = __import__("grader.solutions.%s" % homework_name, fromlist=['solutions'])
         except ImportError as e:
@@ -61,13 +52,15 @@ class Command(BaseCommand):
 
         modules = []
 
+        # refers to the Homework model and get all the expected modules from the student submission directory
         try:
             homework = Homework.objects.get(homework_name=homework_name)
-            for module in homework.modules.split(','):
+            for function in homework.modules.split(','):
                 modules.append(
-                    __import__("grader.submissions.%s.%s.%s" % (homework_name, user_name, module), fromlist=['submissions'])
+                    __import__("grader.submissions.%s.%s.%s" % (homework_name, user_name, function), fromlist=['submissions'])
                 )
 
+            # run the test cases.
             score = grader.Grader(*modules).run_tests()
 
             # TODO: add a dimension
@@ -86,6 +79,7 @@ class Command(BaseCommand):
             print e
             print "Some syntax in the submitted file? or an error in the judge system"
 
+    # write the grade to the grade directory.
     def write_grade(self, project_name, user_name, score):
         print GRADE_DIR
         with open('%s/%s-%s.txt' % (GRADE_DIR, project_name, user_name), 'a+') as gradeFile:
