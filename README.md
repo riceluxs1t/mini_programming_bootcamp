@@ -45,6 +45,7 @@ FIXME:
 - FIX all the static issues with javascript / css / html (i.e. Chrome javascript console doesn't display any error)
 - FIX some font inconsistency (minor)
 - fix the issue of pycogpg2 not being installed on my local machine. (a very minor issue)
+- FIX sqlite db seems to be out of sync on heroku even after running the migrate command
 
 
 Main Page Image
