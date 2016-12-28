@@ -76,6 +76,7 @@ TODO:
 - add a django command that gets homework submission files off some remote storage (e.g. subversion or some s3 bucket)
 - add a multi module submission support for the grader module. i.e. students submit multiple .py files for one homework
 - make the grade command take as input HOMEWORKNAME, STUDENTNAME arguments.
+- add a homework submission UI
 
 FIXME:
 - the lecture slides must be scrollable (left/right and up and down)
