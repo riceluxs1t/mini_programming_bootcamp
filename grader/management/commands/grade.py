@@ -14,30 +14,19 @@ A command that runs and grades homework submissions
 
 class Command(BaseCommand):
 
+    def add_arguments(self, parser):
+        parser.add_argument('homework_name', type=str)
+        parser.add_argument('user_name', type=str)
+
     def handle(self, *args, **options):
-        # self.add_arguments(
-        #     make_option(
-        #         '-n',
-        #         '--user_name',
-        #         help='Type user name',
-        #     )
-        # )
-        #
-        # self.add_arguments(
-        #     make_option(
-        #         '-h',
-        #         '--homework',
-        #         help='Type Homework name',
-        #     )
-        # )
-        # print dir(BaseCommand)
-        # print args
-        # homework_name, user_name = options['homework'], options['user_name']
 
-        # TODO: remove those hard coding.
+        homework_name = options.get('homework_name')
+        user_name = options.get('user_name')
 
-        homework_name = 'homework2'
-        user_name = 'nate'
+        if not homework_name or not user_name:
+            print "You must supply the homework name and user name. i.e. python manage.py homework2 nate"
+            exit(-1)
+
         grader = None
 
         print "Grading {0} for user {1} ... ".format(homework_name, user_name)
@@ -69,7 +58,6 @@ class Command(BaseCommand):
 
         except ObjectDoesNotExist:
             print "The corresponding project does not seem registered in the systems' Homework Model yet"
-            exit(-1)
 
         except ImportError as e:
             print e

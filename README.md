@@ -39,6 +39,8 @@ These are the following components for grading of homework X.
 
 - HOMEWORKNAME : supplied as one of the arguments of the "grade" django command. STUDENTNAME: supplied as one of
 the arguments of the "grade" django command. "grade" django command exists in path "grader.management.commands.grade.py"
+An example use case is "python manage.py grade homework2 nate". homework2 corresponds to HOMEWORKNAME and nate to
+STUDENTNAME
 
 - a solution module at path "grader.solutions.HOMEWORKNAME.PY".
 This file contains a class named Grader, which supplies a method
@@ -75,7 +77,6 @@ TODO:
 - add a feature so that graded files actually show the test cases that failed.
 - add a django command that gets homework submission files off some remote storage (e.g. subversion or some s3 bucket)
 - add a multi module submission support for the grader module. i.e. students submit multiple .py files for one homework
-- make the grade command take as input HOMEWORKNAME, STUDENTNAME arguments.
 - add a homework submission UI
 
 FIXME:

@@ -6,7 +6,6 @@ class Grader(BaseGrader):
     def __init__(self, *modules):
         super(Grader, self).__init__()
         (module, ) = modules
-        print modules
         self.expectedFunctions = Homework.objects.get(id=2).functions.split(',')
 
         self.assert_functions_exist(module, *self.expectedFunctions)
