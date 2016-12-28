@@ -24,10 +24,7 @@ class Command(BaseCommand):
         user_name = options.get('user_name')
 
         if not homework_name or not user_name:
-            print "You must supply the homework name and user name. i.e. python manage.py homework2 nate"
-            exit(-1)
-
-        grader = None
+            return "You must supply the homework name and user name. i.e. python manage.py homework2 nate"
 
         print "Grading {0} for user {1} ... ".format(homework_name, user_name)
 
@@ -36,8 +33,7 @@ class Command(BaseCommand):
             grader = __import__("grader.solutions.%s" % homework_name, fromlist=['solutions'])
         except ImportError as e:
             print e
-            print "The test cases must be set up for grading %s! try again later" % homework_name
-            exit(-1)
+            return "The test cases must be set up for grading %s! try again later" % homework_name
 
         modules = []
 
@@ -57,18 +53,17 @@ class Command(BaseCommand):
             self.write_grade(homework_name, user_name, score)
 
         except ObjectDoesNotExist:
-            print "The corresponding project does not seem registered in the systems' Homework Model yet"
+            return "The corresponding project does not seem registered in the systems' Homework Model yet"
 
         except ImportError as e:
             print e
-            print "Maybe a wrong file submitted"
+            return "Maybe a wrong file submitted"
 
         except SyntaxError as e:
             print e
-            print "Some syntax in the submitted file? or an error in the judge system"
+            return "Some syntax in the submitted file? or an error in the judge system"
 
     # write the grade to the grade directory.
     def write_grade(self, project_name, user_name, score):
-        print GRADE_DIR
         with open('%s/%s-%s.txt' % (GRADE_DIR, project_name, user_name), 'a+') as gradeFile:
             gradeFile.write("%s\t%s\t%s\n" % (user_name, score, date.today()))
