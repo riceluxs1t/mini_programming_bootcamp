@@ -4,9 +4,6 @@ from models import Lectures
 
 class LectureModelTest(TestCase):
 
-    def __init__(self):
-        raise Exception("Implement the lectures test cases")
-
     def test_lecture_id_auto_increment(self):
 
         Lectures().save()

@@ -37,7 +37,7 @@ def zigZag(line):
             print "#" * (9 - i % 10) + " " * 5 + "#" * (i % 10)
 
 
-def checkForThree(lst):
+def check_for_three(lst):
     """
     Given a list of integers,
     if the integer has 3 as a digit switch the entry to false, else true
@@ -54,7 +54,7 @@ def checkForThree(lst):
     return ret
 
 
-def memoryCleaner(lst):
+def memory_cleaner(lst):
     """
     Erase all repeated elements (not necessarily integers) in the list, leaving just one.
     Return the modified list.
@@ -72,7 +72,7 @@ def memoryCleaner(lst):
     return ret
 
 
-def sameSumSubString(string):
+def same_sum_substring(string):
     """
     Given a string of consecutive integers that is in range [0,9].
     Find the number of substring pair that has an equal sum.
