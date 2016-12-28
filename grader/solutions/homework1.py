@@ -1,8 +1,13 @@
-import os
-
 from grader.config import SOLUTION_DIR
 from base_grader import BaseGrader
 from grader.models import Homework
+
+"""
+
+A homework1 grader. An example of the grader that uses the outside judge data
+with some extra I/O, which helps avoiding lots of boilerplat test case methods.
+
+"""
 
 
 class Grader(BaseGrader):
