@@ -37,22 +37,22 @@ test cases against the submission code.
 
 These are the following components for grading of homework X.
 
-## 0) HOMEWORKNAME : supplied as one of the arguments of the "grade" django command. STUDENTNAME: supplied as one of
+- HOMEWORKNAME : supplied as one of the arguments of the "grade" django command. STUDENTNAME: supplied as one of
 the arguments of the "grade" django command. "grade" django command exists in path "grader.management.commands.grade.py"
 
-## 1) a solution module at path "grader.solutions.HOMEWORKNAME.PY".
+- a solution module at path "grader.solutions.HOMEWORKNAME.PY".
 This file contains a class named Grader, which supplies a method
 called "run_tests". Any solution file that implements these two things works with the underlying system. It is easier,
 however, to implement one that subclasses the supplied "base_grader" class which provides some utility functions such
 as a timeout feature for some test case.
 
 
-## 2) one or more student submission modules (the multi module support is not quite there, but should be added soon)
+- one or more student submission modules (the multi module support is not quite there, but should be added soon)
 in path "submissions.HOMEWORKNAME.STUDENT_NAME.MODULE1.py", "submissions.HOMEWORKNAME.STUDENT_NAME.MODULE2.py", etc.
 This file must implement all the functions specified by the homework.
 If doesn't, the grading fails and the student receives a zero (TODO: make this a little more graceful).
 
-## 3) a Django Lectures model instance that has 1) the comma separated string of all the expected modules names
+- a Django Lectures model instance that has 1) the comma separated string of all the expected modules names
  2) the comma separated string of all the expected function names 3) a name field equal to HOMEWORKNAME
 
 TODO: config options are specified from multiple sources. make it more manageable.
@@ -63,7 +63,7 @@ cron job.
 
 The command firstly checks if the solution module exists. Then checks if the student modules have expected functions
 implemented. If both were successful, runs the test cases against the student code. At the end, writes a score
-to a file in path "grader.grades". The score is computed by (# of passed test cases / # of all test cases) 
+to a file in path "grader.grades". The score is computed by (# of passed test cases / # of all test cases)
 
 
 TODO:
