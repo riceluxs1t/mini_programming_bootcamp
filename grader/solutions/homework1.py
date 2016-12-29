@@ -1,4 +1,4 @@
-from grader.config import SOLUTION_DIR
+from grader.config import DIR_SOLUTION
 from base_grader import BaseGrader
 from grader.models import Homework
 
@@ -23,7 +23,7 @@ class Grader(BaseGrader):
         for function_name in self.expectedFunctions:
             setattr(self, function_name, getattr(module, function_name))
 
-        self.judge_data_dir = "/".join([SOLUTION_DIR, "judge_data", "homework1"])
+        self.judge_data_dir = "/".join([DIR_SOLUTION, "judge_data", "homework1"])
 
     def get_test_file_path(self, file_name):
         return "/".join([self.judge_data_dir, file_name])

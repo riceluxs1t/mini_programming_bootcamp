@@ -2,9 +2,10 @@ from datetime import date
 
 from django.core.management.base import BaseCommand
 from django.db.models import ObjectDoesNotExist
-from grader.models import Homework
 
-from grader.config import GRADE_DIR
+from grader.config import DIR_PYTHON_MODULE_SOLUTIONS, DIR_PYTHON_MODULE_SUBMISSIONS, DIR_GRADED_FILE, \
+    HOMEWORK_NAME, USER_NAME
+from grader.models import Homework
 
 
 """
@@ -15,13 +16,13 @@ A command that runs and grades homework submissions
 class Command(BaseCommand):
 
     def add_arguments(self, parser):
-        parser.add_argument('homework_name', type=str)
-        parser.add_argument('user_name', type=str)
+        parser.add_argument(HOMEWORK_NAME, type=str)
+        parser.add_argument(USER_NAME, type=str)
 
     def handle(self, *args, **options):
 
-        homework_name = options.get('homework_name')
-        user_name = options.get('user_name')
+        homework_name = options.get(HOMEWORK_NAME)
+        user_name = options.get(USER_NAME)
 
         if not homework_name or not user_name:
             return "You must supply the homework name and user name. i.e. python manage.py homework2 nate"
@@ -30,7 +31,7 @@ class Command(BaseCommand):
 
         # checks if the solution module exists
         try:
-            grader = __import__("grader.solutions.%s" % homework_name, fromlist=['solutions'])
+            grader = __import__(DIR_PYTHON_MODULE_SOLUTIONS % homework_name, fromlist=['solutions'])
         except ImportError as e:
             print e
             return "The test cases must be set up for grading %s! try again later" % homework_name
@@ -42,13 +43,11 @@ class Command(BaseCommand):
             homework = Homework.objects.get(homework_name=homework_name)
             for function in homework.modules.split(','):
                 modules.append(
-                    __import__("grader.submissions.%s.%s.%s" % (homework_name, user_name, function), fromlist=['submissions'])
+                    __import__(DIR_PYTHON_MODULE_SUBMISSIONS % (homework_name, user_name, function), fromlist=['submissions'])
                 )
 
             # run the test cases.
             score = grader.Grader(*modules).run_tests()
-
-            # TODO: add a dimension
 
             self.write_grade(homework_name, user_name, score)
 
@@ -65,5 +64,5 @@ class Command(BaseCommand):
 
     # write the grade to the grade directory.
     def write_grade(self, project_name, user_name, score):
-        with open('%s/%s-%s.txt' % (GRADE_DIR, project_name, user_name), 'a+') as gradeFile:
+        with open(DIR_GRADED_FILE % (project_name, user_name), 'a+') as gradeFile:
             gradeFile.write("%s\t%s\t%s\n" % (user_name, score, date.today()))
