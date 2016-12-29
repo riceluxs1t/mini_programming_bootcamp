@@ -31,4 +31,4 @@ class Command(BaseCommand):
                 lecture_number = int(lecture.split('.')[0].split('lecture')[1])
                 if not Lectures.objects.filter(id=lecture_number).exists():
                     print "Creating a new Lectures django model instance for lecture {0}..".format(lecture_number)
-                    Lectures.objects.create(id=lecture_number)
+                    Lectures.objects.create(id=lecture_number, is_visible=True)
