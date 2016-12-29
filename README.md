@@ -73,7 +73,6 @@ TODO:
 - add some more tests for python code.
 - add specifically tests for the grader module
 - fix for all the inline TODO comments
-- refactor the code so that all config files are managed in one place.
 - add a feature so that graded files actually show the test cases that failed.
 - add a django command that gets homework submission files off some remote storage (e.g. subversion or some s3 bucket)
 - add a multi module submission support for the grader module. i.e. students submit multiple .py files for one homework
