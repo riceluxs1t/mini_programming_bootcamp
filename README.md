@@ -18,8 +18,9 @@ How To Set Up Development Environment:
 	export WORKON_HOME=~/.python_virtual_envs
 	source /usr/local/bin/virtualenvwrapper.sh #it will set several paths to initiate virtualenv.
 
-- create a virtualwrapper and work on it. (type "makevirtualenv SOME_WRAPPER_NAME" to create a virtualwrapper, where SOME_WRAPPER_NAME is some name)
-	ex) $makvirtualenv ricelux
+- create a virtualwrapper and work on it. (type "makevirtualenv SOME_WRAPPER_NAME" to create a virtualwrapper, where SOME_WRAPPER_NAME is some name you choose)
+	ex) $makvirtualenv ricelux.
+
 	useful commands:
 		Launch virtual environment: $workon ricelux
 		Deactivate the environment: $deactivate
@@ -70,7 +71,7 @@ to a file in path "grader.grades". The score is computed by (# of passed test ca
 # AWS CONFIG
 import from settings.py for the access key and secret key
 
-TODO:
+# TODO:
 - add more features.
 - add some more tests for python code.
 - add specifically tests for the grader module
@@ -80,7 +81,7 @@ TODO:
 - add a multi module submission support for the grader module. i.e. students submit multiple .py files for one homework
 - add a homework submission UI
 
-FIXME:
+# FIXME:
 - most text are editable even if contenteditable set to false.
 - FIX all the static issues with javascript / css / html (i.e. Chrome javascript console doesn't display any error)
 - fix the issue of pycogpg2 not being installed on my local machine. (a very minor issue)
