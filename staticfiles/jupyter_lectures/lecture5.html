@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>lecture0</title>
+<title>Lesson5. Using Libraries and APIs. Going beyond</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -1588,6 +1588,21 @@ pre code {
   margin-left: auto;
   padding-left: 0px;
   padding-right: 0px;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 768px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 940px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1140px;
+  }
 }
 .container-fluid {
   margin-right: auto;
@@ -8441,15 +8456,15 @@ label {
 }
 /* Flexible box model classes */
 /* Taken from Alex Russell http://infrequently.org/2009/08/css-3-progress/ */
-/* This file is a compatability layer.  It allows the usage of flexible box
+/* This file is a compatability layer.  It allows the usage of flexible box 
 model layouts accross multiple browsers, including older browsers.  The newest,
 universal implementation of the flexible box model is used when available (see
-`Modern browsers` comments below).  Browsers that are known to implement this
+`Modern browsers` comments below).  Browsers that are known to implement this 
 new spec completely include:
 
     Firefox 28.0+
     Chrome 29.0+
-    Internet Explorer 11+
+    Internet Explorer 11+ 
     Opera 17.0+
 
 Browsers not listed, including Safari, are supported via the styling under the
@@ -10391,6 +10406,8 @@ div#notebook {
   overflow-y: hidden;
   overflow-x: auto;
   width: 100%;
+  /* This spaces the page away from the edge of the notebook area */
+  padding-top: 20px;
   margin: 0px;
   outline: none;
   box-sizing: border-box;
@@ -11197,7 +11214,7 @@ div#pager .ui-resizable-handle {
   background: #f7f7f7;
   border-top: 1px solid #cfcfcf;
   border-bottom: 1px solid #cfcfcf;
-  /* This injects handle bars (a short, wide = symbol) for
+  /* This injects handle bars (a short, wide = symbol) for 
         the resize handle. */
 }
 div#pager .ui-resizable-handle::after {
@@ -11632,7 +11649,7 @@ ul.typeahead-list > li > a {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
-
+    
 /* Temporary definitions which will become obsolete with Notebook release 5.0 */
 .ansi-black-fg { color: #3E424D; }
 .ansi-black-bg { background-color: #3E424D; }
@@ -11688,14 +11705,14 @@ div#notebook {
   div.cell {
     display: block;
     page-break-inside: avoid;
-  }
-  div.output_wrapper {
+  } 
+  div.output_wrapper { 
     display: block;
-    page-break-inside: avoid;
+    page-break-inside: avoid; 
   }
-  div.output {
+  div.output { 
     display: block;
-    page-break-inside: avoid;
+    page-break-inside: avoid; 
   }
 }
 </style>
@@ -11731,27 +11748,13 @@ div#notebook {
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="s2">&quot;Hello World!&quot;</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 이때까지 우리가 한 것들</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Hello World!
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -11767,64 +11770,13 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 2016년은 개인적으로도 사회적으로도 다사다난 했던 한해였습니다.</span>
-<span class="c1"># 한해의 수많은 Buzzword 중 &quot;빅데이터&quot;, &quot;인공지능&quot;, &quot;프로그래머&quot; 등은 한번쯤은 들어보셨을 겁니다.</span>
-<span class="c1"># 빅데이터, 인공지능, 프로그래머과 같은 단어를 들으면 어떤 생각이 드시나요?</span>
-<span class="c1"># 치킨집 사장님?</span>
-<span class="c1"># 아니면, 자주 사용하는 굉장히 편리하고 스마트한 모바일 서비스?</span>
-<span class="c1">#</span>
-<span class="c1"># 어떤 개념을 상상하든, 어딘가 모호하고 약간은 나와는 연관이 없을 것 같고 어쩌면 너무 어려울지도 모르는 Fuzzy 한 그림이 그려지시나요?</span>
-<span class="c1"># Fear no more!</span>
-<span class="c1"># 라이스에 재학중인 남자 재학생 4명 (nk15, sn28, jr51, kk49) 이 모여 게임할 시간을 / 연애할 시간을 / 술마실 시간을 쪼개서 </span>
-<span class="c1"># 그레이드 걱정없이(!) / 친절한 한국말로 / 그렇지만 알찬 내용의 파이썬 수업을 한번 기획해보았습니다.</span>
-<span class="c1">#</span>
-<span class="c1"># 도대체 왜? </span>
-</pre></div>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 1) len, for, import 등등의 파이썬 내장 함수 들을 사용함.</span>
+<span class="nb">len</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,])</span> <span class="o">==</span> <span class="mi">5</span>
 
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
-<span class="kn">import</span> <span class="nn">math</span>
-
-
-<span class="k">def</span> <span class="nf">computeExponentialGrowth</span><span class="p">(</span><span class="n">before</span><span class="p">,</span> <span class="n">after</span><span class="p">,</span> <span class="n">num_year</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    figures out what yearlyGrowthRate is given the following eq.</span>
-<span class="sd">    before*(yearlyGrowthRate)^(num_year) = after</span>
-<span class="sd">    </span>
-<span class="sd">    Args:</span>
-<span class="sd">        before: the number before the expoential growth</span>
-<span class="sd">        after: the number after the exponentail growth</span>
-<span class="sd">        </span>
-<span class="sd">    Returns:</span>
-<span class="sd">        the yearly growth rate </span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="k">return</span> <span class="mi">10</span><span class="o">**</span><span class="p">((</span><span class="n">math</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">after</span><span class="o">/</span><span class="n">before</span><span class="p">))</span><span class="o">/</span><span class="n">num_year</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="n">computeExponentialGrowth</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;hiyo&quot;</span><span class="p">)</span> <span class="c1"># i.e. print &quot;hiyo&quot; 랑 같은 결과를 리턴</span>
 </pre></div>
 
 </div>
@@ -11837,7 +11789,7 @@ div#notebook {
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>1.37972966146
+<pre>hiyo
 </pre>
 </div>
 </div>
@@ -11848,66 +11800,18 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 아시나요?</span>
-<span class="c1"># 올해 라이스 신입생 중 대략 1/3 가량은 라이스 컴싸 전공을 위한 101 수업인 COMP 140 혹은 COMP 160을 들었습니다.</span>
-<span class="c1"># 제가 신입생으로 입학 했을 때(..) 대략 80명 정도 들은 것 같은데 연간 yearly growth 를 계산해보면 대략 40% 정도 되네요.</span>
-<span class="c1"># 교수님 수는 거의 그대로인데 학생수는 몇배가 증가했다니.. 그만큼 조교를 많이 뽑을 예정인가 봅니다.</span>
-<span class="c1">#</span>
-<span class="c1"># 컴싸의 높아진 인기에는 여러가지 이유가 있겠지만 (i.e. 어마어마한 연봉, 개발자라는 멋진 타이틀(?)), </span>
-<span class="c1"># 우리 삶에 넓게는 컴퓨터공학이 좁게는 프로그래밍을 통한 자동화/생산성 개선이 이루어지고 있지 않은 곳이 없습니다. </span>
-<span class="c1"># 5년 뒤 쯤 좋은 대학에 가기 위해선, 고등학교 때 필수로 프로그래밍을 해야 될 지도 모른다고 조심스럽게 예언해봅니다..</span>
-<span class="c1"># 컴싸가 대체 뭐길래 이 난리를 치는걸까요?</span>
-<span class="c1"># </span>
-<span class="c1"># 이 수업을 듣고 난 후, 조금은 &quot;아 컴싸가 이런거구나&quot; 라는 본인만의 정의를 세울 수 있다면, 또 그래서 컴싸를 전공하게 된다면(?!), 저희 모두 매우</span>
-<span class="c1"># 뿌듯 할 것 같습니다.</span>
-</pre></div>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 2) 다른 라이브러리 (혹은 모듈이라 불림) 가 제공하는 함수들 또한 써봄. i.e. import math. math.fabs(2)</span>
 
-</div>
-</div>
-</div>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="n">math</span><span class="o">.</span><span class="n">fabs</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span>
 
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span>
-</pre></div>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="c1"># requests.get(&quot;https://www.google.com&quot;) # 구글에 페이지를 파이썬을 이용해서 불러옴. i.e. 우리가 이용하는 브라우저들이 뒤에서 하는 일</span>
 
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># What This Course Aims To</span>
-<span class="c1"># 바야흐로, 코딩 교육의 시대입니다. 더 뛰어나고 훌륭하신 사람들이 만든 수많은 유/무료 온라인 강의가 범람하는 시대에 </span>
-<span class="c1"># 그것들을 대체하고자 하는 의도는 전혀 없습니다. 저희도 학점 챙겨야죠.</span>
-<span class="c1"># 다만, 프로그래밍의 분야에서 만큼은 1+1 이 2보다 클 수 있다고 믿습니다. 더 많은 이들이 관심을 가지고 더 재미난 것들을 같이 할 수 있게 된다면</span>
-<span class="c1"># 학교 생활이 매우 즐겁지 않을 까요</span>
-<span class="c1"># 프로그래밍은 생각 표현의 도구라 생각합니다. 마치 망치와 드라이버 처럼요. 어떤 생각을 담을지는 순전히 다양한 분야에서 공부하는 여러분들의 몫이라 생각합니다.</span>
-<span class="c1"># 모든 분야에 domain knowledge 가 필요 하듯이, 컴퓨터 공학은 이 생각의 표현을 체계적으로 정리해놓은 학문이라 생각합니다.</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span>
+<span class="c1"># 등등 등등</span>
 </pre></div>
 
 </div>
@@ -11920,10 +11824,39 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 이 수업을 듣고 난 뒤, 아래 3가지에 대해 답을 내리고 공감할 수 있다면 we know we have done our job well.</span>
-<span class="c1"># 1) What is programming and computer science and why should I bother learning it?</span>
-<span class="c1"># 2) Making fuzzy ideas concrete</span>
-<span class="c1"># 3) Being able to use abstraction and see things through</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 3) 우리가 스스로 정의한 함수들 (i.e. 숙제) 또한 정의해서 호출 해서 사용.</span>
+
+<span class="k">def</span> <span class="nf">repeatMeTenTimes</span><span class="p">(</span><span class="n">me</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">me</span><span class="o">*</span><span class="mi">10</span>
+
+<span class="k">print</span> <span class="n">repeatMeTenTimes</span><span class="p">(</span><span class="s2">&quot;hiyo&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>hiyohiyohiyohiyohiyohiyohiyohiyohiyohiyo
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 4) OOP 개념을 활용하여 Class 를 만들고 해당 클래스의 객체들을 만들고 이 객체들이 제공하는 함수 및 attribute 들 또한 써봄.</span>
 </pre></div>
 
 </div>
@@ -11933,74 +11866,42 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">class</span> <span class="nc">Grade</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span> <span class="c1"># 우리가 정의한 &quot;Class&quot;</span>
+    
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">homework_name</span><span class="p">,</span> <span class="n">homework_grade</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">homework_name</span> <span class="o">=</span> <span class="n">homework_name</span> <span class="c1"># 이 클래스의 객체가 가지는 attribute</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">homework_grade</span> <span class="o">=</span> <span class="n">homework_grade</span> <span class="c1"># 이 클래스의 객체가 가지는 attribute2</span>
+    
+    <span class="c1"># 이 클래스의 객체가 가지는 함수. 레터그레이드 성적을 계산.</span>
+    <span class="k">def</span> <span class="nf">computeGrade</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">homework_grade</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s1">&#39;A&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s1">&#39;F&#39;</span>
+
+
+<span class="n">homework_grade</span> <span class="o">=</span> <span class="n">Grade</span><span class="p">(</span><span class="s2">&quot;homework_one&quot;</span><span class="p">,</span> <span class="mi">91</span><span class="p">)</span> <span class="c1"># 객체 생성.</span>
+<span class="k">print</span> <span class="n">homework_grade</span><span class="o">.</span><span class="n">computeGrade</span><span class="p">()</span> <span class="c1"># 객체의 함수 호출.</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 6/2(1+2) 와 같은 모호한 수식 계산을 컴퓨터에게 시키려면 어떻게 해야 될까요?</span>
-<span class="c1"># 기계는 절대 시키지 않는 일을 하지 않습니다. 아이디어를 코드로 옮길 때는 애매모호이 있으면 안됩니다.</span>
-<span class="c1"># 이 수업에서 fuzzy 한 아이디어들을 구체적으로 기계가 이해할 수 있는 코드로 옮기려면 어떻게 해야 할지 배워봅니다.</span>
-<span class="c1"># 구체적으로, &quot;파이썬&quot; 이라는 프로그래밍 언어를 배우고 &quot;파이썬&quot; 코드로 옮기는 법을 배워 다룹니다.</span>
-</pre></div>
+<div class="output_wrapper">
+<div class="output">
 
-</div>
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>A
+</pre>
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 손으로 쓰인 일련의 숫자들을 인식하는 바코드 프로그램</span>
-<span class="c1"># 이 수업을 들을지 말 지 결정하는 사고의 과정</span>
-<span class="c1"># STAT 310 에서 배우는 Regression </span>
-<span class="c1"># 어떤 (potential) 공통점들이 있을까요?</span>
-<span class="c1"># &quot;추상화&quot; 란, 실세계의 복잡한 예제, 상황들을 간결하고 명확하게 단순화/일반화/개념화 하는 과정을 말합니다.</span>
-<span class="c1"># 위에 설명한 &quot;구체화&quot; 라는 말과는 반대의 말이지요. 역설적이게도 프로그래밍을 잘 하기 위해서는 이 두가지 모두를 잘해야 합니다.</span>
-<span class="c1"># 이 덕목 또한, 수업에서 다뤄봅니다.</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span>
-</pre></div>
-
-</div>
 </div>
 </div>
 
@@ -12010,14 +11911,204 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 굉장히 많은 것들을 구구절절 얘기하였기에,</span>
-<span class="c1"># 3줄 요약과 함께 인트로 소개를 마칠까 합니다.</span>
-<span class="c1"># 1) 프로그래밍 어렵지 않다.</span>
-<span class="c1"># 2) 재미있게 배울 수 있다.</span>
-<span class="c1"># 3) 다같이.</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">homework_grade2</span> <span class="o">=</span> <span class="n">Grade</span><span class="p">(</span><span class="s2">&quot;homework_one&quot;</span><span class="p">,</span> <span class="mi">89</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">homework_grade2</span><span class="o">.</span><span class="n">computeGrade</span><span class="p">()</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>F
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 위 예제를 통해 유추해 보면 사실 모든 함수는</span>
+<span class="c1"># someObject.someFunctionName(someArgument1, someArgument2, ...) 의 형태를 가지는 걸 알 수 있음!</span>
+<span class="c1"># 단 파이썬이 기본적으로 제공하는 함수들은 someObject 부분이 생략 된 형태로 이해하면 됨!</span>
+
+<span class="c1"># 자 이제 제일 중요한 Tip!</span>
+<span class="c1">#　The number one rule of engineering is &quot;avoid reinventing the wheels whenver possible!&quot;. Chances are other people </span>
+<span class="c1"># already did a better job. Use it to your advantage!</span>
+
+<span class="c1"># 이제, 재미난 프로그래밍을 한번 해보자!</span>
+<span class="c1"># 오늘의 서버리 메뉴에서 특정한 음식 (e.g. Chicken Fried Steak) 이 있는지 없는지 검사해보는 함수를 짜보자!</span>
+<span class="c1"># 이걸 사람이 검사 한다면 어떤 과정을 통해 검사하게 될까?</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 1) https://dining.rice.edu 에 브라우저를 통해 접속해서 페이지를 로드함!</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 2) 페이지 중에서 치킨 프라이드 스테이크가 있는지 없는지 눈으로 살펴봄!</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 이 둘다 프로그래밍을 통해 쉽게 할 수 있다!!</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">dining_address</span> <span class="o">=</span> <span class="s2">&quot;https://dining.rice.edu&quot;</span>
+
+<span class="c1"># 1)번 스텝에 해당</span>
+<span class="c1"># page = requests.get(dining_address)</span>
+
+<span class="c1"># 2)번 스텝에 해당</span>
+
+<span class="c1"># if &quot;Chicken Friend Steak&quot; in page:</span>
+<span class="c1">#     print &quot;yes there is a chicken fried steak served somewhere on campus!&quot;</span>
+<span class="c1"># else:</span>
+<span class="c1">#     print &quot;Most likely, no chicken fried steak served tonight!&quot;</span>
+    
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 자 이제 이걸 무수히 반복해서 여러 메뉴에 대해 검색하고 싶다면 어떨까?</span>
+<span class="c1"># 검색 할 때 마다, 파이썬 코드를 6줄이나 짜는건 매우 번거로운 일이다!</span>
+<span class="c1"># 함수로 만들자!</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">lookUpFood</span><span class="p">(</span><span class="n">food_name</span><span class="p">):</span>
+    <span class="c1"># your implementation goes here!</span>
+    <span class="k">pass</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 위 코드의 문제는 어떤게 있을까?</span>
+<span class="c1"># 1) Chicken Fried Steak 의 스펠링이 우리가 입력으로 준 스펠링과 다르다면, 찾지 못함! =&gt; 인간과 다르게 기계에게 text matching 시키는 문제는</span>
+<span class="c1"># 쉬운 일은 아님. 영어 기준 한가지 쉬운 트릭은, 소문자로 바꾼 뒤 compare! 소문자로 어떻게 바꿀까? 모든 스트링 &quot;객체&quot;에 대해 이미 정의 된 함수가 있다.</span>
+<span class="c1"># page.lower()</span>
+<span class="c1">#</span>
+<span class="c1"># 2) 음식을 찾았을 때, 어디 서버리인지 알고 싶을 땐 어떨까? =&gt; 간단한 string lookup이 아닌 더 복잡한 처리가 필요하다. 웹사이트의 특정 페이지를</span>
+<span class="c1"># 그 페이지가 가지는 계층구조를 고려하여 처리하는 과정을 &quot;파싱&quot; 한다고 말한다. &quot;퍼가요&quot; 의 프로그래밍 버전. </span>
+
+<span class="n">uppercase_string</span> <span class="o">=</span> <span class="s2">&quot;HEY&quot;</span>
+<span class="k">print</span> <span class="n">uppercase_string</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>HEY
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="n">uppercase_string</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>hey
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -12027,36 +12118,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Some Course Logistics</span>
-<span class="c1"># When - Saturday Night (subject to change)</span>
-<span class="c1"># Where - TBD</span>
-<span class="c1"># Homework? - Of course. There are 4 homeworks and 1 final assisgnment</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span>
+<div class=" highlight hl-ipython2"><pre><span></span> 
 </pre></div>
 
 </div>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>lecture0</title>
+<title>Lesson 4. Object Oriented Programming</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -1588,6 +1588,21 @@ pre code {
   margin-left: auto;
   padding-left: 0px;
   padding-right: 0px;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 768px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 940px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1140px;
+  }
 }
 .container-fluid {
   margin-right: auto;
@@ -8441,15 +8456,15 @@ label {
 }
 /* Flexible box model classes */
 /* Taken from Alex Russell http://infrequently.org/2009/08/css-3-progress/ */
-/* This file is a compatability layer.  It allows the usage of flexible box
+/* This file is a compatability layer.  It allows the usage of flexible box 
 model layouts accross multiple browsers, including older browsers.  The newest,
 universal implementation of the flexible box model is used when available (see
-`Modern browsers` comments below).  Browsers that are known to implement this
+`Modern browsers` comments below).  Browsers that are known to implement this 
 new spec completely include:
 
     Firefox 28.0+
     Chrome 29.0+
-    Internet Explorer 11+
+    Internet Explorer 11+ 
     Opera 17.0+
 
 Browsers not listed, including Safari, are supported via the styling under the
@@ -10391,6 +10406,8 @@ div#notebook {
   overflow-y: hidden;
   overflow-x: auto;
   width: 100%;
+  /* This spaces the page away from the edge of the notebook area */
+  padding-top: 20px;
   margin: 0px;
   outline: none;
   box-sizing: border-box;
@@ -11197,7 +11214,7 @@ div#pager .ui-resizable-handle {
   background: #f7f7f7;
   border-top: 1px solid #cfcfcf;
   border-bottom: 1px solid #cfcfcf;
-  /* This injects handle bars (a short, wide = symbol) for
+  /* This injects handle bars (a short, wide = symbol) for 
         the resize handle. */
 }
 div#pager .ui-resizable-handle::after {
@@ -11632,7 +11649,7 @@ ul.typeahead-list > li > a {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
-
+    
 /* Temporary definitions which will become obsolete with Notebook release 5.0 */
 .ansi-black-fg { color: #3E424D; }
 .ansi-black-bg { background-color: #3E424D; }
@@ -11688,14 +11705,14 @@ div#notebook {
   div.cell {
     display: block;
     page-break-inside: avoid;
-  }
-  div.output_wrapper {
+  } 
+  div.output_wrapper { 
     display: block;
-    page-break-inside: avoid;
+    page-break-inside: avoid; 
   }
-  div.output {
+  div.output { 
     display: block;
-    page-break-inside: avoid;
+    page-break-inside: avoid; 
   }
 }
 </style>
@@ -11731,57 +11748,17 @@ div#notebook {
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="s2">&quot;Hello World!&quot;</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Hello World!
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 2016년은 개인적으로도 사회적으로도 다사다난 했던 한해였습니다.</span>
-<span class="c1"># 한해의 수많은 Buzzword 중 &quot;빅데이터&quot;, &quot;인공지능&quot;, &quot;프로그래머&quot; 등은 한번쯤은 들어보셨을 겁니다.</span>
-<span class="c1"># 빅데이터, 인공지능, 프로그래머과 같은 단어를 들으면 어떤 생각이 드시나요?</span>
-<span class="c1"># 치킨집 사장님?</span>
-<span class="c1"># 아니면, 자주 사용하는 굉장히 편리하고 스마트한 모바일 서비스?</span>
-<span class="c1">#</span>
-<span class="c1"># 어떤 개념을 상상하든, 어딘가 모호하고 약간은 나와는 연관이 없을 것 같고 어쩌면 너무 어려울지도 모르는 Fuzzy 한 그림이 그려지시나요?</span>
-<span class="c1"># Fear no more!</span>
-<span class="c1"># 라이스에 재학중인 남자 재학생 4명 (nk15, sn28, jr51, kk49) 이 모여 게임할 시간을 / 연애할 시간을 / 술마실 시간을 쪼개서 </span>
-<span class="c1"># 그레이드 걱정없이(!) / 친절한 한국말로 / 그렇지만 알찬 내용의 파이썬 수업을 한번 기획해보았습니다.</span>
-<span class="c1">#</span>
-<span class="c1"># 도대체 왜? </span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#이때까지 우리가 한 프로그래밍은 한줄에 단순한 하나의 일을 파이썬에게 시키는거에 불과 했다.</span>
+<span class="c1">#이러한 프로그래밍 방법을 주로 &quot;imperative programming&quot; 이라 한다.</span>
+
+<span class="c1">#in-class excercise:</span>
+
+<span class="c1">#    write a program that represents a network of five people</span>
+<span class="c1">#    where people A, B, and C are all friends to each other and people D and E are friends.</span>
+<span class="c1">#    How would you represent &quot;people&quot; and their &quot;friendship&quot; relationships?</span>
 </pre></div>
 
 </div>
@@ -11794,24 +11771,127 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
-<span class="kn">import</span> <span class="nn">math</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#e.g. </span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;personA&quot;</span>
+<span class="n">b</span> <span class="o">=</span> <span class="s2">&quot;personB&quot;</span>
+<span class="n">c</span> <span class="o">=</span> <span class="s2">&quot;personC&quot;</span>
+<span class="n">d</span> <span class="o">=</span> <span class="s2">&quot;personD&quot;</span>
+<span class="c1"># and more..</span>
+
+<span class="n">friendships</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+<span class="n">friendships</span><span class="o">.</span><span class="n">add</span><span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
+<span class="n">friendships</span><span class="o">.</span><span class="n">add</span><span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="n">c</span><span class="p">))</span>
+<span class="n">friendships</span><span class="o">.</span><span class="n">add</span><span class="p">((</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">))</span>
+
+<span class="c1"># and more..</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># by the way, remember Python&#39;s dictionary structure?</span>
+<span class="c1"># &quot;set&quot; is a similar structure that Python provides that is primarily used for &quot;membership&quot; checking</span>
+<span class="c1"># i.e.</span>
+
+<span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="ow">in</span> <span class="n">friendships</span> <span class="c1"># people A and B are friends!</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
 
 
-<span class="k">def</span> <span class="nf">computeExponentialGrowth</span><span class="p">(</span><span class="n">before</span><span class="p">,</span> <span class="n">after</span><span class="p">,</span> <span class="n">num_year</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    figures out what yearlyGrowthRate is given the following eq.</span>
-<span class="sd">    before*(yearlyGrowthRate)^(num_year) = after</span>
-<span class="sd">    </span>
-<span class="sd">    Args:</span>
-<span class="sd">        before: the number before the expoential growth</span>
-<span class="sd">        after: the number after the exponentail growth</span>
-<span class="sd">        </span>
-<span class="sd">    Returns:</span>
-<span class="sd">        the yearly growth rate </span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<div class="output_area"><div class="prompt output_prompt">Out[7]:</div>
 
-    <span class="k">return</span> <span class="mi">10</span><span class="o">**</span><span class="p">((</span><span class="n">math</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">after</span><span class="o">/</span><span class="n">before</span><span class="p">))</span><span class="o">/</span><span class="n">num_year</span><span class="p">)</span>
+
+<div class="output_text output_subarea output_execute_result">
+<pre>True</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span> <span class="ow">in</span> <span class="n">friendships</span> <span class="c1"># people C and D are not friends!</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[10]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>False</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># what is this expression of the form (x, y, ...) ?</span>
+<span class="c1"># This is Python&#39;s &quot;tuple&quot; expressions. 수학에서의 벡터와 매우 유사한 개념이다. 하지만 벡터와는 다르게</span>
+<span class="c1"># 터플의 각각 원소 x, y, ..., 등은 아무런 타입이 될 수 있다.</span>
+<span class="c1"># You can group any two or more things together in a parenthesis and assign them to a variable </span>
+<span class="c1">#</span>
+<span class="c1"># More tuple examples!</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">tupleExample1</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">)</span> <span class="c1"># e.g. 저번학기 재준이 성적</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">tupleExample2</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">)</span> <span class="c1"># e.. 저번학기 재준이 총 과목 성적.</span>
 </pre></div>
 
 </div>
@@ -11824,7 +11904,36 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="n">computeExponentialGrowth</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">tupleExample3</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;A+&#39;</span><span class="p">,</span> <span class="mi">98</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="mi">93</span><span class="p">,</span> <span class="s1">&#39;A-&#39;</span><span class="p">,</span> <span class="mi">91</span><span class="p">)</span> <span class="c1"># A+, A-, A 컷트라인 점수</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 터플 끼리의 덧셈은 어떻게 정의 될까?</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">numberTuple1</span> <span class="o">=</span> <span class="p">(</span><span class="mi">95</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">numberTuple2</span> <span class="o">=</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">105</span><span class="p">)</span>
+
+<span class="n">numberTuple1</span> <span class="o">+</span> <span class="n">numberTuple2</span>
 </pre></div>
 
 </div>
@@ -11835,11 +11944,13 @@ div#notebook {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>1.37972966146
-</pre>
+<div class="output_area"><div class="prompt output_prompt">Out[15]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(95, 100, 100, 105)</pre>
 </div>
+
 </div>
 
 </div>
@@ -11848,34 +11959,10 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 아시나요?</span>
-<span class="c1"># 올해 라이스 신입생 중 대략 1/3 가량은 라이스 컴싸 전공을 위한 101 수업인 COMP 140 혹은 COMP 160을 들었습니다.</span>
-<span class="c1"># 제가 신입생으로 입학 했을 때(..) 대략 80명 정도 들은 것 같은데 연간 yearly growth 를 계산해보면 대략 40% 정도 되네요.</span>
-<span class="c1"># 교수님 수는 거의 그대로인데 학생수는 몇배가 증가했다니.. 그만큼 조교를 많이 뽑을 예정인가 봅니다.</span>
-<span class="c1">#</span>
-<span class="c1"># 컴싸의 높아진 인기에는 여러가지 이유가 있겠지만 (i.e. 어마어마한 연봉, 개발자라는 멋진 타이틀(?)), </span>
-<span class="c1"># 우리 삶에 넓게는 컴퓨터공학이 좁게는 프로그래밍을 통한 자동화/생산성 개선이 이루어지고 있지 않은 곳이 없습니다. </span>
-<span class="c1"># 5년 뒤 쯤 좋은 대학에 가기 위해선, 고등학교 때 필수로 프로그래밍을 해야 될 지도 모른다고 조심스럽게 예언해봅니다..</span>
-<span class="c1"># 컴싸가 대체 뭐길래 이 난리를 치는걸까요?</span>
-<span class="c1"># </span>
-<span class="c1"># 이 수업을 듣고 난 후, 조금은 &quot;아 컴싸가 이런거구나&quot; 라는 본인만의 정의를 세울 수 있다면, 또 그래서 컴싸를 전공하게 된다면(?!), 저희 모두 매우</span>
-<span class="c1"># 뿌듯 할 것 같습니다.</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 터플 끼리의 덧셈의 기본 정의는 두 터플을 연결 한 새로운 터플 리턴!</span>
 </pre></div>
 
 </div>
@@ -11888,26 +11975,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># What This Course Aims To</span>
-<span class="c1"># 바야흐로, 코딩 교육의 시대입니다. 더 뛰어나고 훌륭하신 사람들이 만든 수많은 유/무료 온라인 강의가 범람하는 시대에 </span>
-<span class="c1"># 그것들을 대체하고자 하는 의도는 전혀 없습니다. 저희도 학점 챙겨야죠.</span>
-<span class="c1"># 다만, 프로그래밍의 분야에서 만큼은 1+1 이 2보다 클 수 있다고 믿습니다. 더 많은 이들이 관심을 가지고 더 재미난 것들을 같이 할 수 있게 된다면</span>
-<span class="c1"># 학교 생활이 매우 즐겁지 않을 까요</span>
-<span class="c1"># 프로그래밍은 생각 표현의 도구라 생각합니다. 마치 망치와 드라이버 처럼요. 어떤 생각을 담을지는 순전히 다양한 분야에서 공부하는 여러분들의 몫이라 생각합니다.</span>
-<span class="c1"># 모든 분야에 domain knowledge 가 필요 하듯이, 컴퓨터 공학은 이 생각의 표현을 체계적으로 정리해놓은 학문이라 생각합니다.</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 터플과 상수의 곱은 어떻게 정의 될까?</span>
 </pre></div>
 
 </div>
@@ -11920,10 +11988,223 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 이 수업을 듣고 난 뒤, 아래 3가지에 대해 답을 내리고 공감할 수 있다면 we know we have done our job well.</span>
-<span class="c1"># 1) What is programming and computer science and why should I bother learning it?</span>
-<span class="c1"># 2) Making fuzzy ideas concrete</span>
-<span class="c1"># 3) Being able to use abstraction and see things through</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="mi">3</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># 3 * (1, 2) = (3, 6) ?</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[19]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(1, 2, 1, 2, 1, 2)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 마찬 가지로 intuitive 하게 정의되어 있지 않다.</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 자, 본론으로 돌아와 오늘의 주제인 객체지향 프로그래밍 (Object oriented programming, OOP)에 대해서 알아보자.</span>
+<span class="c1"># OOP란 무엇을 뜻하는 걸까?</span>
+<span class="c1"># 지금까지 우리는 변수들을 선언하고 이 변수들을 가지고 이것저것 하는 스타일의 프로그래밍을 했다.</span>
+<span class="c1"># 하지만 세상 만사가 굉장히 복잡하다. 세상 만사가 이렇게 단순하기만 했다면, 프로그래밍도 매우 쉬울 것이다.</span>
+<span class="c1">#</span>
+<span class="c1"># 복잡한 이유는 대게의 경우 우리가 다루는 물체나 개념들은 semantically related 한 것들의 집합체 인 경우가 많다.</span>
+<span class="c1"># 쉬운 예를 들어보자.</span>
+<span class="c1">#</span>
+<span class="c1"># &quot;사람&quot; 이라는 단어를 들으면 어떤 이미지가 떠오르는가?</span>
+<span class="c1">#</span>
+<span class="c1"># 팔, 다리, 얼굴, 몸통, 등등</span>
+<span class="c1">#</span>
+<span class="c1"># 그 사람의 가치관, 대인관계, 종교, 등등</span>
+<span class="c1">#</span>
+<span class="c1"># 여러가지것들이 있을 수 있다.</span>
+<span class="c1"># </span>
+<span class="c1"># 컴퓨터 사이언스에서 말하는 객체란 특정한 개념을 표현하는 attributes 를 묶어놓은 단위를 말한다.</span>
+<span class="c1"># 예를들어 &quot;사람&quot; 이라는 객체를 그 사람의 &quot;이름&quot;과 그 사람의 &quot;친구 리스트&quot; 로 정의 할 수 있다.</span>
+<span class="c1"># 다음과 같이 말이다.</span>
+
+<span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">people_list</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">people_list</span> <span class="o">=</span> <span class="n">people_list</span>
+    
+    <span class="k">def</span> <span class="nf">get_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+    
+    <span class="k">def</span> <span class="nf">get_people_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">people_list</span>
+    
+    <span class="k">def</span> <span class="nf">add_friend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">aFriend</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">people_list</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">aFriend</span><span class="p">)</span>
+        
+    <span class="k">def</span> <span class="nf">undo_friend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">aFriend</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">people_list</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">aFriend</span><span class="p">)</span>
+        
+    <span class="k">def</span> <span class="nf">is_friend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">aFriend</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">aFriend</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">people_list</span>
+
+
+        
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&quot;jaejoon&quot;</span><span class="p">,</span> <span class="nb">set</span><span class="p">())</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&quot;nate&quot;</span><span class="p">,</span> <span class="nb">set</span><span class="p">())</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&quot;seungjoon&quot;</span><span class="p">,</span> <span class="nb">set</span><span class="p">())</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&quot;youngyul&quot;</span><span class="p">,</span> <span class="nb">set</span><span class="p">())</span>
+<span class="n">e</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&quot;gunhwan&quot;</span><span class="p">,</span> <span class="nb">set</span><span class="p">())</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&quot;frank&quot;</span><span class="p">,</span> <span class="nb">set</span><span class="p">())</span>
+
+<span class="n">a</span><span class="o">.</span><span class="n">add_friend</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="n">a</span><span class="o">.</span><span class="n">add_friend</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="n">b</span><span class="o">.</span><span class="n">add_friend</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">b</span><span class="o">.</span><span class="n">add_friend</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="n">c</span><span class="o">.</span><span class="n">add_friend</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">c</span><span class="o">.</span><span class="n">add_friend</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="n">a</span><span class="o">.</span><span class="n">is_friend</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="c1"># they are friends!</span>
+<span class="k">print</span> <span class="n">a</span><span class="o">.</span><span class="n">is_friend</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="c1"># they are not friends!</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>True
+False
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 이전의 표현과 비교해서 어떤 장점이 있을까? 예를들어...</span>
+<span class="c1"># 1) Person 이라는 개념을 만들고 그 개념이 가지는 요소들을 정의함으로써 하나의 새로운 Person 을 만들 때, 여러 변수를 지정할 필요 없다. </span>
+<span class="c1"># 2) Person 이라는 개념이 가지는 추가적인 요소들을 만들고 싶을 때, 새로운 변수와 개념들을 추가하면 된다.</span>
+<span class="c1"># 3) Person 이라는 &quot;객체&quot;를 만듦으로 써, 이 객체를 사용하는 사람은(= 우리) 실제 &quot;add_friend&quot; 등이 어떻게 구현되어 있는지 알 필요 없다.</span>
+<span class="c1"># 따라서 쓰기만 하면 된다. = Abstraction</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 당연히 장점만 있는건 아닐텐데, 어떤 단점들이 있을까? 예를들어....</span>
+<span class="c1"># 1) 객체의 정의가 바뀌었을 때 (i.e. 기존의 클래스에 함수 혹은 변수를 추가 할 시), 기존에 이미 정의한 변수들은 어떻게 하나?</span>
+<span class="c1"># 2) 이 객체의 구현이 비효율적인 경우나 추상화가 잘 못된 경우, 이용자는 이를 모르고 원치 않는 코스트를 지불 할 수 있다. (코드 속도의 저하, 불필요한 코드의 작성, etc)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># OOP 스타일의 프로그래밍을 한다고 해서, 항상 효율적이거나 올바른 코드를 짤 수 있는건 아니다.</span>
+<span class="c1"># OOP 의 진정한 가치는 모든 코드 한줄 한줄을 직관적이며 쉬운 비프로그래밍 언어로 의미를 담아 설명 할 수 있다는 것이다.</span>
+<span class="c1"># 프로그래밍에 익숙해 질 수록 많은 코드를 생각없이 막 짜내려 갈 수 있으나, 제대로 된 OOP 혹은 다른 프로그래밍 Principles 들을 따르지 않는 경우,</span>
+<span class="c1"># 유지보수 및 기능추가를 해야 될 경우, 많은 부분의 코드를 재사용하지 못하고 다시 짜야 되는 비효율성을 경험 할 수 있다.</span>
+<span class="c1"># 알고리즘 챕터에서도 다룬 좋은 코드의 정의에 하나더 추가 하면,</span>
+<span class="c1"># 좋은 코드란 수학적으로 그 정당성과 효율성을 증명 할 수 있는 코드인 것 과 더불어, 재사용하기 쉬운 확장성이 용이한 코드이다.</span>
+<span class="c1"># 이런 좋은 코드를 짜기는 사실 굉장히 어렵다.</span>
+<span class="c1"># 현업에서 average day 에 개발자가 짜는 코드는 몇백줄 내외라고 한다.</span>
+<span class="c1"># 아마 실제로 쓴 코드는 더 많을테지만 올바른 프로그래밍 Principles 들을 따르기 위해 끊임없이 생각하고 수정하는 과정에서</span>
+<span class="c1"># 지우는 코드때문에 몇줄 안남게 된다.</span>
+<span class="c1"># 하지만, 이러한 과정을 거치고 남는 좋은 코드는 두고두고 재사용하기 쉽고 유지 개보수가 편한 롱런에서 그 가치를 발휘한다.</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 자 이제 다시 위에서 언급한 Tuple 로 돌아와 보자.</span>
+<span class="c1"># 파이썬에서 Tuple 은 수학에서의 벡터와 그 모양과 기능들이 비슷한데 위에서 본 것 처럼 몇가지 다른 점들이 있다.</span>
+<span class="c1"># 예를들면 순수한 Tuple 로는 벡터의 덧셈 뺄셈과 Scalar multiplication 을 할 수 없다.</span>
+<span class="c1"># 또한 벡터는 숫자만 있어야 하는데, 터플은 아무런 형태의 데이터를 가질 수 있다.</span>
+<span class="c1"># 터플과 OOP 의 개념을 이용하여 벡터 Class 를 구현해보자.</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">class</span> <span class="nc">MyVector</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="c1"># 이 벡터 클래스는 기존의 벡터의 덧셈 뺄셈 및, Scalar multiplication 을 지원해야 한다.</span>
+<span class="c1"># 또한, 이 n 차원 벡터의 특정 entry 값은 &quot;get(dimension)&quot; method 를 통해 접근 한다.</span>
+<span class="c1"># 모든 벡터의 entry 는 숫자를 가져야 한다.</span>
 </pre></div>
 
 </div>
@@ -11936,127 +12217,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 6/2(1+2) 와 같은 모호한 수식 계산을 컴퓨터에게 시키려면 어떻게 해야 될까요?</span>
-<span class="c1"># 기계는 절대 시키지 않는 일을 하지 않습니다. 아이디어를 코드로 옮길 때는 애매모호이 있으면 안됩니다.</span>
-<span class="c1"># 이 수업에서 fuzzy 한 아이디어들을 구체적으로 기계가 이해할 수 있는 코드로 옮기려면 어떻게 해야 할지 배워봅니다.</span>
-<span class="c1"># 구체적으로, &quot;파이썬&quot; 이라는 프로그래밍 언어를 배우고 &quot;파이썬&quot; 코드로 옮기는 법을 배워 다룹니다.</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 손으로 쓰인 일련의 숫자들을 인식하는 바코드 프로그램</span>
-<span class="c1"># 이 수업을 들을지 말 지 결정하는 사고의 과정</span>
-<span class="c1"># STAT 310 에서 배우는 Regression </span>
-<span class="c1"># 어떤 (potential) 공통점들이 있을까요?</span>
-<span class="c1"># &quot;추상화&quot; 란, 실세계의 복잡한 예제, 상황들을 간결하고 명확하게 단순화/일반화/개념화 하는 과정을 말합니다.</span>
-<span class="c1"># 위에 설명한 &quot;구체화&quot; 라는 말과는 반대의 말이지요. 역설적이게도 프로그래밍을 잘 하기 위해서는 이 두가지 모두를 잘해야 합니다.</span>
-<span class="c1"># 이 덕목 또한, 수업에서 다뤄봅니다.</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 굉장히 많은 것들을 구구절절 얘기하였기에,</span>
-<span class="c1"># 3줄 요약과 함께 인트로 소개를 마칠까 합니다.</span>
-<span class="c1"># 1) 프로그래밍 어렵지 않다.</span>
-<span class="c1"># 2) 재미있게 배울 수 있다.</span>
-<span class="c1"># 3) 다같이.</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Some Course Logistics</span>
-<span class="c1"># When - Saturday Night (subject to change)</span>
-<span class="c1"># Where - TBD</span>
-<span class="c1"># Homework? - Of course. There are 4 homeworks and 1 final assisgnment</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span>
+<div class=" highlight hl-ipython2"><pre><span></span> 
 </pre></div>
 
 </div>
