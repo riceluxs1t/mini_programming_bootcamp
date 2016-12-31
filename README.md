@@ -12,7 +12,7 @@ How To Set Up Development Environment:
   1. create virtual environment setup file
   	$mkdir ~/.python_virtual_envs
 
-  2. $nano ~/.bashrc 
+  2. $nano ~/.bashrc
 
   3. copy below two lines to ~/.bashsrc
 	export WORKON_HOME=~/.python_virtual_envs
@@ -82,7 +82,7 @@ import from settings.py for the access key and secret key
 - add a homework submission UI
 
 # FIXME:
-- most text are editable even if contenteditable set to false.
+- most text are editable even if contenteditable set to false. (FIXED with pull request #5)
 - FIX all the static issues with javascript / css / html (i.e. Chrome javascript console doesn't display any error)
 - fix the issue of pycogpg2 not being installed on my local machine. (a very minor issue)
 - FIX sqlite db seems to be out of sync on heroku even after running the migrate command
@@ -97,4 +97,3 @@ Lectures currenlty at : HOSTNAME/lectures/1,   HOESTNAME/lectures/2, etc.
 
 Lecture Image
 ![The lecture screenshot is unavailable](https://cloud.githubusercontent.com/assets/10087079/21213540/a4b34972-c25a-11e6-9d00-6d99e9bd945e.png)
-
