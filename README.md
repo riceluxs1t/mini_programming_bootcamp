@@ -67,6 +67,8 @@ The command firstly checks if the solution module exists. Then checks if the stu
 implemented. If both were successful, runs the test cases against the student code. At the end, writes a score
 to a file in path "grader.grades". The score is computed by (# of passed test cases / # of all test cases)
 
+# AWS CONFIG
+import from settings.py for the access key and secret key
 
 TODO:
 - add more features.
