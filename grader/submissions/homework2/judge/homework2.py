@@ -38,8 +38,6 @@ def zigZag(line):
             string += "#" * (9 - i % 10) + " " * 5 + "#" * (i % 10) + "\n"
     return string
 
-print zigZag(1000)
-
 def check_for_three(lst):
     """
     Given a list of integers,
@@ -51,9 +49,9 @@ def check_for_three(lst):
     ret = copy.copy(lst)
     for i in range(0, len(lst)):
         if "3" in str(lst[i]):
-            ret[i] = False
+            ret[i] = "F"
         else:
-            ret[i] = True
+            ret[i] = "T"
     return ret
 
 
