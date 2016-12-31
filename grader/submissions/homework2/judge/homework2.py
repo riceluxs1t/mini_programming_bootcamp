@@ -9,7 +9,7 @@ import collections
 def zigZag(line):
     """
     Given an integer line, create a "line" lines of zigzag.
-    Each line should contain 9 #s and 5 consecutive white spaces, switching the direction once it
+    Each line should contain 9 0s and 5 consecutive white spaces, switching the direction once it
     hits the wall. The white spaces starts from the left side of the string
     It should look something like this:
          #########
@@ -27,15 +27,18 @@ def zigZag(line):
     #######     ##
     ...
     """
+    string = ""
     toLeft = False
     for i in range(0, line):
         if i % 10 == 0:
             toLeft = not toLeft
         if toLeft:
-            print "#" * (i % 10) + " " * 5 + "#" * (9 - i % 10)
+            string += "#" * (i % 10) + " " * 5 + "#" * (9 - i % 10) + "\n"
         else:
-            print "#" * (9 - i % 10) + " " * 5 + "#" * (i % 10)
+            string += "#" * (9 - i % 10) + " " * 5 + "#" * (i % 10) + "\n"
+    return string
 
+print zigZag(1000)
 
 def check_for_three(lst):
     """
