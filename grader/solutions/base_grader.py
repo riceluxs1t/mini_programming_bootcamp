@@ -8,10 +8,11 @@ All grader must subclass this base grader and run the "runTests" method.
 """
 
 
+# TODO: add multi modules support
 class BaseGrader(object):
     def __init__(self):
         self.failed_test_cases = []
-        self.num_test_cases = len(self.get_test_cases())
+        self.num_test_cases = 0
 
     """
     asserts if the submitted .py file has all the functions to be implemented.
@@ -21,7 +22,7 @@ class BaseGrader(object):
         for function_name in function_names:
             if not hasattr(module, function_name):
                 # TODO: do it in more reliable way than this.
-                module_name = m.__name__[m.__name__.rfind(".") + 1:]
+                module_name = module.__name__[module.__name__.rfind(".") + 1:]
                 print STRING_MODULE_HAS_NO_FUNCTION % (module_name, function_name)
                 exit(-1)
 
@@ -39,6 +40,7 @@ class BaseGrader(object):
     """
     def run_tests(self):
         for test_case in self.get_test_cases():
+
             try:
                 getattr(self, test_case)()
             except Exception as e:
@@ -47,27 +49,30 @@ class BaseGrader(object):
 
         failed_test_cases = len(self.failed_test_cases)
         if failed_test_cases == 0:
-            print STRING_PASSED_ALL_TEST_CASES
+            print STRING_PASSED_ALL_TEST_CASES.format(self.num_test_cases)
             return 1.0
         else:
 
             print STRING_FAILED_SOME_TEST_CASES.format(failed_test_cases, self.num_test_cases)
 
             # TODO: actually tell what cases they failed.
-
-            return float(self.num_test_cases - failed_test_cases) / failed_test_cases
+            return float(self.num_test_cases - failed_test_cases) / self.num_test_cases
 
     """
     Runs a single test case.
 
     """
     def test(self, expected, function, *args, **kwargs):
+        self.num_test_cases += 1
+
         try:
             with context_manager_time_limit():
                 actual = function(*args)
 
                 if expected != actual and ('floatComparison' not in kwargs or abs(expected - actual) > EPSILON):
                     self.failed_test_cases.append(format_wrong_return_value(actual, function.__name__, args))
+                    return False
+                return True
 
         except TimeoutException:
             self.failed_test_cases.append(
@@ -77,3 +82,4 @@ class BaseGrader(object):
             self.failed_test_cases.append(
                 "Error: %s " % e + format_function_arguments(function.__name__, args)
             )
+        return False

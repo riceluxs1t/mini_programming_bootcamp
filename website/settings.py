@@ -136,3 +136,15 @@ DATABASES['default'].update(db_from_env)
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
+
+# Tells Whether Local Or Server
+# the Heroku instance has "SERVER_ENV" env set to "SERVER"
+SERVER_ENV = os.getenv("SERVER_ENV") or "LOCAL"
+
+# AWS Config
+AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
+S3_SUBMISSION_BUCKET_NAME = "rice-python-web-class"
+
+if SERVER_ENV == "SERVER" and (not AWS_ACCESS_KEY_ID or not AWS_SECRET_ACCESS_KEY):
+    raise Exception("Required env vars not existent!")

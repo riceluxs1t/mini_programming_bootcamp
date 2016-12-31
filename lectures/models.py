@@ -8,7 +8,8 @@ Model that represents each lecture
 
 
 class Lectures(models.Model):
-    # TODO: add some other necessary fields.
+
+    is_visible = models.BooleanField(default=False)
 
     class Meta:
         db_table = "lectures"

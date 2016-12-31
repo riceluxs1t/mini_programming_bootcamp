@@ -12,7 +12,7 @@ class Grader(BaseGrader):
         super(Grader, self).__init__()
         (module, ) = modules
 
-        self.expectedModules = Homework.objects.get(id=1).modules.split(',')
+        self.expectedModules = Homework.objects.get(id=0).modules.split(',')
 
         self.assert_functions_exist(module, *self.expectedModules)
 
