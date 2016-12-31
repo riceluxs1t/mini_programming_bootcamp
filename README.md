@@ -1,4 +1,4 @@
-This is the simple website for the python class taught by nk15@rice.edu, jl51@rice.edu, sn28@rice.edu for the Korean international
+This is the simple website for the python class taught by nk15@rice.edu, jl51@rice.edu, sn28@rice.edu, kk49@rice.edu  for the Korean international
 students for Spring 2017. Built on top of Django for easy use. Nothing fancy.
 
 Currently running on Heroku at
