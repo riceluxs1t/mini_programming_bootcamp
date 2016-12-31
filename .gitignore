@@ -3,7 +3,9 @@
 *.log
 *.pot
 *.pyc
+*.gz
 
 ;;directories to ignore
 .idea/
+virtualsh/
 
