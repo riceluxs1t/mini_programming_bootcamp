@@ -22,7 +22,7 @@ class Command(BaseCommand):
         try:
             response = s3_client.put_object(
                 Bucket='rice-python-web-class',
-                Key='homework/submission/hw.py')
+                Key='/homework/hw.py')
             logging.info("  %s", response)
         except Exception as e:
             logging.warn("Bucket error %s", e)
