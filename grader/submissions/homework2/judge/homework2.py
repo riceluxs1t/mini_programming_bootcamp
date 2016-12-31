@@ -54,7 +54,6 @@ def check_for_three(lst):
             ret[i] = "T"
     return ret
 
-
 def memory_cleaner(lst):
     """
     Erase all repeated elements (not necessarily integers) in the list, leaving just one.
@@ -71,6 +70,7 @@ def memory_cleaner(lst):
         else:
             ret.remove(i)
     return ret
+
 
 
 def same_sum_substring(string):
@@ -93,8 +93,6 @@ def same_sum_substring(string):
     return count
 
 
-# HW3
-
 def isBalanced(str):
     """
     Check if the given string consisting of (,) is balanced. Search the definition of balanced.
@@ -107,15 +105,16 @@ def isBalanced(str):
             queue.append(1)
         else:
             if (len(queue) == 0):
-                return False
+                return "F"
             else:
                 queue.pop()
 
     if len(queue) == 0:
-        return True
+        return "T"
     else:
-        return False
+        return "F"
 
+print isBalanced("((((((()()()))))))()()(((())))((((((()()()))))))()()(((())))((((((()()()))))))()()(((())))((((((()()()))))))()()(((())))((((((()()()))))))()()(((())))((((((()()()))))))()()(((())))((((((()()()))))))()()(((())))((((((()()()))))))()()(((())))((((((()()()))))))()()(((())))((((((()()()))))))()()(((())))((((((()()()))))))()()(((())))((((((()()()))))))()()(((())))((((((()()()))))))()()(((())))((((((()()()))))))()()(((())))")
 
 def anagrams(string):
     """
