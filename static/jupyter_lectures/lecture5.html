@@ -1589,21 +1589,6 @@ pre code {
   padding-left: 0px;
   padding-right: 0px;
 }
-@media (min-width: 768px) {
-  .container {
-    width: 768px;
-  }
-}
-@media (min-width: 992px) {
-  .container {
-    width: 940px;
-  }
-}
-@media (min-width: 1200px) {
-  .container {
-    width: 1140px;
-  }
-}
 .container-fluid {
   margin-right: auto;
   margin-left: auto;
@@ -8456,15 +8441,15 @@ label {
 }
 /* Flexible box model classes */
 /* Taken from Alex Russell http://infrequently.org/2009/08/css-3-progress/ */
-/* This file is a compatability layer.  It allows the usage of flexible box 
+/* This file is a compatability layer.  It allows the usage of flexible box
 model layouts accross multiple browsers, including older browsers.  The newest,
 universal implementation of the flexible box model is used when available (see
-`Modern browsers` comments below).  Browsers that are known to implement this 
+`Modern browsers` comments below).  Browsers that are known to implement this
 new spec completely include:
 
     Firefox 28.0+
     Chrome 29.0+
-    Internet Explorer 11+ 
+    Internet Explorer 11+
     Opera 17.0+
 
 Browsers not listed, including Safari, are supported via the styling under the
@@ -11214,7 +11199,7 @@ div#pager .ui-resizable-handle {
   background: #f7f7f7;
   border-top: 1px solid #cfcfcf;
   border-bottom: 1px solid #cfcfcf;
-  /* This injects handle bars (a short, wide = symbol) for 
+  /* This injects handle bars (a short, wide = symbol) for
         the resize handle. */
 }
 div#pager .ui-resizable-handle::after {
@@ -11649,7 +11634,7 @@ ul.typeahead-list > li > a {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
-    
+
 /* Temporary definitions which will become obsolete with Notebook release 5.0 */
 .ansi-black-fg { color: #3E424D; }
 .ansi-black-bg { background-color: #3E424D; }
@@ -11705,14 +11690,14 @@ div#notebook {
   div.cell {
     display: block;
     page-break-inside: avoid;
-  } 
-  div.output_wrapper { 
-    display: block;
-    page-break-inside: avoid; 
   }
-  div.output { 
+  div.output_wrapper {
     display: block;
-    page-break-inside: avoid; 
+    page-break-inside: avoid;
+  }
+  div.output {
+    display: block;
+    page-break-inside: avoid;
   }
 }
 </style>
@@ -11870,11 +11855,11 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">class</span> <span class="nc">Grade</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span> <span class="c1"># 우리가 정의한 &quot;Class&quot;</span>
-    
+
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">homework_name</span><span class="p">,</span> <span class="n">homework_grade</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">homework_name</span> <span class="o">=</span> <span class="n">homework_name</span> <span class="c1"># 이 클래스의 객체가 가지는 attribute</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">homework_grade</span> <span class="o">=</span> <span class="n">homework_grade</span> <span class="c1"># 이 클래스의 객체가 가지는 attribute2</span>
-    
+
     <span class="c1"># 이 클래스의 객체가 가지는 함수. 레터그레이드 성적을 계산.</span>
     <span class="k">def</span> <span class="nf">computeGrade</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">homework_grade</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="p">:</span>
@@ -12012,7 +11997,7 @@ div#notebook {
 <span class="c1">#     print &quot;yes there is a chicken fried steak served somewhere on campus!&quot;</span>
 <span class="c1"># else:</span>
 <span class="c1">#     print &quot;Most likely, no chicken fried steak served tonight!&quot;</span>
-    
+
 </pre></div>
 
 </div>
@@ -12118,7 +12103,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span> 
+<div class=" highlight hl-ipython2"><pre><span></span>
 </pre></div>
 
 </div>
