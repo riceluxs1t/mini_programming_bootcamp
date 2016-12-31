@@ -9,7 +9,7 @@ import collections
 def zigZag(line):
     """
     Given an integer line, create a "line" lines of zigzag.
-    Each line should contain 9 #s and 5 consecutive white spaces, switching the direction once it
+    Each line should contain 9 0s and 5 consecutive white spaces, switching the direction once it
     hits the wall. The white spaces starts from the left side of the string
     It should look something like this:
          #########
@@ -27,15 +27,16 @@ def zigZag(line):
     #######     ##
     ...
     """
+    string = ""
     toLeft = False
     for i in range(0, line):
         if i % 10 == 0:
             toLeft = not toLeft
         if toLeft:
-            print "#" * (i % 10) + " " * 5 + "#" * (9 - i % 10)
+            string += "#" * (i % 10) + " " * 5 + "#" * (9 - i % 10) + "\n"
         else:
-            print "#" * (9 - i % 10) + " " * 5 + "#" * (i % 10)
-
+            string += "#" * (9 - i % 10) + " " * 5 + "#" * (i % 10) + "\n"
+    return string
 
 def check_for_three(lst):
     """
@@ -48,11 +49,10 @@ def check_for_three(lst):
     ret = copy.copy(lst)
     for i in range(0, len(lst)):
         if "3" in str(lst[i]):
-            ret[i] = False
+            ret[i] = "F"
         else:
-            ret[i] = True
+            ret[i] = "T"
     return ret
-
 
 def memory_cleaner(lst):
     """
@@ -70,6 +70,7 @@ def memory_cleaner(lst):
         else:
             ret.remove(i)
     return ret
+
 
 
 def same_sum_substring(string):
@@ -92,8 +93,6 @@ def same_sum_substring(string):
     return count
 
 
-# HW3
-
 def isBalanced(str):
     """
     Check if the given string consisting of (,) is balanced. Search the definition of balanced.
@@ -106,15 +105,14 @@ def isBalanced(str):
             queue.append(1)
         else:
             if (len(queue) == 0):
-                return False
+                return "F"
             else:
                 queue.pop()
 
     if len(queue) == 0:
-        return True
+        return "T"
     else:
-        return False
-
+        return "F"
 
 def anagrams(string):
     """
