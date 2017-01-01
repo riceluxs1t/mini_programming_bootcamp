@@ -8,6 +8,8 @@ the source control platform
 
 
 class Command(BaseCommand):
+    # TODO : should create 'homework_name/user_name' dir with __init__.py then create homework_name.py with body from
+    # TODO : each 'bucket/homework/user_name/homework_name'
 
     def handle(self, *args, **options):
         s3_client = boto3.client('s3', aws_access_key_id="AKIAI5LREICCGFBFLJMQ",
