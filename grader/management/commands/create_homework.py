@@ -18,7 +18,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         """
         The format should be as such: python manage.py create_homework homework_name user_name hw_dir
-        for instance : python manage.py create_homework homework1.py jr51 ~/homework/homework1.py
+        for instance : python manage.py create_homework homework1.py jr51 /Users/Jay/homework/homework1.py
         """
         homework_name = options.get(HOMEWORK_NAME)
         user_name = options.get(USER_NAME)
