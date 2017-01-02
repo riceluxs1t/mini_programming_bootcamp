@@ -2,10 +2,7 @@ import os
 
 import errno
 from django.core.management import BaseCommand
-import boto3
-import logging
 from grader.config import HOMEWORK_NAME
-from website.settings import AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, S3_SUBMISSION_BUCKET_NAME
 
 """
 A command that runs and creates a homework and its necessary directories
