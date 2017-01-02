@@ -16,7 +16,10 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         homework_name = options.get(HOMEWORK_NAME)
+        create_file(homework_name)
 
+
+def create_file(homework_name):
         filename = "grader/submissions/" + homework_name + "/__init__.py"
         if not os.path.exists(os.path.dirname(filename)):
             try:

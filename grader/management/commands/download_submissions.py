@@ -1,7 +1,12 @@
-import boto3
-from django.core.management import BaseCommand
-from website.settings import AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, S3_SUBMISSION_BUCKET_NAME
+import os
 
+import boto3
+import errno
+from django.core.management import BaseCommand
+
+from grader.management.commands import create_homework
+from website.settings import AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, S3_SUBMISSION_BUCKET_NAME
+from grader.config import USER_NAME, HOMEWORK_NAME
 
 """
 A command that runs and downloads homework submissions from
@@ -10,25 +15,36 @@ the source control platform
 
 
 class Command(BaseCommand):
-    # TODO : should create 'homework_name/user_name' dir with __init__.py then create homework_name.py with body from
-    # TODO : each 'bucket/homework/user_name/homework_name'
+
+    def add_arguments(self, parser):
+        parser.add_argument(HOMEWORK_NAME, type=str)
+        parser.add_argument(USER_NAME, type=str)
+
 
     def handle(self, *args, **options):
         s3_client = boto3.client('s3', aws_access_key_id=AWS_ACCESS_KEY_ID,
                                  aws_secret_access_key=AWS_SECRET_ACCESS_KEY)
 
-        my_bucket = s3_client.Bucket(S3_SUBMISSION_BUCKET_NAME)
+        homework_name = options.get(HOMEWORK_NAME)
+        user_name = options.get(USER_NAME)
+        self.create_user_directory(homework_name, user_name)
 
-        for object in my_bucket.objects.all():
-            print(object.key)
+        s3_client.download_file(
+            Bucket=S3_SUBMISSION_BUCKET_NAME,
+            Key='/' + user_name + '/' + homework_name + '/' + homework_name + ".py",
+            Filename = 'grader/submissions/' + homework_name + '/' + user_name + '/' + homework_name + ".py"
+        )
 
-        # s3_client.download_file(
-        #     Bucket='rice-python-web-class',
-        #     Key='/homework/hw.py',
-        #     Filename = 'hw.py'
-        # )
+    def create_user_directory(self, homework_name, user_name):
+        create_homework.create_file(homework_name)
 
+        filename = "grader/submissions/" + homework_name + "/" + user_name + '/__init__.py'
+        if not os.path.exists(os.path.dirname(filename)):
+            try:
+                os.makedirs(os.path.dirname(filename))
+            except OSError as exc: # Guard against race condition
+                if exc.errno != errno.EEXIST:
+                    raise
+        with open(filename, "w") as f:
+            f.write("")
 
-        # for bucket in s3.buckets.all():
-        #     for key in bucket.objects.all():
-        #         print(key.key)
