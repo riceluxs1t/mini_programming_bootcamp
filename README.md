@@ -18,8 +18,9 @@ How To Set Up Development Environment:
 	export WORKON_HOME=~/.python_virtual_envs
 	source /usr/local/bin/virtualenvwrapper.sh #it will set several paths to initiate virtualenv.
 
-- create a virtualwrapper and work on it. (type "makevirtualenv SOME_WRAPPER_NAME" to create a virtualwrapper, where SOME_WRAPPER_NAME is some name)
-	ex) $makvirtualenv ricelux
+- create a virtualwrapper and work on it. (type "makevirtualenv SOME_WRAPPER_NAME" to create a virtualwrapper, where SOME_WRAPPER_NAME is some name you choose)
+	ex) $makvirtualenv ricelux.
+
 	useful commands:
 		Launch virtual environment: $workon ricelux
 		Deactivate the environment: $deactivate
@@ -37,7 +38,8 @@ test cases against the submission code.
 
 These are the following components for grading of homework X.
 
-- HOMEWORK_NAME : supplied as one of the arguments of the "grade" django command. USER_NAME: supplied as one of
+- Some constants. 
+HOMEWORK_NAME : supplied as one of the arguments of the "grade" django command. USER_NAME: supplied as one of
 the arguments of the "grade" django command. "grade" django command exists in path "grader.management.commands.grade.py"
 An example use case is "python manage.py grade homework2 nate". homework2 corresponds to HOMEWORK_NAME and nate to
 USER_NAME
@@ -54,8 +56,9 @@ in path "submissions.HOMEWORK_NAME.USER_NAME.MODULE1.py", "submissions.HOMEWORK_
 This file must implement all the functions specified by the homework.
 If doesn't, the grading fails and the student receives a zero (TODO: make this a little more graceful).
 
-- a Django Lectures model instance that has 1) the comma separated string of all the expected modules names
- 2) the comma separated string of all the expected function names 3) a name field equal to HOMEWORK_NAME
+- a Django "Lectures" model instance
+it has 1) the comma separated string of all the expected modules names
+2) the comma separated string of all the expected function names 3) a name field equal to HOMEWORK_NAME
 
 TODO: config options are specified from multiple sources. make it more manageable.
 
@@ -70,7 +73,7 @@ to a file in path "grader.grades". The score is computed by (# of passed test ca
 # AWS CONFIG
 import from settings.py for the access key and secret key
 
-TODO:
+# TODO:
 - add more features.
 - add some more tests for python code.
 - add specifically tests for the grader module
@@ -80,7 +83,7 @@ TODO:
 - add a multi module submission support for the grader module. i.e. students submit multiple .py files for one homework
 - add a homework submission UI
 
-FIXME:
+# FIXME:
 - most text are editable even if contenteditable set to false.
 - FIX all the static issues with javascript / css / html (i.e. Chrome javascript console doesn't display any error)
 - fix the issue of pycogpg2 not being installed on my local machine. (a very minor issue)
