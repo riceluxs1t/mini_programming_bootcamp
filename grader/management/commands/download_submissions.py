@@ -20,7 +20,6 @@ class Command(BaseCommand):
         parser.add_argument(HOMEWORK_NAME, type=str)
         parser.add_argument(USER_NAME, type=str)
 
-
     def handle(self, *args, **options):
         s3_client = boto3.client('s3', aws_access_key_id=AWS_ACCESS_KEY_ID,
                                  aws_secret_access_key=AWS_SECRET_ACCESS_KEY)
@@ -32,7 +31,7 @@ class Command(BaseCommand):
         s3_client.download_file(
             Bucket=S3_SUBMISSION_BUCKET_NAME,
             Key='/' + user_name + '/' + homework_name + '/' + homework_name + ".py",
-            Filename = 'grader/submissions/' + homework_name + '/' + user_name + '/' + homework_name + ".py"
+            Filename='grader/submissions/' + homework_name + '/' + user_name + '/' + homework_name + ".py"
         )
 
     def create_user_directory(self, homework_name, user_name):
@@ -42,7 +41,7 @@ class Command(BaseCommand):
         if not os.path.exists(os.path.dirname(filename)):
             try:
                 os.makedirs(os.path.dirname(filename))
-            except OSError as exc: # Guard against race condition
+            except OSError as exc:  # Guard against race condition
                 if exc.errno != errno.EEXIST:
                     raise
         with open(filename, "w") as f:
