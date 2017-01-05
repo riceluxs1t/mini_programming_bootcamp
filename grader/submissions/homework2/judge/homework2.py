@@ -6,36 +6,37 @@ import collections
 # HW2
 
 # Q1
-def zigZag(line):
-    """
-    Given an integer line, create a "line" lines of zigzag.
-    Each line should contain 9 #s and 5 consecutive white spaces, switching the direction once it
-    hits the wall. The white spaces starts from the left side of the string
-    It should look something like this:
-         #########
-    #     ########
-    ##     #######
-    ###     ######
-    ####     #####
-    #####     ####
-    ######     ###
-    #######     ##
-    ########     #
-    #########
-    #########
-    ########     #
-    #######     ##
-    ...
-    """
-    toLeft = False
-    for i in range(0, line):
-        if i % 10 == 0:
-            toLeft = not toLeft
-        if toLeft:
-            print "#" * (i % 10) + " " * 5 + "#" * (9 - i % 10)
-        else:
-            print "#" * (9 - i % 10) + " " * 5 + "#" * (i % 10)
-
+# def zigZag(line):
+#     """
+#     Given an integer line, create a "line" lines of zigzag.
+#     Each line should contain 9 0s and 5 consecutive white spaces, switching the direction once it
+#     hits the wall. The white spaces starts from the left side of the string
+#     It should look something like this:
+#          #########
+#     #     ########
+#     ##     #######
+#     ###     ######
+#     ####     #####
+#     #####     ####
+#     ######     ###
+#     #######     ##
+#     ########     #
+#     #########
+#     #########
+#     ########     #
+#     #######     ##
+#     ...
+#     """
+#     string = ""
+#     toLeft = False
+#     for i in range(0, line):
+#         if i % 10 == 0:
+#             toLeft = not toLeft
+#         if toLeft:
+#             string += "#" * (i % 10) + " " * 5 + "#" * (9 - i % 10) + "\n"
+#         else:
+#             string += "#" * (9 - i % 10) + " " * 5 + "#" * (i % 10) + "\n"
+#     return string
 
 def check_for_three(lst):
     """
@@ -48,11 +49,10 @@ def check_for_three(lst):
     ret = copy.copy(lst)
     for i in range(0, len(lst)):
         if "3" in str(lst[i]):
-            ret[i] = False
+            ret[i] = "F"
         else:
-            ret[i] = True
+            ret[i] = "T"
     return ret
-
 
 def memory_cleaner(lst):
     """
@@ -70,6 +70,7 @@ def memory_cleaner(lst):
         else:
             ret.remove(i)
     return ret
+
 
 
 def same_sum_substring(string):
@@ -92,46 +93,43 @@ def same_sum_substring(string):
     return count
 
 
-# HW3
-
-def isBalanced(str):
-    """
-    Check if the given string consisting of (,) is balanced. Search the definition of balanced.
-    Using stack or queue is recommended.
-    """
-    queue = collections.deque()
-    chars = list(str)
-    for i in chars:
-        if i == "(":
-            queue.append(1)
-        else:
-            if (len(queue) == 0):
-                return False
-            else:
-                queue.pop()
-
-    if len(queue) == 0:
-        return True
-    else:
-        return False
-
-
-def anagrams(string):
-    """
-    Find the number of substring pair that are anagrams to each other.
-    Using counter or dictionary is recommended.
-    """
-    count = 0
-    dict = {}
-    for i in range(0, len(string) + 1):
-        for j in range(i + 1, len(string) + 1):
-            chars = [x for x in list(string[i:j])]
-            chars.sort()
-            sorted = "".join(chars)
-            if sorted not in dict:
-                dict[sorted] = 1
-            else:
-                count += dict[sorted]
-                dict[sorted] += 1
-    return count
+# def isBalanced(str):
+#     """
+#     Check if the given string consisting of (,) is balanced. Search the definition of balanced.
+#     Using stack or queue is recommended.
+#     """
+#     queue = collections.deque()
+#     chars = list(str)
+#     for i in chars:
+#         if i == "(":
+#             queue.append(1)
+#         else:
+#             if (len(queue) == 0):
+#                 return "F"
+#             else:
+#                 queue.pop()
+#
+#     if len(queue) == 0:
+#         return "T"
+#     else:
+#         return "F"
+#
+# def anagrams(string):
+#     """
+#     Find the number of substring pair that are anagrams to each other.
+#     Using counter or dictionary is recommended.
+#     """
+#     count = 0
+#     dict = {}
+#     for i in range(0, len(string) + 1):
+#         for j in range(i + 1, len(string) + 1):
+#             chars = [x for x in list(string[i:j])]
+#             chars.sort()
+#             sorted = "".join(chars)
+#             if sorted not in dict:
+#                 dict[sorted] = 1
+#             else:
+#                 count += dict[sorted]
+#                 dict[sorted] += 1
+#     return count
 

@@ -1,4 +1,4 @@
-This is the simple website for the python class taught by nk15@rice.edu, jl51@rice.edu, sn28@rice.edu, kk49@rice.edu  for the Korean international
+This is the simple website for the python class taught by nk15@rice.edu, jr51@rice.edu, sn28@rice.edu for the Korean international
 students for Spring 2017. Built on top of Django for easy use. Nothing fancy.
 
 Currently running on Heroku at
@@ -38,7 +38,8 @@ test cases against the submission code.
 
 These are the following components for grading of homework X.
 
-- HOMEWORK_NAME : supplied as one of the arguments of the "grade" django command. USER_NAME: supplied as one of
+- Some constants. 
+HOMEWORK_NAME : supplied as one of the arguments of the "grade" django command. USER_NAME: supplied as one of
 the arguments of the "grade" django command. "grade" django command exists in path "grader.management.commands.grade.py"
 An example use case is "python manage.py grade homework2 nate". homework2 corresponds to HOMEWORK_NAME and nate to
 USER_NAME
@@ -55,8 +56,9 @@ in path "submissions.HOMEWORK_NAME.USER_NAME.MODULE1.py", "submissions.HOMEWORK_
 This file must implement all the functions specified by the homework.
 If doesn't, the grading fails and the student receives a zero (TODO: make this a little more graceful).
 
-- a Django Lectures model instance that has 1) the comma separated string of all the expected modules names
- 2) the comma separated string of all the expected function names 3) a name field equal to HOMEWORK_NAME
+- a Django "Lectures" model instance
+it has 1) the comma separated string of all the expected modules names
+2) the comma separated string of all the expected function names 3) a name field equal to HOMEWORK_NAME
 
 TODO: config options are specified from multiple sources. make it more manageable.
 
