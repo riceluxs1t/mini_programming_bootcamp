@@ -21,7 +21,6 @@ class LectureView(APIView):
         # if the lecture does not yet exist or is not set to be visible, kick back to the front page
         if not Lectures.objects.filter(id=lecture_id).exists() or \
                 Lectures.objects.filter(id=lecture_id, is_visible=False):
-            print "do i get here?"
             return redirect("/")
 
         previous_lecture = self.lecture_url_prefix.format(lecture_id - 1)
