@@ -10,3 +10,4 @@ class LectureView(MaterialView):
     _material_display_name = "Lecture {0}"
     _material_url_prefix = "/lectures/{0}"
     _model = Lectures
+
