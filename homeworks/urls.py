@@ -1,7 +1,7 @@
 from django.conf.urls import url
 
-# from views import LectureView
-#
-# urlpatterns = [
-#     url(r'^(?P<material_id>\d+)', LectureView.as_view())
-# ]
+from views import HomeworkView
+
+urlpatterns = [
+    url(r'^(?P<material_id>\d+)', HomeworkView.as_view())
+]

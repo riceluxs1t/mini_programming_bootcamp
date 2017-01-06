@@ -1,0 +1,61 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<!-- saved from url=(0027)http://launchaco.com/build/ -->
+<html lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title> {{ material_display_name }}</title>
+
+    <!-- meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:image" content="http://www.launchaco.com/images/facebook.png">
+    <meta property="og:url" content="http://launchaco.com">
+    <meta property="og:site_name" content="Launchaco">
+
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="white">
+    <!-- favicons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="http://launchaco.com/images/favicons.ico/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="http://launchaco.com/images/favicons.ico/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="http://launchaco.com/images/favicons.ico/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="http://launchaco.com/images/favicons.ico/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="http://launchaco.com/images/favicons.ico/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="http://launchaco.com/images/favicons.ico/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="http://launchaco.com/images/favicons.ico/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="http://launchaco.com/images/favicons.ico/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="http://launchaco.com/images/favicons.ico/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="http://launchaco.com/images/favicons.ico/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="http://launchaco.com/images/favicons.ico/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="http://launchaco.com/images/favicons.ico/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="http://launchaco.com/images/favicons.ico/favicon-16x16.png">
+    <link rel="manifest" href="http://launchaco.com/images/favicons.ico/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/images/favicons.ico//ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+  <!-- <link rel="stylesheet" href="/static/lectures/6d480522bf44ca8359b4.css"> -->
+  <!-- <link rel="stylesheet" href="{% static 'lectures/6d480522bf44ca8359b4.css' %}"> -->
+  <link  rel="stylesheet" href="{% static 'lectures/main.css' %}">
+  <script type="text/javascript" src="/static/lectures/jquery.inputmask.bundle.min.js"></script></head>
+  <body spellcheck="false">
+    <div id="main"></div>
+  <script type="text/javascript" src="/static/lectures/jquery-3.1.1.min.js"></script>
+  <script type="text/javascript" src="/static/lectures/Fetch.js"></script>
+  <script type="text/javascript" src="/static/lectures/Delete.js"></script>
+  <script type="text/javascript" src="/static/lectures/Scroll.js"></script>
+  <script type="text/javascript" src="/static/lectures/EditText.js"></script>
+  <script type="text/javascript" src="/static/lectures/Meta.js"></script>
+  <script type="text/javascript" src="/static/lectures/HideHeaderFooter.js"></script>
+  <script type="text/javascript" src="/static/lectures/Downloadr.js"></script>
+  <script type="text/javascript" src="/static/lectures/DownloadDev.js"></script>
+  <script type="text/javascript" src="/static/lectures/Downloadpopuphider.js"></script>
+  <script type="text/javascript" src="/static/lectures/webforms.min.js"></script>
+  <script type="text/javascript" src="/static/lectures/HoverFocus.js"></script>
+  <script type="text/javascript" src="/static/lectures/Validate.js"></script>
+
+  <div><header class="websiteheader preview-mode" style="display: none;"><div class="container"></div></header><div><div id="meta" class="meta meta meta__active"></div></div><div class="themecolor-white themefont-fun"><div><div class="container hideforpreview preview-mode"><section class="section section__active" id="herogrid"><div class="menu center" id="hero"><h3 class="menu-title"><b>Step 1/4</b> - Select Hero Template</h3><div class="menu-collapse"></div></div><ul class="grid" id="herotemplateselector"><li class="grid-item"><div class="grid-item-img"><img src="/static/lectures/hero-classic-left.svg"></div><div class="grid-item-meta"><span class="grid-item-meta-text">The Zuck</span><div class="grid-item-meta-fs"></div></div></li><li class="grid-item"><div class="grid-item-img"><img src="/static/lectures/hero-classic-center.svg"></div><div class="grid-item-meta"><span class="grid-item-meta-text">The Page</span><div class="grid-item-meta-fs"></div></div></li><li class="grid-item grid-item__active"><div class="grid-item-img"><img src="/static/lectures/hero-classic-right.svg"></div><div class="grid-item-meta"><span class="grid-item-meta-text">The Musk</span><div class="grid-item-meta-fs"></div></div></li><li class="grid-item"><div class="grid-item-img"><img src="/static/lectures/hero-modern-one.svg"></div><div class="grid-item-meta"><span class="grid-item-meta-text">The Cook</span><div class="grid-item-meta-fs"></div></div></li><li class="grid-item"><div class="grid-item-img"><img src="/static/lectures/hero-modern-two.svg"></div><div class="grid-item-meta"><span class="grid-item-meta-text">The Meyer</span><div class="grid-item-meta-fs"></div></div></li><li class="grid-item"><div class="grid-item-img"><img src="/static/lectures/hero-modern-three.svg"></div><div class="grid-item-meta"><span class="grid-item-meta-text">The Pao</span><div class="grid-item-meta-fs"></div></div></li></ul></section></div><div id="herotemplate" class=""><div class="musk template"><header class="header themecolor-white themefont-fun"><div class="container-lrg"><div class="col-12 spread"><div><a contenteditable="false" href="/"><h2>Main</h2></a></div><div><a class="nav-link" href={{ previous_material }}>Previous</a><a class="nav-link" href={{ next_material }}>Next</a></div></div></div><div class="container-sml "><div class="col-12"><h1 contenteditable="false" class="heading text-center hoverable editable"> {{ material_display_name }}</h1></div></div><div class="container-lrg">
+
+      {% include material_file_path %}
+  </div><div class="container-sml"></div></header></div></div></div><section id="features"><ul id="feature-list" class="pb"><div><div class="container preview-mode"><section class="section" id="feature-id-1"><div class="menu center"><h3 class="menu-title"><b>Step 2/4</b> - Select Feature Template</h3><div class=""></div></div><ul class="grid feature-grid" id="f-1"><li class="grid-item"><div class="grid-item-img"><img src="/static/lectures/feature1.svg"></div><div class="grid-item-meta"><span class="grid-item-meta-text">Feature 1</span><div class="grid-item-meta-fs"></div></div></li><li class="grid-item"><div class="grid-item-img"><img src="/static/lectures/feature2.svg"></div><div class="grid-item-meta"><span class="grid-item-meta-text">feature2</span><div class="grid-item-meta-fs"></div></div></li><li class="grid-item"><div class="grid-item-img"><img src="/static/lectures/feature3.svg"></div><div class="grid-item-meta"><span class="grid-item-meta-text">feature3</span><div class="grid-item-meta-fs"></div></div></li><li class="grid-item"><div class="grid-item-img"><img src="/static/lectures/feature4.svg"></div><div class="grid-item-meta"><span class="grid-item-meta-text">feature4</span><div class="grid-item-meta-fs"></div></div></li><li class="grid-item"><div class="grid-item-img"><img src="/static/lectures/feature5.svg"></div><div class="grid-item-meta"><span class="grid-item-meta-text">feature5</span><div class="grid-item-meta-fs"></div></div></li><li class="grid-item"><div class="grid-item-img"><img src="/static/lectures/feature6.svg"></div><div class="grid-item-meta"><span class="grid-item-meta-text">feature6</span><div class="grid-item-meta-fs"></div></div></li></ul></section></div><div><div class=""></div><div class=""></div></div></div></ul></section><div></div><div></div></div></div>
+</body></html>

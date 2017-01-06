@@ -1,6 +1,5 @@
 
 from lectures.models import Lectures
-
 from website.views import MaterialView
 
 

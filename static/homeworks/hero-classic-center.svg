@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200px" height="900px" viewBox="0 0 1200 900" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
+    <title>Hero - Page</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="335" y="591" width="371" height="60" rx="4"></rect>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="371" height="60" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Hero---Page">
+            <path d="M250,419.999275 C250,417.790536 251.799085,416 254.007281,416 L946.992719,416 C949.205879,416 951,417.786795 951,419.999275 L951,442.000725 C951,444.209464 949.200915,446 946.992719,446 L254.007281,446 C251.794121,446 250,444.213205 250,442.000725 L250,419.999275 Z M255,461.999275 C255,459.790536 256.787959,458 258.993094,458 L942.006906,458 C944.212231,458 946,459.786795 946,461.999275 L946,484.000725 C946,486.209464 944.212041,488 942.006906,488 L258.993094,488 C256.787769,488 255,486.213205 255,484.000725 L255,461.999275 Z M277,503.999275 C277,501.790536 278.787726,500 280.990856,500 L921.009144,500 C923.213233,500 925,501.786795 925,503.999275 L925,526.000725 C925,528.209464 923.212274,530 921.009144,530 L280.990856,530 C278.786767,530 277,528.213205 277,526.000725 L277,503.999275 Z" id="subheading" fill="#DDDEE2"></path>
+            <path d="M196,246.006556 C196,243.793796 197.795113,242 200.001337,242 L999.998663,242 C1002.20854,242 1004,243.795681 1004,246.006556 L1004,297.993444 C1004,300.206204 1002.20489,302 999.998663,302 L200.001337,302 C197.79146,302 196,300.204319 196,297.993444 L196,246.006556 Z M247,320.006556 C247,317.793796 248.782388,316 250.992183,316 L949.007817,316 C951.212639,316 953,317.795681 953,320.006556 L953,371.993444 C953,374.206204 951.217612,376 949.007817,376 L250.992183,376 C248.787361,376 247,374.204319 247,371.993444 L247,320.006556 Z" id="heading" fill="#BEC0C4"></path>
+            <rect id="button" fill="#BEC0C4" x="718" y="591" width="148" height="60" rx="4"></rect>
+            <use id="input" stroke-opacity="0.2" stroke="#000000" mask="url(#mask-2)" stroke-width="4" fill="#FFFFFF" xlink:href="#path-1"></use>
+            <g id="Group" transform="translate(47.000000, 45.000000)" fill="#DDDEE2">
+                <rect id="Rectangle" x="957" y="7.5" width="149" height="33" rx="4"></rect>
+                <rect id="Rectangle" x="788" y="7.5" width="149" height="33" rx="4"></rect>
+                <rect id="Rectangle" x="0" y="0" width="149" height="49" rx="4"></rect>
+            </g>
+            <g id="Group-3" transform="translate(210.000000, 740.000000)" fill="#E7E7EA">
+                <rect id="Rectangle-2" fill-opacity="0.495301178" x="72" y="0" width="708" height="639.292627" rx="30"></rect>
+                <rect id="Rectangle-2" x="0" y="87" width="257.425547" height="453.292627" rx="30"></rect>
+            </g>
+        </g>
+    </g>
+</svg>
