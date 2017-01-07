@@ -5,7 +5,7 @@ from django.views.generic import TemplateView
 from website.forms import UploadFileForm
 from django.shortcuts import render
 from django.http import *
-from website.settings import AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, S3_SUBMISSION_BUCKET_NAME
+from settings import AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, S3_SUBMISSION_BUCKET_NAME
 import boto3
 
 class IndexView(TemplateView):
@@ -31,12 +31,18 @@ def uploadFile(request):
 	
 	#file path should be homework/netId/filename
 	filepath = "homework/" + netId + "/" + file.name
-	print AWS_ACCESS_KEY_ID
-	s3 = boto3.client('s3', aws_access_key_id=AWS_ACCESS_KEY_ID, 
-		aws_secret_access_key=AWS_SECRET_ACCESS_KEY)
+	#print AWS_ACCESS_KEY_ID
+	#print S3_SUBMISSION_BUCKET_NAME
+	#s3 = boto3.client('s3', aws_access_key_id=AWS_ACCESS_KEY_ID, 
+	#	aws_secret_access_key=AWS_SECRET_ACCESS_KEY)
+	#print s3
 
-	#s3 = boto3.resource('s3')
-	s3.upload_fileobj(Fileobj=file, Bucket=S3_SUBMISSION_BUCKET_NAME, Key=filepath)
+	s3 = boto3.resource('s3')
+	print s3
+	my_bucket = s3.Bucket(S3_SUBMISSION_BUCKET_NAME)
+	for obj in my_bucket.objects.all():
+		print obj
+	#s3.upload_fileobj(Fileobj=file, Bucket=S3_SUBMISSION_BUCKET_NAME, Key=filepath)
 
 	#bucket = s3.Bucket("rice-python-web-class")
 
