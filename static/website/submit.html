@@ -1,0 +1,59 @@
+<div class="submit-container">
+	<a contenteditable="false" href="/"><h2>Main</h2></a>
+	<div class="submit-form">
+		<input class="studnet-netId" id="netId_field"/>
+		<div class="filebox"><input type="file" id="ex_file"></div>
+		
+		<button class="btn-submit" onclick="file_upload()">submit</button>
+	</div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+function file_upload() {
+	//console.log($(this).prev());
+	//var filebox = $(this).prev();
+	var filebox = $('body').find('#ex_file');
+	var files = filebox[0].files;
+	
+	var netId = $('body').find('#netId_field').val();
+	console.log(netId);
+	var data = new FormData();
+	data.append('file', files[0]);
+	data.append('netId', netId);
+	data.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+	console.log(data);
+	$.ajax({
+		url: 'uploadFile/',
+		type: 'post',
+		dataType: 'json',
+		data: data,
+		processData: false,
+		contentType: false,
+		success: function(data, textStatus, jqXHR) {
+			alert(1);
+
+		}, error: function(jqXHR, textStatus, errorThrown) {
+
+			alert(2);
+		}
+	});
+	//var files = e.target.files;
+	//var data = new FormData();
+	//console.log(files);
+	//data.append('file', files[0]);
+	//console.log(data);
+
+}
+// $('body').on('change', '#ex_file', function(e) {
+
+// 	var files = e.target.files;
+// 	var data = new FormData();
+// 	console.log(files);
+// 	data.append('file', files[0]);
+// 	console.log(data);
+
+// });
+
+</script>

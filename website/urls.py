@@ -15,12 +15,18 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from views import IndexView
+from views import *
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^lectures/', include('lectures.urls')),
-    url(r'^.*', IndexView.as_view())
+    url(r'^$', IndexView.as_view(), name="index"),
+    #url(r'^website/submit/', SubmitView.as_view(), name="submit"),
+    url(r'^website/submit/uploadFile/', uploadFile, name="uploadFile"),
+    url(r'^website/submit/', submitTemplate, name="submit")
+    #url(r'^website/submit/uploadFile/', uploadFile, name="uploadFile")
+    #url(r'^.*', IndexView.as_view(), name="index")
+    
 ]
