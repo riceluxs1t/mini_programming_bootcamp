@@ -5,11 +5,13 @@ from django.db.models import ObjectDoesNotExist
 
 from grader.config import DIR_PYTHON_MODULE_SOLUTIONS, DIR_PYTHON_MODULE_SUBMISSIONS, DIR_GRADED_FILE, \
     HOMEWORK_NAME, USER_NAME
-from grader.models import Homework
+from homeworks.models import Homework
 
 
 """
 A command that runs and grades homework submissions
+
+i.e. python manage.py grade homework0 nate
 """
 
 
@@ -45,10 +47,8 @@ class Command(BaseCommand):
                 modules.append(
                     __import__(DIR_PYTHON_MODULE_SUBMISSIONS % (homework_name, user_name, function), fromlist=['submissions'])
                 )
-
             # run the test cases.
-            score = grader.Grader(*modules).run_tests()
-
+            score = grader.Grader(homework_name, *modules).run_tests()
             self.write_grade(homework_name, user_name, score)
 
         except ObjectDoesNotExist:

@@ -1,18 +1,18 @@
 from base_grader import BaseGrader
-from grader.models import Homework
+from homeworks.models import Homework
 
 
 class Grader(BaseGrader):
-    def __init__(self, *modules):
+    def __init__(self, homework_name, *modules):
         super(Grader, self).__init__()
         (module, ) = modules
-        self.expectedFunctions = Homework.objects.get(id=2).functions.split(',')
+        self.expected_functions = Homework.objects.get(homework_name=homework_name).functions.split(',')
 
-        self.assert_functions_exist(module, *self.expectedFunctions)
+        self.assert_functions_exist(module, *self.expected_functions)
 
         # TODO: this attr injection method is probably not ideal
 
-        for function_name in self.expectedFunctions:
+        for function_name in self.expected_functions:
             setattr(self, function_name, getattr(module, function_name))
 
     def test_check_for_three_1(self):

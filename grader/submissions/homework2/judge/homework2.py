@@ -6,7 +6,7 @@ import collections
 # HW2
 
 # Q1
-def zigZag(line):
+def zig_zag(line):
     """
     Given an integer line, create a "line" lines of zigzag.
     Each line should contain 9 #s and 5 consecutive white spaces, switching the direction once it
