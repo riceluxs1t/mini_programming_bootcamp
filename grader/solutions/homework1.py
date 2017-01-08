@@ -1,6 +1,6 @@
 from grader.config import DIR_SOLUTION
 from base_grader import BaseGrader
-from grader.models import Homework
+from homeworks.models import Homework
 
 """
 
@@ -11,16 +11,16 @@ with some extra I/O, which helps avoiding lots of boilerplat test case methods.
 
 
 class Grader(BaseGrader):
-    def __init__(self, *modules):
+    def __init__(self, homework_name, *modules):
         super(Grader, self).__init__()
         (module, ) = modules
-        self.expectedFunctions = Homework.objects.get(id=1).functions.split(',')
+        self.expected_functions = Homework.objects.get(homework_name=homework_name).functions.split(',')
 
-        self.assert_functions_exist(module, *self.expectedFunctions)
+        self.assert_functions_exist(module, *self.expected_functions)
 
         # TODO: this attr injection method is probably not ideal
 
-        for function_name in self.expectedFunctions:
+        for function_name in self.expected_functions:
             setattr(self, function_name, getattr(module, function_name))
 
         self.judge_data_dir = "/".join([DIR_SOLUTION, "judge_data", "homework1"])

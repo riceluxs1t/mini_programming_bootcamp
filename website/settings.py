@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'lectures',
     'grader',
+    'homeworks',
 ]
 
 MIDDLEWARE_CLASSES = [
