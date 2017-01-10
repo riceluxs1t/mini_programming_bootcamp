@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200px" height="900px" viewBox="0 0 1200 900" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
+    <title>Feature - 1 col</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Feature---1-col">
+            <path d="M250,269.999275 C250,267.790536 251.799085,266 254.007281,266 L946.992719,266 C949.205879,266 951,267.786795 951,269.999275 L951,292.000725 C951,294.209464 949.200915,296 946.992719,296 L254.007281,296 C251.794121,296 250,294.213205 250,292.000725 L250,269.999275 Z M255,311.999275 C255,309.790536 256.787959,308 258.993094,308 L942.006906,308 C944.212231,308 946,309.786795 946,311.999275 L946,334.000725 C946,336.209464 944.212041,338 942.006906,338 L258.993094,338 C256.787769,338 255,336.213205 255,334.000725 L255,311.999275 Z M277,353.999275 C277,351.790536 278.787726,350 280.990856,350 L921.009144,350 C923.213233,350 925,351.786795 925,353.999275 L925,376.000725 C925,378.209464 923.212274,380 921.009144,380 L280.990856,380 C278.786767,380 277,378.213205 277,376.000725 L277,353.999275 Z" id="subheading" fill="#DDDEE2"></path>
+            <rect id="heading" fill="#BEC0C4" x="196" y="162" width="808" height="60" rx="4"></rect>
+            <g id="Group-3" transform="translate(210.000000, 460.000000)" fill="#E7E7EA">
+                <rect id="Rectangle-2" fill-opacity="0.495301178" x="72" y="0" width="708" height="639.292627" rx="30"></rect>
+                <rect id="Rectangle-2" x="0" y="87" width="257.425547" height="453.292627" rx="30"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

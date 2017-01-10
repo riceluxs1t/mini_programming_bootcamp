@@ -1,18 +1,28 @@
 from base_grader import BaseGrader
+<<<<<<< HEAD
 from grader.models import Homework
 from grader.config import DIR_SOLUTION
+=======
+from homeworks.models import Homework
+>>>>>>> master
 
 
 class Grader(BaseGrader):
-    def __init__(self, *modules):
+    def __init__(self, homework_name, *modules):
         super(Grader, self).__init__()
         (module, ) = modules
+<<<<<<< HEAD
         self.expectedFunctions = Homework.objects.get(id=2).functions.split(',')
         self.assert_functions_exist(module, *self.expectedFunctions)
+=======
+        self.expected_functions = Homework.objects.get(homework_name=homework_name).functions.split(',')
+
+        self.assert_functions_exist(module, *self.expected_functions)
+>>>>>>> master
 
         # TODO: this attr injection method is probably not ideal
 
-        for function_name in self.expectedFunctions:
+        for function_name in self.expected_functions:
             setattr(self, function_name, getattr(module, function_name))
 
         self.judge_data_dir = "/".join([DIR_SOLUTION, "judge_data", "homework2"])

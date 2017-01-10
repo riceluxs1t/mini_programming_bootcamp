@@ -4,7 +4,7 @@
 *.pot
 *.pyc
 *.gz
-
+.env
 ;;directories to ignore
 .idea/
 virtualsh/

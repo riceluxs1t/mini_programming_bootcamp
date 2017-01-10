@@ -3,6 +3,42 @@ import math
 import collections
 
 
+<<<<<<< HEAD
+=======
+# HW2
+
+# Q1
+def zig_zag(line):
+    """
+    Given an integer line, create a "line" lines of zigzag.
+    Each line should contain 9 #s and 5 consecutive white spaces, switching the direction once it
+    hits the wall. The white spaces starts from the left side of the string
+    It should look something like this:
+         #########
+    #     ########
+    ##     #######
+    ###     ######
+    ####     #####
+    #####     ####
+    ######     ###
+    #######     ##
+    ########     #
+    #########
+    #########
+    ########     #
+    #######     ##
+    ...
+    """
+    toLeft = False
+    for i in range(0, line):
+        if i % 10 == 0:
+            toLeft = not toLeft
+        if toLeft:
+            print "#" * (i % 10) + " " * 5 + "#" * (9 - i % 10)
+        else:
+            print "#" * (9 - i % 10) + " " * 5 + "#" * (i % 10)
+
+>>>>>>> master
 
 def check_for_three(lst):
     """
