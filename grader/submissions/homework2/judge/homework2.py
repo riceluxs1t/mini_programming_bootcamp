@@ -3,40 +3,6 @@ import math
 import collections
 
 
-# HW2
-
-# Q1
-# def zigZag(line):
-#     """
-#     Given an integer line, create a "line" lines of zigzag.
-#     Each line should contain 9 0s and 5 consecutive white spaces, switching the direction once it
-#     hits the wall. The white spaces starts from the left side of the string
-#     It should look something like this:
-#          #########
-#     #     ########
-#     ##     #######
-#     ###     ######
-#     ####     #####
-#     #####     ####
-#     ######     ###
-#     #######     ##
-#     ########     #
-#     #########
-#     #########
-#     ########     #
-#     #######     ##
-#     ...
-#     """
-#     string = ""
-#     toLeft = False
-#     for i in range(0, line):
-#         if i % 10 == 0:
-#             toLeft = not toLeft
-#         if toLeft:
-#             string += "#" * (i % 10) + " " * 5 + "#" * (9 - i % 10) + "\n"
-#         else:
-#             string += "#" * (9 - i % 10) + " " * 5 + "#" * (i % 10) + "\n"
-#     return string
 
 def check_for_three(lst):
     """
