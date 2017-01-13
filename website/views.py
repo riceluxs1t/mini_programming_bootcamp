@@ -13,7 +13,7 @@ import json
 from rest_framework.renderers import TemplateHTMLRenderer
 from rest_framework.views import APIView
 from rest_framework.response import Response
-
+from homeworks.models import Homework
 
 class IndexView(TemplateView):
     template_name = "website/index.html"
@@ -84,21 +84,21 @@ class MaterialView(APIView):
 
 #generate submit template method-based
 def submitTemplate(request):
-	return render(request, "website/submit.html")
+    homeworks = Homework.objects.filter(is_visible=True)
+    return render(request, "website/submit.html", {"homeworks" : homeworks})
 
 #file upload method
 def uploadFile(request):
-	try:
+    try:
 		#get relevant info
 		file = request.FILES['file']
 		netId = request.POST.get('netId')
-		
+		hw_type = request.POST.get('homework_type')
+        
 		#create upload form
 		form = UploadFileForm(request.POST, request.FILES)
-		
-		
 		#file path should be homework/netId/filename
-		filepath = "/homework/" + netId + "/" + file.name
+		filepath = "/homework/" + hw_type + "/" + netId + "/" + file.name
 		s3 = boto3.client('s3', aws_access_key_id=AWS_ACCESS_KEY_ID, 
 			aws_secret_access_key=AWS_SECRET_ACCESS_KEY)
 		
@@ -107,6 +107,6 @@ def uploadFile(request):
 
 
 		return HttpResponse(json.dumps({"result": True}), content_type="application/json")
-	except:
+    except:
 		return HttpResponse(json.dumps({"result": False}), content_type="application/json")
 
