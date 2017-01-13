@@ -97,7 +97,8 @@ def uploadFile(request):
         
 		#create upload form
 		form = UploadFileForm(request.POST, request.FILES)
-		#file path should be homework/netId/filename
+		
+        #file path should be homework/{HOMEWORKTYPE}/{NETID}/{FILENAME}
 		filepath = "/homework/" + hw_type + "/" + netId + "/" + file.name
 		s3 = boto3.client('s3', aws_access_key_id=AWS_ACCESS_KEY_ID, 
 			aws_secret_access_key=AWS_SECRET_ACCESS_KEY)
