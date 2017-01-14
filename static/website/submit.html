@@ -18,9 +18,14 @@
 	<p contenteditable="false"><h2>HW Submission Page</h2></p>
 	<div class="submit-form">
 		<div class="submit-form-wrapper">
+			<div>
 			NetId: <input class="studnet-netId" id="netId_field"/>
+			</div>
+			<div style="margin-bottom:10px">
+			Password (Submission Key) : <input type="password" class="student-password" id="submissionKey"/>
+			</div>
 			<div style="margin-bottom:20px">
-				select homework : 
+				Select homework : 
 				<select class="selectHomework" id="homework_type">
 					{% for hw in homeworks %}
 						<option value={{hw.homework_name}}>{{hw.homework_name}}</option>
@@ -47,12 +52,17 @@ function file_upload() {
 		alert("please enter valid netId");
 		return false;
 	}
-	
+	var submissionKey = $('body').find("#submissionKey").val();
+	if (submissionKey.trim() == "") {
+		alert("please enter the submission key!");
+		return false;
+	}
 	var homework_type = $('body').find("#homework_type").val();
 	var data = new FormData();
 	data.append('file', files[0]);
 	data.append('netId', netId);
 	data.append('homework_type', homework_type);
+	data.append('submissionKey', submissionKey);
 	data.append('csrfmiddlewaretoken', '{{ csrf_token }}');
 	$.ajax({
 		url: 'uploadFile/',
@@ -63,6 +73,7 @@ function file_upload() {
 		contentType: false,
 		success: function(data) {
 			if (data.result == false) {
+				alert(data.msg);
 				alert("Submission failed");	
 				return false;
 			}

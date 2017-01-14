@@ -2,6 +2,7 @@ from __future__ import unicode_literals
 
 from django.contrib.auth.models import User
 from django.db import models
+from website.pbkdf2 import pbkdf2_check
 
 
 class Homework(models.Model):
@@ -17,3 +18,11 @@ class Student(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     student_id = models.CharField(max_length=10)  # student id uniquely associated with each django User.
     submission_key = models.CharField(max_length=50)  # key used to verify any submission for this user.
+
+    def __publish__(self):
+    	self.save()
+    	return self
+
+    def check_password(self, password):
+    	return pbkdf2_check(password, self.submission_key)
+

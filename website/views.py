@@ -13,92 +13,104 @@ import json
 from rest_framework.renderers import TemplateHTMLRenderer
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from homeworks.models import Homework
+from homeworks.models import Homework, Student
+from hashlib import sha256
+from pbkdf2 import pbkdf2
 
 class IndexView(TemplateView):
-    template_name = "website/index.html"
+	template_name = "website/index.html"
 
 
 class MaterialView(APIView):
-    """
-    A generic view class that displays serial materials. i.e. lecture0, lecture1, etc.
-    Used to display views for the lecture and homework materials.
+	"""
+	A generic view class that displays serial materials. i.e. lecture0, lecture1, etc.
+	Used to display views for the lecture and homework materials.
 
-    """
-    renderer_classes = [TemplateHTMLRenderer]
+	"""
+	renderer_classes = [TemplateHTMLRenderer]
 
-    # the relative path to a template file
-    template_name = None
+	# the relative path to a template file
+	template_name = None
 
-    # the relative path to an actual material file imported inside the template
-    _material_file_path = None
+	# the relative path to an actual material file imported inside the template
+	_material_file_path = None
 
-    # the display name for the material
-    _material_display_name = None
+	# the display name for the material
+	_material_display_name = None
 
-    # used to make the navigation urls between previous / next materials
-    _material_url_prefix = None
+	# used to make the navigation urls between previous / next materials
+	_material_url_prefix = None
 
-    # the corresponding model must have the 'is_visible' attribute
-    _model = None
+	# the corresponding model must have the 'is_visible' attribute
+	_model = None
 
-    def __init__(self):
-        super(MaterialView, self).__init__()
+	def __init__(self):
+		super(MaterialView, self).__init__()
 
-    def _check_whether_implemented(self):
-        if not (self.template_name and self._material_display_name and self._material_file_path and
-                    self._material_url_prefix and self._model):
-            raise NotImplemented("The sub class of MaterialView class must define all the required attributes")
+	def _check_whether_implemented(self):
+		if not (self.template_name and self._material_display_name and self._material_file_path and
+					self._material_url_prefix and self._model):
+			raise NotImplemented("The sub class of MaterialView class must define all the required attributes")
 
-    def get(self, request, **kwargs):
+	def get(self, request, **kwargs):
 
-        self._check_whether_implemented()
+		self._check_whether_implemented()
 
-        material_id = int(kwargs.get('material_id', 0))
+		material_id = int(kwargs.get('material_id', 0))
 
-        # if the lecture does not yet exist or is not set to be visible, kick back to the front page
-        if not self._model.objects.filter(id=material_id).exists() or \
-                self._model.objects.filter(id=material_id, is_visible=False):
-            return redirect("/")
+		# if the lecture does not yet exist or is not set to be visible, kick back to the front page
+		if not self._model.objects.filter(id=material_id).exists() or \
+				self._model.objects.filter(id=material_id, is_visible=False):
+			return redirect("/")
 
-        previous_material = self._material_url_prefix.format(material_id - 1)
+		previous_material = self._material_url_prefix.format(material_id - 1)
 
-        if material_id == 0:
-            previous_material = self._material_url_prefix.format(material_id)
+		if material_id == 0:
+			previous_material = self._material_url_prefix.format(material_id)
 
-        if self._model.objects.filter(id=material_id + 1, is_visible=True).exists():
-            next_material = self._material_url_prefix.format(material_id + 1)
-        else:
-            # if the next lecture does not exist or is not set to visible, loop back to the current one.
-            next_material = self._material_url_prefix.format(material_id)
+		if self._model.objects.filter(id=material_id + 1, is_visible=True).exists():
+			next_material = self._material_url_prefix.format(material_id + 1)
+		else:
+			# if the next lecture does not exist or is not set to visible, loop back to the current one.
+			next_material = self._material_url_prefix.format(material_id)
 
-        return Response(
-            {
-                'material_file_path': self._material_file_path.format(material_id),
-                'material_display_name': self._material_display_name.format(material_id),
-                'previous_material': previous_material,
-                'next_material': next_material
-            }
-        )
+		return Response(
+			{
+				'material_file_path': self._material_file_path.format(material_id),
+				'material_display_name': self._material_display_name.format(material_id),
+				'previous_material': previous_material,
+				'next_material': next_material
+			}
+		)
 
 
 #generate submit template method-based
 def submitTemplate(request):
-    homeworks = Homework.objects.filter(is_visible=True)
-    return render(request, "website/submit.html", {"homeworks" : homeworks})
+	homeworks = Homework.objects.filter(is_visible=True)
+	return render(request, "website/submit.html", {"homeworks" : homeworks})
 
 #file upload method
 def uploadFile(request):
-    try:
+	try:
 		#get relevant info
 		file = request.FILES['file']
 		netId = request.POST.get('netId')
 		hw_type = request.POST.get('homework_type')
-        
+		submission_key = request.POST.get("submissionKey")
+
+		if (Student.objects.filter(student_id=netId).exists() == False):
+			return HttpResponse(json.dumps({"result": False, "msg" : "Not a registered student"}), content_type="application/json")	
+		
+		student = Student.objects.get(student_id=netId)
+		if (Student.check_password(student, sha256(str(submission_key)).hexdigest()) == False) :
+			return HttpResponse(json.dumps({"result": False, "msg" : "submission key matching failed"}), content_type="application/json")	
+		#if (!Student.objects.filter(student_id=netId, submission_key=submission_key).exists()):
+		#	return HttpResponse(json.dumps({"result": False, "msg" : "submission key matching failed"}), content_type="application/json")	
+		
 		#create upload form
 		form = UploadFileForm(request.POST, request.FILES)
 		
-        #file path should be homework/{HOMEWORKTYPE}/{NETID}/{FILENAME}
+		#file path should be homework/{HOMEWORKTYPE}/{NETID}/{FILENAME}
 		filepath = "/homework/" + hw_type + "/" + netId + "/" + file.name
 		s3 = boto3.client('s3', aws_access_key_id=AWS_ACCESS_KEY_ID, 
 			aws_secret_access_key=AWS_SECRET_ACCESS_KEY)
@@ -108,6 +120,24 @@ def uploadFile(request):
 
 
 		return HttpResponse(json.dumps({"result": True}), content_type="application/json")
-    except:
-		return HttpResponse(json.dumps({"result": False}), content_type="application/json")
+	except:
+		return HttpResponse(json.dumps({"result": False, "msg" : "unknown error"}), content_type="application/json")
+
+
+#user sign up
+def signUp (request):
+	try :
+		#get user info
+		netId = request.POST.get('netId')
+		password = request.POST.get('password')
+		if (Student.objects.filter(student_id=netId).exists()):
+			return HttpResponse(json.dumps({"result": False, "msg": "duplicate netId exists!"}), content_type="application/json")
+		from django.contrib.auth.models import User
+		newUser = User(username=netId, password=pbkdf2(sha256(str(password)).hexdigest()))
+		newUser.save()
+		user = Student(user=newUser, student_id=netId, submission_key=pbkdf2(sha256(str(password)).hexdigest()))
+		user.__publish__()
+		return HttpResponse(json.dumps({"result": True}), content_type="application/json")
+	except:
+		return HttpResponse(json.dumps({"result": False, "msg" : "unknown error happened"}), content_type="application/json")        
 
