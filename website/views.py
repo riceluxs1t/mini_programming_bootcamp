@@ -104,8 +104,6 @@ def uploadFile(request):
 		student = Student.objects.get(student_id=netId)
 		if (Student.check_password(student, sha256(str(submission_key)).hexdigest()) == False) :
 			return HttpResponse(json.dumps({"result": False, "msg" : "submission key matching failed"}), content_type="application/json")	
-		#if (!Student.objects.filter(student_id=netId, submission_key=submission_key).exists()):
-		#	return HttpResponse(json.dumps({"result": False, "msg" : "submission key matching failed"}), content_type="application/json")	
 		
 		#create upload form
 		form = UploadFileForm(request.POST, request.FILES)
