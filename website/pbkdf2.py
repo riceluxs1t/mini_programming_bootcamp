@@ -75,6 +75,7 @@ from operator import xor
 from os import urandom
 from struct import Struct
 
+
 def pbkdf2_bin(data, salt, iterations=1000, keylen=24, hashfunc=None):
     """Returns a binary digest for the PBKDF2 hash algorithm of `data`
     with the given `salt`.  It iterates `iterations` time and produces a
@@ -106,6 +107,7 @@ HASH_FUNCTION = "sha256"  # Must be in hashlib.
 # amount of time on your server. Measure with:
 # python -m timeit -s "import passwords as p" "p.make_hash("something")"
 COST_FACTOR = 1000
+
 
 def pbkdf2(password):
     """Generate a random salt and return a new hash for the password."""
