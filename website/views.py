@@ -150,6 +150,7 @@ def signUp(request):
         user.__publish__()
         return HttpResponse(json.dumps({"result": True}), content_type="application/json")
     except:
+        raise
         return HttpResponse(
             json.dumps({"result": False, "msg": "unknown error happened"}),
             content_type="application/json"
