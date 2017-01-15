@@ -144,11 +144,16 @@ def signUp(request):
                 content_type="application/json"
             )
 
-        newUser = User(username=netId, password=pbkdf2(sha256(str(password)).hexdigest()))
+        password_hashed = pbkdf2(sha256(str(password)).hexdigest())
+
+        newUser = User(username=netId, password=password_hashed)
+
+        # the postSave signal auto creates the corresponding student object.
         newUser.save()
-        print pbkdf2(sha256(str(password)).hexdigest()), len("pbkdf2(sha256(str(password)).hexdigest())")
-        user = Student(user=newUser, student_id=netId, submission_key=pbkdf2(sha256(str(password)).hexdigest()))
-        user.save()
+
+        # update the other fields in the corresponding Student object
+        Student.objects.filter(user=newUser).update(student_id=netId, submission_key=password_hashed)
+
         return HttpResponse(json.dumps({"result": True}), content_type="application/json")
     except:
         raise
