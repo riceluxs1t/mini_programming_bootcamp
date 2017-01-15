@@ -19,6 +19,7 @@ class Homework(models.Model):
 class Student(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     # TODO: postgresSQL behaves in a weird way..
+    # TODO: added the default for the following two fields so that the post save signal based method works
     student_id = models.CharField(max_length=10, default="")  # student id uniquely associated with each django User.
     submission_key = models.CharField(max_length=255, default="")  # key used to verify any submission for this user.
 
@@ -26,6 +27,7 @@ class Student(models.Model):
         return pbkdf2_check(password, self.submission_key)
 
 
+# added post save signal to create the corresponding student object whenever a User object gets created
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
         Student.objects.create(user=instance)
