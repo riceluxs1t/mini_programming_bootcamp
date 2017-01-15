@@ -17,7 +17,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="white">
 
     <meta name="theme-color" content="#ffffff">
-  <script async="" src="analytics.js"></script><script>
+  <script async="" href="analytics.js"></script><script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -26,24 +26,31 @@
     ga('create', 'UA-81637047-1', 'auto');
     ga('send', 'pageview');
   </script>
-  <link href="{% static 'website/main_website.css' %}" rel="stylesheet"><script type="text/javascript" src="jquery.inputmask.bundle.min.js"></script></head>
+
+  <link href="{% static 'website/main_website.css' %}" rel="stylesheet">
+  <script type="text/javascript" href="jquery.inputmask.bundle.min.js"></script></head>
+
   <body spellcheck="false">
     <div id="main"></div>
-  <script type="text/javascript" src="6d480522bf44ca8359b4.js"></script>
-  <script type="text/javascript" src="main.js"></script>
-  <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
-  <script type="text/javascript" src="Fetch.js"></script>
-  <script type="text/javascript" src="Delete.js"></script>
-  <script type="text/javascript" src="Scroll.js"></script>
-  <script type="text/javascript" src="EditText.js"></script>
-  <script type="text/javascript" src="Meta.js"></script>
-  <script type="text/javascript" src="HideHeaderFooter.js"></script>
-  <script type="text/javascript" src="Downloadr.js"></script>
-  <script type="text/javascript" src="DownloadDev.js"></script>
-  <script type="text/javascript" src="Downloadpopuphider.js"></script>
-  <script type="text/javascript" src="webforms.min.js"></script>
-  <script type="text/javascript" src="HoverFocus.js"></script>
-  <script type="text/javascript" src="Validate.js"></script>
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  
+  <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" href="6d480522bf44ca8359b4.js"></script>
+  <script type="text/javascript" href="main.js"></script>
+  <script type="text/javascript" href="Fetch.js"></script>
+  <script type="text/javascript" href="Delete.js"></script>
+  <script type="text/javascript" href="Scroll.js"></script>
+  <script type="text/javascript" href="EditText.js"></script>
+  <script type="text/javascript" href="Meta.js"></script>
+  <script type="text/javascript" href="HideHeaderFooter.js"></script>
+  <script type="text/javascript" href="Downloadr.js"></script>
+  <script type="text/javascript" href="DownloadDev.js"></script>
+  <script type="text/javascript" href="Downloadpopuphider.js"></script>
+  <script type="text/javascript" href="webforms.min.js"></script>
+  <script type="text/javascript" href="HoverFocus.js"></script>
+  <script type="text/javascript" href="Validate.js"></script>
 
 <div>
     <header class="websiteheader preview-mode" style="display: none;"></header>
@@ -113,6 +120,7 @@
                                   <a class="nav-link" href="/homeworks/0">Homework</a>
                                   <a class="nav-link" href="https://boiling-cove-81718.herokuapp.com/">Hacking Challenge</a>
                                   <a class="nav-link" style="cursor:pointer" href="/website/submit">Submit</a>
+                                  <div class="nav-link" data-toggle="modal" data-target="#signup-modal" id="signup-btn"  style="cursor:pointer;display:inline-block;margin-left:15px">Sign Up</div>
                                 </div>
                             </div>
                         </div>
@@ -286,7 +294,7 @@
                                             <div class="menu-collapse"></div>
                                         </div>
                                         <ul class="grid" id="socialtemplateselector">
-                                            <li class="grid-item grid-item__active">
+                                            <li class="grid-item grid-item__actisve">
                                                 <div class="grid-item-img"><img src="static/img/sp1.svg"></div>
                                                 <div class="grid-item-meta"><span class="grid-item-meta-text">Quote</span>
                                                     <div class="grid-item-meta-fs"></div>
@@ -407,5 +415,77 @@
                             </div>
                         </div>
                 </div>
-                </body>
+                <style>
+                    .user-info {
+                        margin: 10px;
+                    }
+                </style>
+                <div class="modals">
+                    <div class="modal fade" id="signup-modal">
+                        <div class="modal-dialog" style="background-color:white;top: 20%;width:50%;height:35%;text-align: center;">
+                            
+                            <div class="user-info form" style="margin-top: 15px;">
+                                <h1> Sign Up </h1>
+                                <div>
+                                    netId : <input class="user-info netId-field" id="netId" placeholder="netId" />
+                                </div>
+                                <div>
+                                    password : <input type="password" class="user-info password-field" id="password" placeholder="password" />
+                                </div>
+                                <div>
+                                    confirm password :<input type="password" class="user-info password-confirm" id="passwordConfirm" placeholder="confirm password" />
+                                </div>
+                                <button type="button" class="btn btn-primary" id="signup-submit-btn">Sign up</button>
+                            </div>
+                        
+                        </div>
+                    </div>
+                </div>
+    </body>
+
 </html>
+
+
+<script type="text/javascript">
+    $('#signup-submit-btn').on('click', function() {
+        var netId = $('#netId').val();
+        var password = $('#password').val();
+        var passwordConfirm = $('#passwordConfirm').val();
+
+        if (netId.trim() == "") {
+            alert("enter the netId");
+            return false;
+        }
+        if (password.trim() == "") {
+            alert("enter the password");
+            return false;
+        }
+        if (password !== passwordConfirm) {
+            alert("the password does not match");
+            return false;
+        }
+
+        $.ajax({
+            url: "/signUp/",
+            type: "POST",
+            data: {"netId" : netId, "password" : password , csrfmiddlewaretoken: '{{ csrf_token }}'},
+            success: function(data){
+                if (data.result == false) {
+                    console.log(data)
+                    alert(data.msg);
+                    alert("Sign up failed");
+                    return false;
+                } else {
+                    alert("You have successfully signed up!");   
+                    return false;
+                }
+
+            }, error:function(){
+                alert("Signup failed");
+            }
+        });
+
+
+    });
+
+</script>

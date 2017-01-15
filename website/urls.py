@@ -24,6 +24,7 @@ urlpatterns = [
     url(r'^lectures/', include('lectures.urls')),
     url(r'^homeworks/', include('homeworks.urls')),
     url(r'^$', IndexView.as_view(), name="index"),
+    url(r'^signUp/', signUp, name="signUp"),
     url(r'^website/submit/uploadFile/', uploadFile, name="uploadFile"),
     url(r'^website/submit/', submitTemplate, name="submit")    
 ]
