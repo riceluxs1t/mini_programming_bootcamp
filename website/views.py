@@ -146,6 +146,7 @@ def signUp(request):
 
         newUser = User(username=netId, password=pbkdf2(sha256(str(password)).hexdigest()))
         newUser.save()
+        print pbkdf2(sha256(str(password)).hexdigest()), len("pbkdf2(sha256(str(password)).hexdigest())")
         user = Student(user=newUser, student_id=netId, submission_key=pbkdf2(sha256(str(password)).hexdigest()))
         user.save()
         return HttpResponse(json.dumps({"result": True}), content_type="application/json")
