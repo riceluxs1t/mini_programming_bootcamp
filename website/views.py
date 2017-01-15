@@ -147,7 +147,7 @@ def signUp(request):
         newUser = User(username=netId, password=pbkdf2(sha256(str(password)).hexdigest()))
         newUser.save()
         user = Student(user=newUser, student_id=netId, submission_key=pbkdf2(sha256(str(password)).hexdigest()))
-        user.__publish__()
+        user.save()
         return HttpResponse(json.dumps({"result": True}), content_type="application/json")
     except:
         raise

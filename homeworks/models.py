@@ -19,10 +19,5 @@ class Student(models.Model):
     student_id = models.CharField(max_length=10)  # student id uniquely associated with each django User.
     submission_key = models.CharField(max_length=50)  # key used to verify any submission for this user.
 
-    def __publish__(self):
-    	self.save()
-    	return self
-
     def check_password(self, password):
-    	return pbkdf2_check(password, self.submission_key)
-
+        return pbkdf2_check(password, self.submission_key)
