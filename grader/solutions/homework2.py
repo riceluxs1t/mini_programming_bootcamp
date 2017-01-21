@@ -76,8 +76,8 @@ class Grader(BaseGrader):
             print "Passed {0} out of {1} cases for {2}".format(passed_cases, num_cases, "same_sum_substring")
 
     def test_isBalance(self):
-        with open(self.get_test_file_path("isBalance.in"), "r") as f_input, \
-                open(self.get_test_file_path("isBalance.ans"), "r") as f_output:
+        with open(self.get_test_file_path("isBalanced.in"), "r") as f_input, \
+                open(self.get_test_file_path("isBalanced.ans"), "r") as f_output:
 
             # Change from here
             num_cases = f_input.readline()
@@ -87,9 +87,9 @@ class Grader(BaseGrader):
             passed_cases = 0
 
             for input_line, output_line in zip(input_lines, output_lines):
-                passed_cases += self.test(output_line.strip(), self.isBalance, input_line)
+                passed_cases += self.test(output_line.strip(), self.isBalanced, input_line)
 
-            print "Passed {0} out of {1} cases for {2}".format(passed_cases, num_cases, "isBalance")
+            print "Passed {0} out of {1} cases for {2}".format(passed_cases, num_cases, "isBalanced")
 
     def test_anagrams(self):
         with open(self.get_test_file_path("anagrams.in"), "r") as f_input, \
@@ -103,6 +103,6 @@ class Grader(BaseGrader):
             passed_cases = 0
 
             for input_line, output_line in zip(input_lines, output_lines):
-                passed_cases += self.test(output_line.strip(), self.anagrams, int(input_line))
+                passed_cases += self.test(output_line.strip(), self.anagrams, input_line)
 
             print "Passed {0} out of {1} cases for {2}".format(passed_cases, num_cases, "anagrams")

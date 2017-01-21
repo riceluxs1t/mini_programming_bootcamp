@@ -48,9 +48,9 @@ def check_for_three(lst):
     ret = copy.copy(lst)
     for i in range(0, len(lst)):
         if "3" in str(lst[i]):
-            ret[i] = False
+            ret[i] = "F"
         else:
-            ret[i] = True
+            ret[i] = "T"
     return ret
 
 
@@ -106,14 +106,14 @@ def isBalanced(str):
             queue.append(1)
         else:
             if (len(queue) == 0):
-                return False
+                return "F"
             else:
                 queue.pop()
 
     if len(queue) == 0:
-        return True
+        return "T"
     else:
-        return False
+        return "F"
 
 
 def anagrams(string):
@@ -134,4 +134,3 @@ def anagrams(string):
                 count += dict[sorted]
                 dict[sorted] += 1
     return count
-
