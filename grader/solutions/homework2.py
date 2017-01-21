@@ -87,7 +87,7 @@ class Grader(BaseGrader):
             passed_cases = 0
 
             for input_line, output_line in zip(input_lines, output_lines):
-                passed_cases += self.test(output_line.strip(), self.isBalanced, input_line)
+                passed_cases += self.test(output_line.strip(), self.isBalanced, input_line.strip())
 
             print "Passed {0} out of {1} cases for {2}".format(passed_cases, num_cases, "isBalanced")
 
@@ -103,6 +103,6 @@ class Grader(BaseGrader):
             passed_cases = 0
 
             for input_line, output_line in zip(input_lines, output_lines):
-                passed_cases += self.test(output_line.strip(), self.anagrams, input_line)
+                passed_cases += self.test(int(output_line.strip()), self.anagrams, input_line.strip())
 
             print "Passed {0} out of {1} cases for {2}".format(passed_cases, num_cases, "anagrams")
