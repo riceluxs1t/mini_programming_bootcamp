@@ -29,11 +29,9 @@ class Command(BaseCommand):
         parser.add_argument(USER_NAME, type=str)
 
     def handle(self, *args, **options):
-        # s3_client = boto3.client('s3', aws_access_key_id=AWS_ACCESS_KEY_ID,
-        #                          aws_secret_access_key=AWS_SECRET_ACCESS_KEY)
+        s3_client = boto3.client('s3', aws_access_key_id=AWS_ACCESS_KEY_ID,
+                                 aws_secret_access_key=AWS_SECRET_ACCESS_KEY)
 
-        s3_client = boto3.client('s3', aws_access_key_id="AKIAIFBXT7B3U2STTBJQ",
-                                 aws_secret_access_key="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")
 
 
         homework_name = options.get(HOMEWORK_NAME)
