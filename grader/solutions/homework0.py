@@ -22,5 +22,5 @@ class Grader(BaseGrader):
             setattr(self, function_name, getattr(module, function_name))
 
     def test_hello_world(self):
-        self.test("hello world!", self.hello_world, "")
+        self.test("hello world!", self.hello_world)
 
