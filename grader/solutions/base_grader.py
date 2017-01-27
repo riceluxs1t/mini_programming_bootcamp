@@ -65,10 +65,11 @@ class BaseGrader(object):
     def test(self, expected, function, *args, **kwargs):
         self.num_test_cases += 1
 
-        try:
-            with context_manager_time_limit():
-                actual = function(*args)
+        timelimit = kwargs.get('tle', MAX_NUM_SECONDS)
 
+        try:
+            with context_manager_time_limit(timelimit):
+                actual = function(*args)
                 if expected != actual and ('floatComparison' not in kwargs or abs(expected - actual) > EPSILON):
                     self.failed_test_cases.append(format_wrong_return_value(actual, function.__name__, args))
                     return False
