@@ -117,26 +117,23 @@ class Grader(BaseGrader):
             input_list.append(random.randrange(1, 1000))
         return input_list
 
-
     def test_std_easy(self):
+
+        passed_cases = 0
+
         for _ in xrange(1000):
             input_ = self.generate_random_std_input()
-            self.test(self.answer_computeStandardDev(input_), self.computeStandardDev, input_, floatComparison=True)
+            passed_cases += self.test(self.answer_computeStandardDev(input_), self.computeStandardDev, input_, floatComparison=True)
 
-    def test_std_tricky(self):
-        input_ = [0]
-        self.test(self.answer_computeStandardDev(input_), self.computeStandardDev, input_, floatComparison=True)
-
-        input_ = [1]
-        self.test(self.answer_computeStandardDev(input_), self.computeStandardDev, input_, floatComparison=True)
-
-        input_ = [2] * 100
-        self.test(self.answer_computeStandardDev(input_), self.computeStandardDev, input_, floatComparison=True)
+        print "Passed {0} out of {1} cases for {2}".format(passed_cases, 1000, "test_std_easy")
 
     def test_369_easy(self):
+        passed_cases = 0
         for _ in xrange(1000):
             input_ = range(1, random.randrange(1, 1000))
-            self.test(self.answer_play369(input_), self.play369, input_)
+            passed_cases += self.test(self.answer_play369(input_), self.play369, input_)
+
+        print "Passed {0} out of {1} cases for {2}".format(passed_cases, 1000, "test_369_easy")
 
     def test_moving_averages_simple(self):
 
@@ -152,7 +149,7 @@ class Grader(BaseGrader):
 
         print "Passed {0} out of {1} cases for {2}".format(passed_cases, 1000, 'test_moving_averages_simple')
 
-    def test_moving_averages_hard_O_of_N(self):
+    def test_moving_averages_hard_o_of_n(self):
 
         passed_cases = 0
 
