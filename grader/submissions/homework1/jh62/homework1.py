@@ -78,7 +78,6 @@ def movingAverages(numbers, d):
 
             list.append(float(sum) / d)
             sum = 0
-    print len(numbers), len(list), d
     return list
 
 

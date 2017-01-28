@@ -11,7 +11,7 @@ STRING_WITH_ARGUMENT = "the argument %s"
 STRING_INCORRECT_RETURN_VALUE = "got incorrect return value %s "
 STRING_MODULE_HAS_NO_FUNCTION = "Submitted module %s does not have the required attribute %s"
 STRING_PASSED_ALL_TEST_CASES = "You passed all {0} test cases!"
-STRING_FAILED_SOME_TEST_CASES = "You failed {0} test cases out all {1} test cases"
+STRING_PASSED_SOME_TEST_CASES = "You passed {0} test cases out all {1} test cases"
 STRING_FAILED_TIME_OUT = "Error: function call timed out. You spent more than %d seconds " \
                          "in the function %r when called with arguments %r"
 
