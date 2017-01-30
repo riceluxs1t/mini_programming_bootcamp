@@ -82,6 +82,7 @@ import from settings.py for the access key and secret key
 - add a homework submission UI
 - add support to see which test cases they failed. (some kind of flag)
 - add support to run tests for a subset of functinos (some kind of flag)
+- add support to run test cases by slack command (setting up a slack bot is easy but the ui takes some effort)
 
 # FIXME:
 - most text are editable even if contenteditable set to false.
