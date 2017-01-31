@@ -8,4 +8,5 @@
 ;;directories to ignore
 .idea/
 virtualsh/
-
+grader/grades/*
+grader/submissions/*
