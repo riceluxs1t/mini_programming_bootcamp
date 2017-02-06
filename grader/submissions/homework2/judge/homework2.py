@@ -1,136 +1,170 @@
-import copy
+# -*- encoding:utf-8 -*-
+
 import math
-import collections
+
+def help_jpago(original_sentence, list_of_pairs):
+
+	translate_dictionary = {}
+
+	for pair in list_of_pairs:
+		translate_dictionary[pair[0]] = pari[1]
+
+	# " " 기준으로 주어진 string 을 자름.
+	words = original_sentence.split(" ")
+
+	translated_sentence = ""
+
+	for word in words:
+		if word not in translate_dictionary:
+			translated_sentence += word
+			translated_sentence += " "
+		else:
+			translated_sentence += translate_dictionary[word]
+			translated_sentence += " "
+
+	# 마지막에 추가 된 " " 를 없앰.
+	return translated_sentence.strip()
 
 
-# HW2
+# O(n^2) version
+def is_anagram_quadratic(s1, s2):
 
-# Q1
-# def zig_zag(line):
-#     """
-#     Given an integer line, create a "line" lines of zigzag.
-#     Each line should contain 9 #s and 5 consecutive white spaces, switching the direction once it
-#     hits the wall. The white spaces starts from the left side of the string
-#     It should look something like this:
-#          #########
-#     #     ########
-#     ##     #######
-#     ###     ######
-#     ####     #####
-#     #####     ####
-#     ######     ###
-#     #######     ##
-#     ########     #
-#     #########
-#     #########
-#     ########     #
-#     #######     ##
-#     ...
-#     """
-#     toLeft = False
-#     for i in range(0, line):
-#         if i % 10 == 0:
-#             toLeft = not toLeft
-#         if toLeft:
-#             print "#" * (i % 10) + " " * 5 + "#" * (9 - i % 10)
-#         else:
-#             print "#" * (9 - i % 10) + " " * 5 + "#" * (i % 10)
+	if len(s1) != len(s2):
+		return False
 
+	chars = []
+	for char in s1:
+		chars.append(char)
 
-def check_for_three(lst):
-    """
-    Given a list of integers,
-    if the integer has 3 as a digit switch the entry to false, else true
-    e.g)
-    [1,2,13,3,5,6,33]
-    will be turned into [T,T,F,F,T,T,F]
-    """
-    ret = copy.copy(lst)
-    for i in range(0, len(lst)):
-        if "3" in str(lst[i]):
-            ret[i] = "F"
+	# remove matches!
+	for char in s2:
+		# this is O(n)
+		chars.remove(char)
+
+	if len(chars) == 0:
+		return True
+	return False
+
+# O(nlogn) version
+# sorting takes O(nlogn).
+# http://stackoverflow.com/questions/4433915/why-is-sorting-a-string-on-log-n
+def is_anagram_nlogn(s1, s2):
+	s1.sort()
+	s2.sort()
+
+	return s1 == s2
+
+def is_anagram(s1, s2):
+
+	if len(s1) != len(s2):
+		return False
+
+	count1 = {}
+	count2 = {}
+
+	# count occurrences of each char in the first string
+	for char in s1:
+		if char not in count1:
+			count1[char] = 0
+		count1[char] = count1[char] + 1
+
+	# count occurrences of each char in the second string
+	for char in s2:
+		if char not in count2:
+			count2[char] = 0
+		count2[char] = count2[char] + 1
+
+	# for each character in the first string
+	# check if it does not exist in the second string or the #s of occurrences differ
+	# then, they are not anagrams
+	for char in s1:
+		if (char not in count2) or count2[char] != count1[char]:
+			return False
+
+	# otherwise, they are
+	return True
+
+# helper function used in the poker_chip_shuffle function.
+def mixUp(l, r, isLeft):
+
+    res = ''
+    for idx in xrange(len(l)):
+        if isLeft:
+            res += l[idx]
+            res += r[idx]
         else:
-            ret[i] = "T"
-    return ret
+            res += r[idx]
+            res += l[idx]
+
+    return res
+
+def poker_chip_shuffle(n, isLeft):
+    r = 'r'*n
+    b= 'b'*n
+    cnt = 0
+
+    while True:
+        res = mixUp(r, b, isLeft)
+        cnt += 1
+        length = len(res)
+
+        r = res[:length/2]
+        b = res[length/2:]
+
+        if (r == 'b'*n and b == 'r'*n) or (r == 'r'*n and b == 'b'*n):
+            break
+
+    return cnt
+
+def poker_chip_shuffle_optimal(n):
+
+	left_ans = poker_chip_shuffle(n, True)
+	right_ans = poker_chip_shuffle(n, False)
+
+	return min(left_ans, right_ans)
 
 
-def memory_cleaner(lst):
-    """
-    Erase all repeated elements (not necessarily integers) in the list, leaving just one.
-    Return the modified list.
-    e.g)
-    [1,1,1,1,2,2,3,3]
-    will be turned into [1,2,3]
-    """
-    cache = set([])
-    ret = copy.copy(lst)
-    for i in lst:
-        if i not in cache:
-            cache.add(i)
-        else:
-            ret.remove(i)
-    return ret
+#######################################################
+#######################################################
+########### 몰라도 되는 exaustive search technique
+###########
+#######################################################
+#######################################################
 
+# dictionary but has default values for keys that don't exist
+# uses the technique called the dynamic programming.
+# i.e. don't ever compute values twice for the states you have seen already
+# in other words, if have already seen the current left and right stacks more than once, you must have
+# computed its value in the past. use it!
+from collections import defaultdict
+d = defaultdict(int)
 
-def same_sum_substring(string):
-    """
-    Given a string of consecutive integers that is in range [0,9].
-    Find the number of substring pair that has an equal sum.
-    Using dictionary or counter is recommended.
-    """
-    count = 0
-    dict = {}
-    for i in range(0, len(string) + 1):
-        for j in range(i + 1, len(string) + 1):
-            ints = [int(x) for x in list(string[i:j])]
-            subSum = sum(ints)
-            if subSum not in dict:
-                dict[subSum] = 1
-            else:
-                count += dict[subSum]
-                dict[subSum] += 1
-    return count
+# set is like a dictionary but specifically designed to support membership check operations quickly
+# stores all the unique "states" seen so far.
+has_seen = set([])
 
+def poker_chip_shuffle_optimal_exahustive_sesarch(n, left, right, depth):
 
-# HW3
+    # a base case state
+    if ((left == 'r'*n and right == 'b'*n) or (left == 'b'*n and right =='r'*n)) and depth!=0:
+        return 0
 
-def isBalanced(str):
-    """
-    Check if the given string consisting of (,) is balanced. Search the definition of balanced.
-    Using stack or queue is recommended.
-    """
-    queue = collections.deque()
-    chars = list(str)
-    for i in chars:
-        if i == "(":
-            queue.append(1)
-        else:
-            if (len(queue) == 0):
-                return "F"
-            else:
-                queue.pop()
+    # if already seen this state, use the cached value
+    if d[(left, right)] != 0:
+        return d[(left, right)]
 
-    if len(queue) == 0:
-        return "T"
-    else:
-        return "F"
+    # if already seen this state but there is no value computed, return some large number 987654321 acts as our numerical choice of a positive infinity.
+    if (left, right) in has_seen:
+        return 987654321
 
+    mixUpL = mixUp(left, right, True)
+    mixUpR = mixUp(left, right, False)
+    has_seen.add((left, right))
 
-def anagrams(string):
-    """
-    Find the number of substring pair that are anagrams to each other.
-    Using counter or dictionary is recommended.
-    """
-    count = 0
-    dict = {}
-    for i in range(0, len(string) + 1):
-        for j in range(i + 1, len(string) + 1):
-            chars = [x for x in list(string[i:j])]
-            chars.sort()
-            sorted = "".join(chars)
-            if sorted not in dict:
-                dict[sorted] = 1
-            else:
-                count += dict[sorted]
-                dict[sorted] += 1
-    return count
+    # try both left and right first shuffles
+    res1 = poker_chip_shuffle_optimal_exahustive_sesarch(n, mixUpL[:n], mixUpL[n:], depth+1)
+    res2 = poker_chip_shuffle_optimal_exahustive_sesarch(n, mixUpR[:n], mixUpR[n:], depth+1)
+
+    d[(left, right)] = min(res1, res2) + 1
+    # return the minimum of the two.
+    return min(res1, res2) + 1
