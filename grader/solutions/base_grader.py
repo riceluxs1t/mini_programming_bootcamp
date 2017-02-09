@@ -1,5 +1,5 @@
 from grader.config import MAX_NUM_SECONDS, EPSILON, STRING_MODULE_HAS_NO_FUNCTION, STRING_PASSED_ALL_TEST_CASES, \
-    STRING_FAILED_SOME_TEST_CASES, STRING_FAILED_TIME_OUT
+    STRING_PASSED_SOME_TEST_CASES, STRING_FAILED_TIME_OUT
 from utility import context_manager_time_limit, format_function_arguments, format_wrong_return_value, TimeoutException
 
 
@@ -53,7 +53,7 @@ class BaseGrader(object):
             return 1.0
         else:
 
-            print STRING_FAILED_SOME_TEST_CASES.format(failed_test_cases, self.num_test_cases)
+            print STRING_PASSED_SOME_TEST_CASES.format(self.num_test_cases - failed_test_cases, self.num_test_cases)
 
             # TODO: actually tell what cases they failed.
             return float(self.num_test_cases - failed_test_cases) / self.num_test_cases
@@ -65,10 +65,11 @@ class BaseGrader(object):
     def test(self, expected, function, *args, **kwargs):
         self.num_test_cases += 1
 
-        try:
-            with context_manager_time_limit():
-                actual = function(*args)
+        timelimit = kwargs.get('tle', MAX_NUM_SECONDS)
 
+        try:
+            with context_manager_time_limit(timelimit):
+                actual = function(*args)
                 if expected != actual and ('floatComparison' not in kwargs or abs(expected - actual) > EPSILON):
                     self.failed_test_cases.append(format_wrong_return_value(actual, function.__name__, args))
                     return False

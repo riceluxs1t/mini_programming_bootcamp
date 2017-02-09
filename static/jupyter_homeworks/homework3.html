@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>lecture2</title>
+<title>homework3</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -11746,481 +11746,114 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[56]:</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Last lecture. we talked about language constructs such as list. for loop. if else if else, etc</span>
-<span class="c1"># Even with those, you can do a great deal of programming.</span>
-<span class="c1"># moving averages, standard deviations, generating all combinations of a list, etc.</span>
-<span class="c1"># Let&#39;s think of yet another problem and try implementing it with only what we have leanred so far</span>
-
-<span class="c1"># Given a list of integers in range 1 ~ 100, let&#39;s count the occurences of each number.</span>
-<span class="c1"># e.g. Given, [1,2,3,4,5,5,5,1,1,2,4,4,4,4], the function produces information about the counts of each number.</span>
-<span class="c1"># e.g. 1: 3 (#1 appears 3 times), 2: 2 (#2 appears 2 times), 3: 1 (#3 appears once), 4: 5 (#4 appears 5 times), etc...</span>
-
-<span class="k">def</span> <span class="nf">computeOccurrences</span><span class="p">(</span><span class="n">listOfNumbers</span><span class="p">):</span>
-    
-    <span class="n">counts</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">101</span> <span class="c1"># (creates an array that has 101 zeros in it.)</span>
-    
-    <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">listOfNumbers</span><span class="p">:</span>
-        <span class="n">counts</span><span class="p">[</span><span class="n">number</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
-    
-    <span class="k">return</span> <span class="n">counts</span>
-</pre></div>
-
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Homework-3">Homework 3<a class="anchor-link" href="#Homework-3">&#182;</a></h1>
 </div>
 </div>
 </div>
-
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[57]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># What are some pros and cons of this implementation?</span>
-</pre></div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>드디어 4번째 홈워크 입니다.</p>
+<p>이때까지의 숙제를 열심히 했다면, for loop, variable, list, dictionary, if 등의 programming 의 building block 과 같은</p>
+<p>요소들과 적(?)이 아닌 친구가 되어있으리라 믿습니다.</p>
+<p>이제 이런것들을 가지고 뭘 할 수 있을까요?</p>
 
 </div>
 </div>
 </div>
-
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[58]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># What happens if the distribution of numbers is skewed? i.e. only numbers 1 and 2 appear 99% of times.</span>
-<span class="c1"># and other numbers in range 1~100 appear very little?</span>
-
-<span class="k">def</span> <span class="nf">computeOccurrences</span><span class="p">(</span><span class="n">listOfNumbers</span><span class="p">):</span>
-    
-    <span class="n">countsForOneAndTwo</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="c1"># why have three entries?</span>
-    <span class="n">otherNumbers</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">listOfNumbers</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">number</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">number</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-            <span class="n">countsForOneAndTwo</span><span class="p">[</span><span class="n">number</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">otherNumbers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
-    
-    <span class="k">return</span> <span class="n">countsForOneAndTwo</span><span class="p">,</span> <span class="n">otherNumbers</span>
-</pre></div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>네! 그렇습니다. 우리가 어릴 때 부터 열심히 해온 "가위 바위 보" 게임을 할 수 있습니다.</p>
+<p>4번째 숙제는 단 하나의 함수만 구현하면 됩니다. 이 함수에, 이때 까지 배운 프로그래밍 지식과과 본인이 사전에 알고 있던 "가위 바위 보" 노하우들을 총 망라해서</p>
+<p>"가위 바위 보" 토너먼트에 참가 할 "가위 바위 보" 함수를 구현 해주세요!</p>
 
 </div>
 </div>
 </div>
-
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[59]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># What are some intuitive pros and cons of this implementation?</span>
-</pre></div>
-
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#44032;&#50948;-&#48148;&#50948;-&#48372;-&#53664;&#45320;&#47676;&#53944;">&#44032;&#50948; &#48148;&#50948; &#48372; &#53664;&#45320;&#47676;&#53944;<a class="anchor-link" href="#&#44032;&#50948;-&#48148;&#50948;-&#48372;-&#53664;&#45320;&#47676;&#53944;">&#182;</a></h2>
 </div>
 </div>
 </div>
-
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[60]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Entry python&#39;s &quot;dictionary&quot; data structure!</span>
-</pre></div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>토너먼트의 규칙은 다음과 같습니다.</p>
+<p>1) Homework3을 충실히 해온 학생 + Staff 들 모두 참가합니다.</p>
+<p>2) 토너먼트는 다음 주 수업시간 당일에 진행하도록 합니다.</p>
+<p>3) 토너먼트는 우리가 생각하는 토너먼트룰과 동일합니다. 랜덤하게 배정 된, 토너먼트 대진표를 따라 상대와 1:1 가위바위보 게임을 1000번 반복하게 됩니다.</p>
+<p>1000번의 가위바위보 후, 더 많은 승수를 휙득한 사람이 다음 라운드로 진출하게 됩니다. 말도 안되는 확률에 의해서 동률이 발생한다면 (?), 승부가 날때 까지</p>
+<p>계속 진행됩니다. 1000번의 가위바위보를 진행할 때, "승", "무", "패" 모두 한번의 가위바위보로 간주합니다. 따라서 700승 50무 250패와 같은 스코어가</p>
+<p>발생 할 수 있습니다.</p>
+<p>4) 토너먼트에 참가하는 사람이 2의 제곱 승이 아닌 경우 (i.e. 부전승이 존재), 토너먼트 대진 트리의 각 레벨에서 가장 오른쪽에 배정 된 사람이</p>
+<p>부전승 하게 됩니다.</p>
 
 </div>
 </div>
 </div>
-
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[84]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">myDictionary</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># one way to initialize a dictionary. MOST COMMON</span>
-<span class="n">myDictionary2</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span> <span class="c1"># another way to initialize a dictionary</span>
-
-<span class="c1"># initializes a dictionary with prepopulated data</span>
-<span class="n">myDictinoary3</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;jaejoon&quot;</span><span class="p">:</span> <span class="s2">&quot;jejoon&quot;</span><span class="p">,</span> <span class="s2">&quot;youngryul&quot;</span><span class="p">:</span> <span class="s2">&quot;baekma pok gyuk ki&quot;</span><span class="p">,</span> <span class="s2">&quot;gunhwan&quot;</span><span class="p">:</span> <span class="s2">&quot;best driver&quot;</span><span class="p">}</span>
-</pre></div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>5) 최종 승자는 50불의 Amazon Gift Card 를 Prize 로 얻게 됩니다. (thank you Rice for funding us)</p>
 
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="How-to-enter-this-tournament">How to enter this tournament<a class="anchor-link" href="#How-to-enter-this-tournament">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>토너먼트에 참가 한다는 것은 다음을 의미합니다.</p>
+<p>1) Homework 3을 토요일 수업 이전에 제출.</p>
+<p>2) 반드시(!!) homework3.py 라는 파일이름으로 숙제를 제출 해야 함. 그렇지 않으면 실격 처리.</p>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>3) 다음의 함수를 구현해야 함. 함수의 이름 또한 수정 시 실격 처리.</p>
+
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[62]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># we can populate a dictionary</span>
-<span class="n">myDictionary</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="n">myDictionary</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[63]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="n">myDictionary</span> <span class="c1"># prints it content</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>{1: 3, 2: 10}
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[67]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># dictinoary is what&#39;s generally referred to as &quot;hashmap&quot;</span>
-<span class="c1"># or &quot;map&quot; in other computer programming langugages such as C, Java, etc.</span>
-<span class="c1"># This data structure can be viewed as a collection of &quot;key-value&quot; pairs</span>
-<span class="c1"># can naturally be used to store the &quot;count&quot; of some objects</span>
-
-<span class="k">def</span> <span class="nf">computeOccurrences</span><span class="p">(</span><span class="n">listOfNumbers</span><span class="p">):</span>
-    <span class="n">counts</span> <span class="o">=</span> <span class="p">{}</span>
-    
-    <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">listOfNumbers</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">number</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">counts</span><span class="p">:</span>
-            <span class="n">counts</span><span class="p">[</span><span class="n">number</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="n">counts</span><span class="p">[</span><span class="n">number</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
-    
-    <span class="k">return</span> <span class="n">counts</span>
-    
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[68]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
-<span class="n">counts</span> <span class="o">=</span> <span class="n">computeOccurrences</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
-
-<span class="k">print</span> <span class="n">counts</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>{1: 3, 2: 2, 3: 1, 4: 5, 5: 3}
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[70]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># notice the &quot;if number not in counts&quot; line.</span>
-<span class="c1"># what happens if you try accessing a key that&#39;s not already defined?</span>
-<span class="c1"># by the way, dictionarys can have arbitrary &quot;types&quot; of keys and values.</span>
-
-<span class="n">aDict</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="n">aDict</span><span class="p">[</span><span class="s1">&#39;jeejoon&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;cool&#39;</span>
-<span class="n">aDict</span><span class="p">[</span><span class="s1">&#39;youngryul&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;a student&#39;</span>
-<span class="n">aDict</span><span class="p">[</span><span class="s1">&#39;gunhwan&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;church goer&#39;</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[71]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="n">aDict</span><span class="p">[</span><span class="s1">&#39;gunhwan&#39;</span><span class="p">]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>church goer
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[72]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="n">aDict</span><span class="p">[</span><span class="s1">&#39;seungjun&#39;</span><span class="p">]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">KeyError</span>                                  Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-72-f3573bf18c9c&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">print</span> aDict<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;seungjun&#39;</span><span class="ansi-blue-fg">]</span>
-
-<span class="ansi-red-fg">KeyError</span>: &#39;seungjun&#39;</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[74]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># it throws a Key error. </span>
-<span class="c1"># that is you can&#39;t access a key that&#39;s not already defined</span>
-<span class="c1"># &quot;KeyError&quot; exception is probly the #2 mistake that novice python programmers make.</span>
-<span class="c1"># back to the case of counting occurrences, this is why we &quot;checked&quot; to see if some number is already in our dictionary</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[75]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="s1">&#39;jeejoon&#39;</span> <span class="ow">in</span> <span class="n">aDict</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[75]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>True</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[76]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="s1">&#39;namgun&#39;</span> <span class="ow">in</span> <span class="n">aDict</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[76]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>False</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[77]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># sometimes it&#39;s necessary to &quot;iterate&quot; over the contents of a dictionary</span>
-<span class="c1"># you can use &quot;for loop&quot; just like how you would iterate over the contents of a list</span>
-
-<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">aDict</span><span class="p">:</span>
-    <span class="k">print</span> <span class="n">key</span><span class="p">,</span> <span class="n">aDict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>jeejoon cool
-youngryul a student
-gunhwan church goer
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[78]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># to get the number of contents in a dictionary</span>
-
-<span class="k">print</span> <span class="nb">len</span><span class="p">(</span><span class="n">aDict</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>3
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[79]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># enough with the new language construct!!</span>
-<span class="c1"># let&#39;s do programming!!</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[81]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Given a sentence and a mapping that transforms certain words into others, convert the sentence</span>
-<span class="c1"># i.e. Jeejoon is cool!,    cool -&gt; no jam</span>
-<span class="c1"># transform(&quot;Jeejoon is cool&quot;, mapping) -&gt; Jeejon is no jam</span>
-<span class="c1"># naturally what language struct would you use to represent &quot;mapping&quot; paramter?</span>
-<span class="c1"># hint -&gt; &quot;Jeejoon is cool&quot;.split()  == [&quot;Jeejoon&quot;, &quot;is&quot;, &quot;cool&quot;]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[85]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="n">sentence</span><span class="p">,</span> <span class="n">mapping</span><span class="p">):</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">rps</span><span class="p">(</span><span class="n">opponent_nickname</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="n">my_move_history</span><span class="p">,</span> <span class="n">opponent_move_history</span><span class="p">):</span>
     <span class="k">pass</span>
 </pre></div>
 
@@ -12229,719 +11862,128 @@ gunhwan church goer
 </div>
 
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[86]:</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 파이썬의 dictionary 혹은 다른 언어의 map 과 같은 데이터 스트럭쳐는 </span>
-<span class="c1"># 사실 수학과 굉장히 관련이 되어있다.</span>
-<span class="c1"># 전화번호부북을 떠올려 보자. 하필이면 이 전화번호부북은 3쪽 밖에 없다고 가정해보자. </span>
-<span class="c1"># 자 이제, 홍콩반점 전화번호 머야 라고 물으면,</span>
-<span class="c1"># &quot;홍콩반점 전화번호&quot; -&gt; &quot;전화번호부북 3쪽 위에서 5섯번째 줄&quot; -&gt; 휘릭 휘릭 -&gt; 02 832 0143 </span>
-<span class="c1"># &quot;02 832 0143&quot; 입니다. 라고 빠르게 말할 수 있다.</span>
-<span class="c1"># 전화번호부 북을 navigate 하는게 굉장히 쉽다고 가정하면</span>
-<span class="c1"># 위 프로세스에서 중요한건 &quot;홍콩반점 전화번호&quot; -&gt; &quot;전화번호부북 3쪽 위에서 5번째 줄&quot; 과 같은 transformation 과정이다.</span>
-<span class="c1"># 이 transformation 과정을 &quot;hashing&quot; 이라 부른다.</span>
-<span class="c1"># (http://www.laurentluce.com/posts/python-dictionary-implementation/)</span>
-<span class="c1"># 근데 이 hashing 이 mathematically strong 하지 않으면 collsion &quot;충돌&quot; 이 일어난다.</span>
-<span class="c1"># e.g.</span>
-<span class="c1"># &quot;홍콩반점 전화번호&quot; -&gt; &quot;전화번호부북 3쪽 위에서 5번째 줄&quot;</span>
-<span class="c1"># &quot;지준반점 전화번호&quot; -&gt; &quot;전화번호부북 3쪽 위에서 5번재 줄&quot;</span>
-<span class="c1"># ???</span>
-<span class="c1"># collision 이 전혀 없게 hashing 함수를 작성할 수 없을까?</span>
-</pre></div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>4) pass 자리에 본인의 코드를 구현하면 됨.</p>
 
 </div>
 </div>
 </div>
-
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[87]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span> 
-</pre></div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="input">input<a class="anchor-link" href="#input">&#182;</a></h3><p>5) 이 함수는 4개의 parameter 를 input 으로 받는데, 각각의 파라미터는 다음을 의미함.</p>
+<ul>
+<li><p>opponent_nickname: who is my current opponent? 모든 참가자는 사전에 본인의 tournament "nickname" 을 정한 뒤 알려줘야 됨. 
+예를들어, 성학이와 대전하는 경우 성학이의 (사전에 정하고 공개한) 닉네임인 shenamce 라는 값이 opponent에 들어옴. 이를 통해, 특정 상대와 대전하는 경우
+특정 custom tailored 한 전략을 쓰는 방법등을 고려해볼 수 있다. (i.e. if opponent_nickname == "shenamce": ..... else: .....)</p>
+</li>
+<li><p>idx: 1000번의 가위바위보 대전 중, 현재 턴의 순번. 1000번의 대전중 100번째라면 idx 의 값은 100. 해당 상대와 첫번째 가위바위보 대결인 경우 1.
+마지막 대결인 경우 1000. 등등</p>
+</li>
+<li><p>my_move_history: 현재 까지 내가 낸 가위바위보 히스토리 Python list 형태로 주어 짐. 예를들어, idx = 50인 경우, 앞서 내가 낸 49개의 가위바위보 choice 들이 my_move_history 에 담겨있음. 리스트에 저장 된 순서는 my_move_history[0] = 1번째 대전에 내가 낸 가위바위보 초이스. my_move_history[1] = 2번째 대전에 내가 사용한 초이스. ..... my_move_history[n-1] = n 번째 대전에 내가 낸 가위바위보 초이스. 당연하게도, 첫번째 대전인 경우 my_move_history 의 값은 [] 이다.</p>
+</li>
+<li><p>opponent_move_history: 현재 까지 상대방이 낸 가위바위보 히스토리. 포맷은 위와 동일.</p>
+</li>
+</ul>
 
 </div>
 </div>
 </div>
-
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[88]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span> 
-</pre></div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="output">output<a class="anchor-link" href="#output">&#182;</a></h3><p>6) 이 함수는 함수의 return 값으로 "R", "P", "S" 세개의 스트링 값만 리턴하여야 한다. 이 외 다른 값을 리턴하는 경우 바로 실격처리.
+"리턴" 한다는 말은 return "R" (혹은 return "P" / return "S") 한다는 말이다. 예를들어, print "R" 하는 경우 마찬가지로 실격.</p>
+<p>7) 이 함수는 0.01초 내에 값을 return 하여야 한다. 이를 초과하는 경우, 바로 실격 처리. 참고로 컴퓨터는 대략 10^8 개의 일을 1초안에 할 수 있다.
+따라서 10^6승 개의 어마무시한 가위바위보 복잡한 strategy 를 생각하고 있지 않는 이상, 0.01초라는 시간은 매우 적절한 시간이다.</p>
+<p>8) 당연히 가위바위보 게임이기 때문에 randomized 한 전략을 생각하고 있을 수 있다. 하지만, 최대한 deterministic 프로그램을 제한하기 위하여,
+random library 의 사용을 제한한다. 구체적으로, random library 와 관련 된, random.random(), random.randrange() 함수를 호출 시,
+반드시, random.seed(0) 혹은 random.seed(1) 을 사전에 호출하여야 한다. random.seed(0) 혹은 random.seed(1)은 본인의 rpc 함수 내에서
+여러번 값을 바꿔서 호출 가능하다. 단, 반드시, seed 의 값으로 0 혹은 1을 사용하여야 한다. 구체적인 내용은 lecture 2 참조.</p>
+<p>또한 이 외 random 한 동작을 구현하기 위해 time, os library 등의 사용을 금지한다.</p>
 
 </div>
 </div>
 </div>
-
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[89]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 맨위에서 다룬 dictionary 를 쓰지 않은 computeOccurrences 함수의 구현이 python dictionary 의 내부 동작 과정을 mimic 해서 짠 함수이다!</span>
-</pre></div>
-
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#51652;&#54665;">&#51652;&#54665;<a class="anchor-link" href="#&#51652;&#54665;">&#182;</a></h2>
 </div>
 </div>
 </div>
-
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[90]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 따라서 중요한 질문은</span>
-<span class="c1"># &quot;충돌이 잘 일어나지 않게 (혹은 절대 일어나지 않게), 하려면 어떻게 할까?&quot; </span>
-<span class="c1"># 이다.</span>
-</pre></div>
+<div class="text_cell_render border-box-sizing rendered_html">
 
 </div>
 </div>
 </div>
-
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 1) 당연히 좋은 hashing 함수를 만들어야 한다. i.e. 잘 충돌하지 않는다. (http://mathworld.wolfram.com/HashFunction.html)</span>
-<span class="c1"># 어떤게 좋은 hashing 함수 일까?</span>
-<span class="c1"># -&gt; 어떤 input distribution 이 주어지더라도 최대한 uniformly distributed 하게 변환 할 수 있는 함수.</span>
-<span class="c1"># 주로 주어진 인풋 a 에대해서 a*k + b mod p 와 같은 형태를 가진다.</span>
-</pre></div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>조교들이 열심히 개발을 진행해준다면, 수업 당일날 토너먼트를 실시간으로 진행한다.</li>
+<li>그렇지 못한다면, GUI (Graphical User Interface) 없이, terminal 로 실행하도록 한다.</li>
+<li>학생 입장에서, 위 함수를 제외한 다른 구현은 필요없다. 실제 진행과 관련 된 코드들은 조교들이 열심히 구현해 줄 꺼다.</li>
+</ul>
 
 </div>
 </div>
 </div>
-
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Input       Modulo 4    Modulo 5       Module 7</span>
-
-<span class="c1"># 10              2          0               3</span>
- 
-<span class="c1"># 20              0          0               6</span>
-
-<span class="c1"># 30              2          0               2</span>
-
-<span class="c1"># 40              0          0               5</span>
-
-<span class="c1"># 50              0          0               1</span>
-</pre></div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#44396;&#54788;">&#44396;&#54788;<a class="anchor-link" href="#&#44396;&#54788;">&#182;</a></h2><p>이때까지 숙제와는 다르게 이번 숙제는 right or wrong 한 답안이 없습니다.</p>
+<p>물론 1000번의 대전을 하기 때문에, 바보같은 전략 ("R" 만 1000번 다 냄)과 같은 코드를 짰다면, 상대방에게 이를 읽혀</p>
+<p>참패 할 수도 있겠죠. 하지만, 나의 매우 복잡하고 스마트해보이는 전략이 항상 엣지가 있으리 라는 보장 또한 없습니다.</p>
+<p>따라서, 창의성과 파이썬 지식과 본인의 잡지식들(game theory, for example)을 모두 망라해 재미있게 작성해주시면 됩니다.</p>
 
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#49444;&#47749;">&#49444;&#47749;<a class="anchor-link" href="#&#49444;&#47749;">&#182;</a></h2><p>본인의 가위바위보 함수가 사용하는 logic 을 파이썬 함수 정의 위에 간단하게 코멘트로 적어 제출해 주세요.</p>
 
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 2) 그럼에도 불구하고 비둘기집의 원리에 의하면 충돌은 피할 수 없다.</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
 
-<span class="c1"># 비둘기 집은 100개인데 비둘기가 102마리 있다면</span>
-<span class="c1"># 최선의 경우에도 1개의 비둘기집이 최소 2명 이상의 비둘기를 가질 수 밖에 없다.</span>
-<span class="c1"># hashing 함수 또한 마찬가지 이다. N개의 bucket 밖에 없는데 (예를들면 list의 size), M &gt; N 개의 서로다른 unique 한 아이템이 주어진다면</span>
-<span class="c1"># 어떻게 변환해도 충돌을 피할 수 없다.</span>
-</pre></div>
+<span class="sd">간단한 설명을 여기다 적어 주세요.. 주의! triple quote 사이에 적어야 함.</span>
 
-</div>
-</div>
-</div>
 
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 3) 따라서 충돌이 일어났을 때, post processing 을 통해, 그 다음부터는 충돌이 다시 잘 일어나지 않도록 하는 방법들을</span>
-<span class="c1"># 마련해야 한다. (http://stackoverflow.com/questions/4980757/how-do-hashtables-deal-with-collisions)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 이제 숙제에서 다룬 문제하나를 다시 생각해보자.</span>
-<span class="c1"># problem:</span>
-<span class="c1"># </span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">MEDIUM HARD</span>
-<span class="sd"> </span>
-<span class="sd">Given a list of integer numbers of an arbitrary length and a number x, find a pair of numbers in the list that sum to x</span>
-<span class="sd">if there is no such a pair, simply output an empty list []</span>
-<span class="sd"> </span>
-<span class="sd">e.g.</span>
-<span class="sd">[1,2,3,4,5], 3.</span>
-<span class="sd"> </span>
-<span class="sd">output [1, 2]</span>
-<span class="sd"> </span>
-<span class="sd">e.g.</span>
-<span class="sd">[1,2,3,4,5], 100</span>
-<span class="sd">output []</span>
-<span class="sd"> </span>
-<span class="sd">HINT: use double for loops</span>
-<span class="sd">Extra Credit: read http://w...content-available-to-author-only...s.org/count-pairs-with-given-sum/ and think a better way to do this than using double for loops.</span>
-<span class="sd">실제 테크 회사들 맨 첫라운드 인터뷰 문제로 자주 등장.</span>
-<span class="sd">&quot;&quot;&quot;</span>
- 
-<span class="k">def</span> <span class="nf">findPair</span><span class="p">(</span><span class="n">numbers</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-    <span class="k">pass</span>
+<span class="k">def</span> <span class="nf">rps</span><span class="p">(</span><span class="n">opponent_nickname</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="n">my_move_history</span><span class="p">,</span> <span class="n">opponent_move_history</span><span class="p">):</span>
+    <span class="k">pass</span> 
 </pre></div>
 
 </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># youngruyl&#39;s solution</span>
-
-<span class="k">def</span> <span class="nf">findPair</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span><span class="n">target</span><span class="p">):</span>
-	<span class="n">val</span><span class="o">=</span><span class="p">[]</span>
-	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">)):</span>
-		<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">),</span><span class="mi">1</span><span class="p">):</span>
-			<span class="k">if</span> <span class="nb">list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="nb">list</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">==</span><span class="n">target</span><span class="p">:</span>
-				<span class="n">val</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="nb">list</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="nb">list</span><span class="p">[</span><span class="n">j</span><span class="p">]])</span>
-	<span class="k">return</span> <span class="n">val</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">findPair</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span> <span class="mi">7</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[3]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[[2, 5], [3, 4]]</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 맞는것 같다.</span>
-<span class="c1"># 하지만 굉장히 큰 리스트를 주면 어떻게 될까?</span>
-<span class="kn">import</span> <span class="nn">random</span>
-
-<span class="k">def</span> <span class="nf">generateRandomList</span><span class="p">():</span>
-    <span class="n">aList</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">100000</span><span class="p">):</span>
-        <span class="n">aList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10000</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">aList</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">aLongRandomList</span> <span class="o">=</span> <span class="n">generateRandomList</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
-
-<span class="n">startTime</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-<span class="n">findPair</span><span class="p">(</span><span class="n">aLongRandomList</span><span class="p">,</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))</span>
-<span class="n">endTime</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 돌려보면 대략 4초나 걸린다..</span>
-<span class="c1"># 만약에 10000 개가 아니라 10만개의 리스트를 주면 어덜까?</span>
-<span class="c1"># 대략 몇십분쯤 걸린다.</span>
-<span class="k">print</span> <span class="s2">&quot;function took {0} seconds&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">endTime</span> <span class="o">-</span> <span class="n">startTime</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>function took 503.710397959 seconds
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 오늘 배운 개념을 써서 0.01초만에 돌게 하는 법은 없을까?</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">fasterVersion</span><span class="p">():</span>
-    <span class="k">pass</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 새로운 주제. 랜덤한 동작!</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>컴퓨터에게 도대체 랜덤한 동작을 어떻게 시킬 수 있을까?</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>정답: 시킬 수 없다.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>왜?: 컴퓨터는 우리가 돌린 코드만 실행하기 때문이다</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>그럼에도 불구하고 파이썬 및 다른 언어들에서 random 과 관련 된 기능들을 제공한다.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-    <span class="k">print</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>6
-6
-4
-5
-9
-9
-3
-6
-7
-1
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-    <span class="k">print</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>9
-4
-7
-7
-1
-5
-5
-6
-5
-7
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>뭐지? 지금 남근이형이 헛소리 하는건가?</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>컴퓨터에게 도대체 랜덤한 동작을 어떻게 시킬 수 있을까?</p>
-<p>정답: 네 시킬 수 없지만, 랜덤 처럼 보이는 동작을 시킬 순 있습니다.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>위와 같은 동작을 PRNG 라 합니다. (Pusedo random number generator)</p>
-<p>이 PRNG 를 통해서 수많은 random 한 것들을 할 수 있습니다.</p>
-<p>i.e. sample from some random distribution.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>예, 가위바위보 같은 것도 할 수 있죠.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">rock_paper_scissors</span><span class="p">():</span>
-    <span class="n">num</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
-    <span class="k">if</span> <span class="n">num</span> <span class="o">&lt;</span> <span class="mf">0.33333333</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s1">&#39;roc&#39;</span>
-    <span class="k">elif</span> <span class="n">num</span> <span class="o">&lt;</span> <span class="mf">0.66666666</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s1">&#39;papar&#39;</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s1">&#39;scissors&#39;</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>근데 사실 이 PRNG 또한 "pseudo" 하기 때문에 정말 truely random 하지 않습니다.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>랜덤해보이는 이유는 "seed" 라는 값을 매번 달리 가지기 때문이죠!</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-    <span class="k">print</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>2
-8
-7
-3
-5
-5
-6
-8
-1
-1
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-    <span class="k">print</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>2
-8
-7
-3
-5
-5
-6
-8
-1
-1
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>그렇다면.. seed가 매우 중요한 것 같은데 어떻게 지정하는걸까요?</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
-<span class="k">print</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-<span class="k">print</span> <span class="n">time</span><span class="o">.</span><span class="n">gmtime</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">time</span><span class="o">.</span><span class="n">gmtime</span><span class="p">(</span><span class="mf">1486239809.84</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>1486239825.59
-time.struct_time(tm_year=1970, tm_mon=1, tm_mday=1, tm_hour=0, tm_min=0, tm_sec=0, tm_wday=3, tm_yday=1, tm_isdst=0)
-time.struct_time(tm_year=2017, tm_mon=2, tm_mday=4, tm_hour=20, tm_min=23, tm_sec=29, tm_wday=5, tm_yday=35, tm_isdst=0)
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
