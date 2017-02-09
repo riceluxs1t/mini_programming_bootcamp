@@ -4,7 +4,7 @@ from django.core.management.base import BaseCommand
 from django.db.models import ObjectDoesNotExist
 
 from grader.config import DIR_PYTHON_MODULE_SOLUTIONS, DIR_PYTHON_MODULE_SUBMISSIONS, DIR_GRADED_FILE, \
-    HOMEWORK_NAME, USER_NAME
+    HOMEWORK_NAME, USER_NAME, TIMELIMIT
 from homeworks.models import Homework
 
 
@@ -20,6 +20,7 @@ class Command(BaseCommand):
     def add_arguments(self, parser):
         parser.add_argument(HOMEWORK_NAME, type=str)
         parser.add_argument(USER_NAME, type=str)
+        #parser.add_argument(TIMELIMIT, type=str)
 
     def handle(self, *args, **options):
 

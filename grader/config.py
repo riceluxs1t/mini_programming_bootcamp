@@ -30,3 +30,4 @@ DIR_GRADED_FILE = '/'.join([DIR_GRADE, "%s-%s.txt"])
 # some named constants
 HOMEWORK_NAME = "homework_name"
 USER_NAME = "user_name"
+TIMELIMIT = "time_limit"
