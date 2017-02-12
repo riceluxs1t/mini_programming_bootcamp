@@ -2,8 +2,6 @@ from django.core.management import BaseCommand, call_command
 
 from grader.config import HOMEWORK_NAME, USER_NAME
 
-"""
-"""
 
 class Command(BaseCommand):
 
