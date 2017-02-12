@@ -46,7 +46,7 @@ class RockPaperScissorsModel:
         self.player_one_move_history = []
         self.player_two_move_history = []
 
-    def run_player_code(
+    def _run_player_code(
             self,
             turn_idx,
             player,
@@ -87,14 +87,14 @@ class RockPaperScissorsModel:
 
     def play_single_round(self, turn_idx):
 
-        player_one_move = self.run_player_code(
+        player_one_move = self._run_player_code(
             turn_idx,
             self.player_one,
             self.player_one_move_history,
             self.player_two_move_history
         )
 
-        player_two_move = self.run_player_code(
+        player_two_move = self._run_player_code(
             turn_idx,
             self.player_two,
             self.player_two_move_history,
