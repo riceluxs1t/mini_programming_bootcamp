@@ -50,13 +50,14 @@ class RockPaperScissorsModel:
             self,
             turn_idx,
             player,
+            opponent,
             player_move_history,
             opponent_move_history
     ):
         try:
             with context_manager_time_limit():
                 move = player.rps(
-                    player.get_nickname(),
+                    opponent.get_nickname(),
                     turn_idx,
                     player_move_history,
                     opponent_move_history
@@ -112,3 +113,23 @@ class RockPaperScissorsModel:
             return player_one_move, player_two_move, self.P1_WIN
         else:
             return player_one_move, player_two_move, self._find_winner(player_one_move, player_two_move)
+
+
+    def play_thousand_rounds(self):
+        """
+        :return: p1 winning proportion/ p2 winning proportion/ p1 history/ p2 history
+        """
+        player_one_cnt = 0.0
+        player_two_cnt = 0.0
+
+        for i in range(1000):
+            player_one_move, player_two_move, winner = self.play_single_round(i)
+            if winner == self.P1_WIN:
+                player_one_cnt += 1
+            else:
+                player_two_cnt += 1
+
+        return player_one_cnt / (player_one_cnt + player_two_cnt),\
+               player_two_cnt / (player_one_cnt + player_two_cnt),\
+               self.player_one_move_history, self.player_two_move_history
+

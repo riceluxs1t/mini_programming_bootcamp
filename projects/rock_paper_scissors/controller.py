@@ -20,3 +20,9 @@ class model2ViewAdapter:
 class view2ModelAdapter:
     def __init__(self):
         pass
+
+    def run(self, player1, player2):
+
+        for i in range(1000):
+            model.play_single_round(self, i)
+
