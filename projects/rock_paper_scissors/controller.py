@@ -14,7 +14,6 @@ class RockPaperScissorsController:
 
 
 class model2ViewAdapter:
-
     def __init__(self):
         pass
 
