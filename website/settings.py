@@ -25,7 +25,7 @@ SECRET_KEY = '5mh3j5!hec2qrjds5s9-qxb$e4ctc)nf@39qa0v%ny2x1%c85('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [u'lit-reaches-57982.herokuapp.com', "127.0.0.1"]
+ALLOWED_HOSTS = [u'lit-reaches-57982.herokuapp.com', "127.0.0.1", "rcpc.kr", "www.rcpc.kr"]
 
 
 # Application definition
