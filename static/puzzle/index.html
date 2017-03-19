@@ -1,0 +1,153 @@
+{% load static %}
+
+<html><head>
+
+<style>
+    .display {
+    background-color: #EEEEEE;
+    border: 1px solid black;
+    color: black;
+    }
+</style>
+
+<script type="text/javascript">
+    var box;
+    var box_values;
+    var msg;
+    var filenames;
+
+function init_game() {
+    box = {
+        0: document.getElementById("box0"),
+        1: document.getElementById("box1"),
+        2: document.getElementById("box2"),
+        3: document.getElementById("box3"),
+        4: document.getElementById("box4")
+    };
+
+    filenames = {
+        0:"{% static "puzzle/chris.png" %}",
+        1:"{% static "puzzle/devika.png" %}",
+        2:"{% static "puzzle/corky.png" %}",
+        3:"{% static "puzzle/wallach.png" %}",
+        4:"{% static "puzzle/swong.png" %}",
+        5:"{% static "puzzle/luay.png" %}",
+        6:"{% static "puzzle/rixner.png" %}"
+    };
+
+    box_values = {
+        0: 0,
+        1: 1,
+        2: 2,
+        3: 3,
+        4: 4
+    };
+
+    msg = document.getElementById("msg");
+    msg.value = "";
+    update_full_display();
+}
+
+function update_full_display(){
+    for(k = 0; k < 5; k++)
+        update_display(k);
+}
+
+function update_display(k){
+    box[k].src = filenames[box_values[k]];
+}
+
+function delta(k, add){
+    box_values[k] += add;
+    box_values[k] %= 7;
+    update_display(k);
+}
+
+function check_win(){
+    if (
+            box_values[0] == 0 &&
+            box_values[1] == 0 &&
+            box_values[2] == 0 &&
+            box_values[3] == 0 &&
+            box_values[4] == 0
+    ) {
+        msg.value = "We Win!";
+    } else {
+        msg.value = "";
+    }
+}
+
+/* Game-specific */
+    function button0(){
+        delta(0, 1);
+        delta(3,1);
+        check_win();
+    }
+
+    function button1(){
+        delta(1, 2);
+        delta(2, 3);
+        check_win();
+    }
+
+    function button2(){
+        delta(1, 4);
+        delta(4, 1);
+        check_win();
+    }
+
+    function button3(){
+        delta(3, 3);
+        delta(2, 2);
+        check_win();
+    }
+
+    function button4(){
+        delta(0, 2);
+        delta(4, 1);
+        check_win();
+    }
+
+</script>
+
+</head>
+
+<body onload="init_game()">
+   <table>
+      <tbody>
+         <tr>
+            <td>
+               <image id="box0">
+            </td>
+            <td><img id="box1"></td>
+            <td><img id="box2"></td>
+            <td><img id="box3"></td>
+            <td><img id="box4"></td>
+         </tr>
+         <tr>
+            <td><input onclick="button0()" value="North America" type="button"></td>
+            <td><input onclick="button1()"
+               value="Africa" type="button"></td>
+            <td><input onclick="button2()" value="Asia" type="button"></td>
+            <td><input onclick="button3()" value="Europe" type="button"></td>
+            <td><input onclick="button4()" value="South America"
+               type="button"></td>
+         </tr>
+         <tr>
+            <td colspan=5><input class="display" id="msg" disabled="disabled" type="text"></td>
+         </tr>
+         <tr>
+            <td colspan=5><input type="button" onclick="init_game()" value="RESET"></td>
+         </tr>
+      </tbody>
+   </table>
+   <ul>
+      <li> You are an ambitious CS major and are determined to take FIVE CS courses in FALL 2017.
+      <li> It is generally known among Rice CS undergrads that some professors are cooler than others. More specifically,
+      <li> Any one would agree to the following order of their awesomeness (0 = most awesome) Chris=Most Chill=0, Devika=KINDEST=1, Corky=WEIRDEST=2, Wallach=MOST Functional=3, Wong=4, Luay=Most Dreadful=5, Rixner=Evil=6.
+      <li> You have 5 slots in your schedule and your job is to have the most chill semester by taking all 5 of your classes from Chris!
+      <li> Find a sequence of button hits so that all 5 of your classes would be from Chris
+   </ul>
+</body>
+
+</html>
