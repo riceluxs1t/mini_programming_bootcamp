@@ -161,3 +161,6 @@ def signUp(request):
             content_type="application/json"
         )
 
+
+class PuzzleIView(TemplateView):
+    template_name = "puzzle/index.html"

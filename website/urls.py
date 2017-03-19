@@ -25,5 +25,6 @@ urlpatterns = [
     url(r'^$', IndexView.as_view(), name="index"),
     url(r'^signUp/', signUp, name="signUp"),
     url(r'^website/submit/uploadFile/', uploadFile, name="uploadFile"),
-    url(r'^website/submit/', submitTemplate, name="submit")    
+    url(r'^website/submit/', submitTemplate, name="submit"),
+    url(r'^puzzle/', PuzzleIView.as_view()),
 ]
