@@ -22,6 +22,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^lectures/', include('lectures.urls')),
     url(r'^homeworks/', include('homeworks.urls')),
+    url(r'^projects/', include('projects.urls')),
     url(r'^$', IndexView.as_view(), name="index"),
     url(r'^signUp/', signUp, name="signUp"),
     url(r'^website/submit/uploadFile/', uploadFile, name="uploadFile"),
