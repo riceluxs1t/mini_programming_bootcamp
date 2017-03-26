@@ -1,0 +1,69 @@
+<style type="text/css">
+	body{
+		font-family: Lato,-apple-system,BlinkMacSystemFont,sans-serif
+	}
+	.submit-form {
+		border:1px solid #000;
+		text-align:center;
+	}
+	.submit-form-wrapper{
+		margin:30px;
+	}
+</style>
+<div class="submit-container">
+	<a contenteditable="false" href="/"><h2>HOME</h2></a>
+	<p contenteditable="false"><h2>Image Analyze Page</h2></p>
+	<div class="submit-form">
+		<div class="submit-form-wrapper">
+
+			<div style="margin-bottom:20px">
+				Select Image :
+				<select class="selectImage" id="image_name">
+					{% for image_name in image_names %}
+						<option value={{image_name}}>{{image_name}}</option>
+					{% endfor %}
+				</select>
+			</div>
+			<button class="btn-submit" onclick="file_upload()">submit</button>
+		</div>
+	</div>
+    <div id="face_api_result">
+
+    </div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+function file_upload() {
+
+	var image_name = $('body').find("#image_name").val();
+	var data = new FormData();
+	data.append('image_name', image_name);
+    data.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+
+	$.ajax({
+		url: 'callAPI/',
+		type: 'post',
+		dataType: 'json',
+		data: data,
+		processData: false,
+		contentType: false,
+		success: function(data) {
+			if (data.status == false) {
+				alert("Analysis failed");
+				return false;
+			}
+
+			var face_result = JSON.stringify(data.body);
+
+            $("#face_api_result").html(face_result);
+
+		}, error: function(xhr, status, error) {
+			alert(status);
+            alert(error);
+		}
+	});
+}
+
+</script>

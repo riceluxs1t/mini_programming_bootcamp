@@ -1,0 +1,61 @@
+<style type="text/css">
+	body{
+		font-family: Lato,-apple-system,BlinkMacSystemFont,sans-serif
+	}
+	.submit-form {
+		border:1px solid #000;
+		text-align:center;
+	}
+	.submit-form-wrapper{
+		margin:30px;
+	}
+	#netId_field, #ex_file {
+		margin-bottom:15px;
+	}
+</style>
+<div class="submit-container">
+	<a contenteditable="false" href="/projects/analyze">Go to analyze</a>
+	<p contenteditable="false"><h2>Image Submission Page</h2></p>
+	<div class="submit-form">
+		<div class="submit-form-wrapper">
+		    <div class="filebox">
+		    	Upload image: <input type="file" id="ex_file">
+		    </div>
+			<button class="btn-submit" onclick="file_upload()">submit</button>
+		</div>
+	</div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+function file_upload() {
+	var filebox = $('body').find('#ex_file');
+	var files = filebox[0].files;
+
+	var data = new FormData();
+	data.append('file', files[0]);
+	data.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+	$.ajax({
+		url: 'uploadFile/',
+		type: 'post',
+		dataType: 'json',
+		data: data,
+		processData: false,
+		contentType: false,
+		success: function(data) {
+			if (data.result == false) {
+				alert(data.msg);
+				alert("Submission failed");	
+				return false;
+			}
+			alert("Submission succeeded");
+
+		}, error: function() {
+			alert("Submission failed");
+		}
+	});
+
+}
+
+</script>
