@@ -57,7 +57,7 @@ function file_upload() {
 
 			var face_result = JSON.stringify(data.body);
 
-            $("#face_api_result").html(face_result);
+            $("#face_api_result").html("<img src=\"" + data.link + "\">");
 
 		}, error: function(xhr, status, error) {
 			alert(status);
