@@ -1,8 +1,8 @@
-This is the simple website for the python class taught by nk15@rice.edu, jl51@rice.edu, sn28@rice.edu, kk49@rice.edu  for the Korean international
+This is a simple website for the python class taught by nk15@rice.edu, jl51@rice.edu, sn28@rice.edu, kk49@rice.edu  for the Korean international
 students for Spring 2017. Built on top of Django for easy use. Nothing fancy.
 
 Currently running on Heroku at
-https://lit-reaches-57982.herokuapp.com/
+http://www.rcpc.kr
 
 How To Set Up Development Environment:
 - install python 2.7
@@ -72,24 +72,14 @@ to a file in path "grader.grades". The score is computed by (# of passed test ca
 import from settings.py for the access key and secret key
 
 # TODO:
-- add more features.
-- add some more tests for python code.
-- add specifically tests for the grader module
-- fix for all the inline TODO comments
 - add a feature so that graded files actually show the test cases that failed.
-- add a django command that gets homework submission files off some remote storage (e.g. subversion or some s3 bucket)
 - add a multi module submission support for the grader module. i.e. students submit multiple .py files for one homework
-- add a homework submission UI
-- add support to see which test cases they failed. (some kind of flag)
-- add support to run tests for a subset of functinos (some kind of flag)
 - add support to run test cases by slack command (setting up a slack bot is easy but the ui takes some effort)
 - add support to check floating point items in a list by the epsilon method
 
 # FIXME:
 - most text are editable even if contenteditable set to false.
 - FIX all the static issues with javascript / css / html (i.e. Chrome javascript console doesn't display any error)
-- fix the issue of pycogpg2 not being installed on my local machine. (a very minor issue)
-- FIX sqlite db seems to be out of sync on heroku even after running the migrate command
 
 
 Main Page Image
