@@ -2,7 +2,7 @@ This is a simple website for the python class taught by nk15@rice.edu, jl51@rice
 students for Spring 2017. Built on top of Django for easy use. Nothing fancy.
 
 Currently running on Heroku at
-http://www.rcpc.kr
+http://www.namgunkim.com
 
 How To Set Up Development Environment:
 - install python 2.7
